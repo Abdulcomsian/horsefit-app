@@ -2,15 +2,40 @@
 
 A new Flutter project.
 
-## Getting Started
+Clean Project
+flutter pub cache clean 
+y
+flutter clean 
+flutter pub get
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Clean Project for test flight
+///! TODO Verify that the base url is change to production 
+flutter pub cache clean 
+y 
+flutter clean 
+flutter pub get 
+cd ios 
+pod update
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Build Apk
+///! TODO Verify that the base url is change to production
+flutter pub cache clean
+y
+flutter clean
+flutter pub get
+flutter build appbundle
+
+flutter build apk --release
+
+Build Ios
+flutter pub cache clean
+y
+flutter clean
+flutter pub get
+flutter build ios --release --no-codesign
+
+Generate Models
+dart run build_runner build --delete-conflicting-outputs
+dart run build_runner watch --delete-conflicting-outputs

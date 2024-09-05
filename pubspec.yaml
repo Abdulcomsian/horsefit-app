@@ -8,11 +8,38 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  logger: ^2.2.0
+  flutter_native_splash: ^2.4.0
+  google_fonts: ^6.2.0
+  flutter_svg: ^2.0.10+1
+  cached_network_image: ^3.3.1
+  skeletonizer: ^1.1.2+1
+  connectivity_plus: ^6.0.3
+  get_it: ^7.7.0
+  permission_handler: ^11.3.1
+  infinite_scroll_pagination: ^4.0.0
+
+  # State Management
+  flutter_bloc: ^8.1.5
+  freezed_annotation: ^2.4.1
+ 
+  # Http Request
+  json_annotation: ^4.9.0
+  dio: ^5.4.3+1
+  retrofit: ^4.1.0
+
+  # Firebase
+  firebase_core: ^3.1.1
+  firebase_crashlytics: ^4.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  build_runner: ^2.4.9
+  json_serializable: ^6.8.0
+  retrofit_generator: ^8.1.0
+  freezed: ^2.5.2
 
 flutter:
   uses-material-design: true
