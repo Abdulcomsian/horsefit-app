@@ -5,6 +5,8 @@ Future<void> initDependancies() async {
   locator.registerLazySingleton<PermissionUtils>(() => PermissionUtils());
   locator.registerLazySingleton<DialogueUtils>(() => DialogueUtils());
   locator.registerLazySingleton<Utils>(() => Utils());
+  locator.registerLazySingleton<Validation>(() => Validation());
+
   locator.registerLazySingleton<Dio>(() => setupDio());
   locator.registerLazySingleton<NetworkApiClient>(
       () => NetworkApiClient(locator<Dio>()));

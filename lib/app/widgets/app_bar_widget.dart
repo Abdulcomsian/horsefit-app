@@ -10,7 +10,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     Widget? leading,
     bool isShowLeading = true,
     Widget? titleWidget,
-    bool? centerTitle = false,
+    bool? centerTitle = true,
     double? leadingWidth,
     List<Widget>? actions,
     PreferredSize? bottom,
@@ -56,26 +56,30 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       leadingWidth: !_isShowLeading ? 20.w : _leadingWidth,
       titleSpacing: 0.0,
       leading: _isShowLeading
-          ? Container(
-              color: Colors.transparent,
-              child: _leading ??
-                  Icon(
-                    Icons.arrow_back_ios,
-                    color: AppColors.grayColor,
-                    size: 24.h,
-                  ),
-            ).onTap(_onLeadingTap ?? () => context.pop())
+          ? _leading ??
+              Container(
+                margin: EdgeInsets.only(left: 24.ph, top: 24.pv),
+                padding:
+                    EdgeInsets.symmetric(horizontal: 56.ph, vertical: 56.pv),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border:
+                      Border.all(color: AppColors.darkColor.withOpacity(0.1)),
+                ),
+                child:
+                    const SvgPictureAssetWidget(ImagesResource.arrowBackIcon),
+              ).onTap(_onLeadingTap ?? () => context.pop())
           : const SizedBox.shrink(),
       title: _titleWidget ??
           TextViewWidget(_title,
-              style: textTheme.labelLarge?.copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: _textColor ?? Theme.of(context).primaryColor)),
+              style: textTheme.headlineMedium?.copyWith(
+                  fontWeight: FontWeight.w800,
+                  color: _textColor ?? AppColors.darkColor)),
       actions: _actions,
       bottom: _bottom,
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(_height ?? 56.h);
+  Size get preferredSize => Size.fromHeight(_height ?? 260.h);
 }

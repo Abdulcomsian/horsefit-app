@@ -5,5 +5,5 @@ class ConstantsResource {
 
   static const appName = 'Horse Fit';
   static const size = 10;
-  static final fontFamily = GoogleFonts.poppins().fontFamily;
+  static final fontFamily = GoogleFonts.plusJakartaSans().fontFamily;
 }

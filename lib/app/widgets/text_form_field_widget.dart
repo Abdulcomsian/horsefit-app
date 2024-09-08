@@ -17,12 +17,10 @@ class TextFormFieldWidget extends StatelessWidget {
     Widget? prefixIcon,
     BoxConstraints? prefixIconConstraints,
     Widget? suffixIcon,
-    double? radius,
     AutovalidateMode? autovalidateMode,
     int? maxLines,
     TextStyle? errorStyle,
     EdgeInsetsGeometry? contentPadding,
-    bool? isShowBorder,
     Color? filledColor,
     Function(String? value)? onChanged,
     String? Function(String? value)? validator,
@@ -40,12 +38,10 @@ class TextFormFieldWidget extends StatelessWidget {
         _prefixIcon = prefixIcon,
         _prefixIconConstraints = prefixIconConstraints,
         _suffixIcon = suffixIcon,
-        _radius = radius,
         _autovalidateMode = autovalidateMode,
         _maxLines = maxLines,
         _errorStyle = errorStyle,
         _contentPadding = contentPadding,
-        _isShowBorder = isShowBorder,
         _filledColor = filledColor,
         _onChanged = onChanged,
         _validator = validator;
@@ -62,69 +58,77 @@ class TextFormFieldWidget extends StatelessWidget {
   final BoxConstraints? _prefixIconConstraints;
   final Widget? _suffixIcon;
   final AutovalidateMode? _autovalidateMode;
-  final double? _radius;
   final int? _maxLines;
   final TextStyle? _errorStyle;
   final EdgeInsetsGeometry? _contentPadding;
-  final bool? _isShowBorder;
   final Color? _filledColor;
   final Function(String? value)? _onChanged;
   final String? Function(String? value)? _validator;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(_radius ?? 8.r),
-        border: _isShowBorder != null
-            ? Border.all(color: AppColors.grayColor)
-            : null,
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(_radius ?? 8.r),
-        child: TextFormField(
-          onTap: _onTap,
-          controller: _controller,
-          textInputAction: _textInputAction ?? TextInputAction.done,
-          autovalidateMode:
-              _autovalidateMode ?? AutovalidateMode.onUserInteraction,
-          enabled: _enabled,
-          keyboardType: _keyboardType ?? TextInputType.text,
-          obscureText: _obscureText ?? false,
-          maxLines: _maxLines ?? 1,
-          style: _style ??
-              textTheme.labelLarge?.copyWith(
-                  color: AppColors.darkColor, fontWeight: FontWeight.w500),
-          textAlignVertical: TextAlignVertical.center,
-          obscuringCharacter: '*',
-          decoration: InputDecoration(
-            hintText: _hintText ?? '',
-            hintStyle: _hintStyle ??
-                textTheme.labelLarge?.copyWith(
-                    color: AppColors.darkColor.withOpacity(0.5),
-                    fontWeight: FontWeight.w500),
-            labelText: _labelText,
-            labelStyle: textTheme.bodyMedium?.copyWith(
-                color: AppColors.darkColor, fontWeight: FontWeight.w500),
-            alignLabelWithHint: true,
-            errorText: _errorText,
-            errorStyle: _errorStyle ??
-                textTheme.labelMedium?.copyWith(color: AppColors.redColor),
-            prefixIcon: _prefixIcon,
-            prefixIconConstraints: _prefixIconConstraints,
-            suffixIcon: _suffixIcon,
-            fillColor: _filledColor ?? AppColors.whiteColor,
-            filled: true,
-            errorMaxLines: 3,
-            contentPadding: _contentPadding ??
-                EdgeInsets.symmetric(vertical: 12.pv, horizontal: 16.ph),
-            border: InputBorder.none,
-          ),
-          onChanged: _onChanged,
-          validator: _validator,
+    return TextFormField(
+      onTap: _onTap,
+      controller: _controller,
+      textInputAction: _textInputAction ?? TextInputAction.done,
+      autovalidateMode: _autovalidateMode ?? AutovalidateMode.onUserInteraction,
+      enabled: _enabled,
+      keyboardType: _keyboardType ?? TextInputType.text,
+      obscureText: _obscureText ?? false,
+      maxLines: _maxLines ?? 1,
+      style: _style ??
+          textTheme.titleLarge?.copyWith(
+              color: AppColors.darkColor, fontWeight: FontWeight.w500),
+      textAlignVertical: TextAlignVertical.center,
+      obscuringCharacter: '*',
+      decoration: InputDecoration(
+        hintText: _hintText ?? '',
+        hintStyle: _hintStyle ??
+            textTheme.titleLarge?.copyWith(
+                color: AppColors.darkColor.withOpacity(0.5),
+                fontWeight: FontWeight.w500),
+        labelText: _labelText,
+        labelStyle: textTheme.bodyMedium
+            ?.copyWith(color: AppColors.darkColor, fontWeight: FontWeight.w500),
+        alignLabelWithHint: true,
+        errorText: _errorText,
+        errorStyle: _errorStyle ??
+            textTheme.titleLarge?.copyWith(color: AppColors.redColor),
+        prefixIcon: _prefixIcon,
+        prefixIconConstraints: _prefixIconConstraints,
+        suffixIcon: _suffixIcon,
+        fillColor: _filledColor ?? AppColors.whiteColor,
+        filled: true,
+        errorMaxLines: 3,
+        contentPadding:
+            _contentPadding ?? EdgeInsets.symmetric(horizontal: 48.ph),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(32.r),
+          borderSide: const BorderSide(color: AppColors.primaryColor),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(32.r),
+          borderSide: const BorderSide(color: AppColors.primaryColor),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(32.r),
+          borderSide: const BorderSide(color: AppColors.redColor),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(32.r),
+          borderSide: const BorderSide(color: AppColors.primaryColor),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(32.r),
+          borderSide: const BorderSide(color: AppColors.grayColor),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(32.r),
+          borderSide: const BorderSide(color: AppColors.grayColor),
         ),
       ),
+      onChanged: _onChanged,
+      validator: _validator,
     );
   }
 }

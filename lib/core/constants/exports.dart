@@ -9,6 +9,7 @@ export 'dart:math';
 export 'package:flutter/material.dart';
 export 'package:flutter/services.dart';
 export 'package:flutter/foundation.dart';
+export 'package:flutter/gestures.dart';
 
 /// Lib Imports
 export 'package:horse_fit/main.dart';
@@ -29,8 +30,6 @@ export 'package:freezed_annotation/freezed_annotation.dart';
 export 'package:flutter_native_splash/flutter_native_splash.dart';
 export 'package:permission_handler/permission_handler.dart';
 export 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-export 'package:firebase_core/firebase_core.dart';
-export 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 /// App
 ///-- Models
@@ -52,11 +51,21 @@ export 'package:horse_fit/app/services/repository/data_manager.dart';
 
 ///-- View Model
 export 'package:horse_fit/app/view_models/internet_connectivity/internet_connectivity_bloc.dart';
+export 'package:horse_fit/app/view_models/auth_view_models/lost_password/lost_password_bloc.dart';
+export 'package:horse_fit/app/view_models/auth_view_models/login/login_bloc.dart';
 
 ///-- Views
-export 'package:horse_fit/app/views/login/login_view.dart';
+export 'package:horse_fit/app/views/auth_views/login/login_view.dart';
+export 'package:horse_fit/app/views/auth_views/email_send/email_send_view.dart';
+export 'package:horse_fit/app/views/auth_views/lost_password/lost_password_view.dart';
+export 'package:horse_fit/app/views/auth_views/sign_up/sign_up_view.dart';
+export 'package:horse_fit/app/views/on_board/on_board_view.dart';
 
 ///---- Components
+export 'package:horse_fit/app/views/components/social_button_widget.dart';
+export 'package:horse_fit/app/views/components/avatar_widget.dart';
+export 'package:horse_fit/app/views/components/gender_selection_button_widget.dart';
+export 'package:horse_fit/app/views/components/user_type_widget.dart';
 
 ///-- Widgets
 export 'package:horse_fit/app/widgets/app_bar_widget.dart';
@@ -88,7 +97,9 @@ export 'package:horse_fit/core/constants/strings_resource.dart';
 export 'package:horse_fit/core/constants/common_key.dart';
 
 ///-- Enums
+export 'package:horse_fit/core/enums/gender.dart';
 export 'package:horse_fit/core/enums/network_status.dart';
+export 'package:horse_fit/core/enums/user_type.dart';
 
 ///-- Extensions
 export 'package:horse_fit/core/extensions/navigator_ext.dart';

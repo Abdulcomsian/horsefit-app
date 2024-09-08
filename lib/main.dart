@@ -1,7 +1,7 @@
 import 'core/constants/exports.dart';
 
 void main() {
-  Size designSize = const Size(393.0, 852.0);
+  Size designSize = const Size(1440.0, 3268.0);
   runZonedGuarded(
     () async {
       await _init();
@@ -10,8 +10,9 @@ void main() {
         child: const MyApp(),
       ));
     },
-    (error, stackTrace) =>
-        FirebaseCrashlytics.instance.recordError(error, stackTrace),
+    (error, stackTrace) {
+      // FirebaseCrashlytics.instance.recordError(error, stackTrace);
+    },
   );
 }
 
@@ -39,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         theme: AppTheme.ligthThemeData,
         navigatorKey: navigatorKey,
-        initialRoute: RouteNames.loginView,
+        initialRoute: RouteNames.onBoardView,
         onGenerateRoute: locator<AppRouter>().generateRoute,
       ),
     );

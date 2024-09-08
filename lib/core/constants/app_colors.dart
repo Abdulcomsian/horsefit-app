@@ -12,4 +12,6 @@ class AppColors {
   static const stealColor = Color(0xFF212851);
   static const grayColor = Color(0xFFF8F8F8);
   static const whiteColor = Color(0xFFFFFFFF);
+  static const disabledBtnColor = Color(0xFFC8C8C8);
+  static const borderColor = Color(0xFFE6E6E6);
 }

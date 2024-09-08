@@ -9,7 +9,6 @@ class ButtonWidget extends StatelessWidget {
     required VoidCallback onTap,
     Widget? child,
     double? width,
-    double? height,
     Color? color,
     Color? textColor,
     Color? borderColor,
@@ -20,11 +19,12 @@ class ButtonWidget extends StatelessWidget {
     EdgeInsetsGeometry? margin,
     bool isShowLoading = false,
     double? borderWidth,
-  })  : _btnText = btnText,
+    Widget? icon,
+  })  : _icon = icon,
+        _btnText = btnText,
         _child = child,
         _onTap = onTap,
         _width = width,
-        _height = height,
         _color = color,
         _textColor = textColor,
         _borderColor = borderColor,
@@ -36,11 +36,11 @@ class ButtonWidget extends StatelessWidget {
         _isShowLoading = isShowLoading,
         _borderWidth = borderWidth;
 
+  final Widget? _icon;
   final String _btnText;
   final Widget? _child;
   final VoidCallback _onTap;
   final double? _width;
-  final double? _height;
   final Color? _color;
   final Color? _textColor;
   final Color? _borderColor;
@@ -56,17 +56,26 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: _width ?? double.maxFinite,
-      height: _height ?? 40.h,
       alignment: Alignment.center,
       margin: _margin,
+      padding: EdgeInsets.symmetric(vertical: 72.pv),
       decoration: BoxDecoration(
-          color: _color ?? Theme.of(context).primaryColor,
+          color: _color ??
+              (_isShowBorder
+                  ? Colors.transparent
+                  : Theme.of(context).primaryColor),
+          gradient: (_isShowBorder || _color != null)
+              ? null
+              : const LinearGradient(colors: [
+                  Color(0xFF3AC2C2),
+                  Color(0xFF18B5D6),
+                ]),
           border: _isShowBorder
               ? Border.all(
-                  width: _borderWidth ?? 0.5.w,
+                  width: _borderWidth ?? 1.2.w,
                   color: _borderColor ?? AppColors.primaryColor)
               : null,
-          borderRadius: BorderRadius.circular(_radius ?? 8.r)),
+          borderRadius: BorderRadius.circular(_radius ?? 100.r)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -75,27 +84,35 @@ class ButtonWidget extends StatelessWidget {
               children: [
                 CupertinoActivityIndicator(
                   color: _textColor ?? AppColors.whiteColor,
-                  radius: 10.h,
+                  radius: 32.h,
                 ),
-                SizedBox(width: 6.w),
-                TextViewWidget('Please Wait...',
+                SizedBox(width: 24.w),
+                TextViewWidget('Please Wait',
                     style: _style ??
                         textTheme.labelLarge?.copyWith(
                           color: _textColor ?? AppColors.whiteColor,
                           fontWeight: _fontWeight ?? FontWeight.w600,
+                          fontSize: 54.sp,
                         )),
               ],
             ),
           if (!_isShowLoading)
-            _child ??
-                TextViewWidget(
-                  _btnText,
-                  style: _style ??
-                      textTheme.labelLarge?.copyWith(
-                        color: _textColor ?? AppColors.whiteColor,
-                        fontWeight: _fontWeight ?? FontWeight.w600,
-                      ),
-                ),
+            Row(
+              children: [
+                if (_icon != null) _icon,
+                if (_icon != null) SizedBox(width: 20.w),
+                _child ??
+                    TextViewWidget(
+                      _btnText,
+                      style: _style ??
+                          textTheme.labelLarge?.copyWith(
+                            color: _textColor ?? AppColors.whiteColor,
+                            fontWeight: _fontWeight ?? FontWeight.w600,
+                            fontSize: 54.sp,
+                          ),
+                    ),
+              ],
+            ),
         ],
       ),
     ).onTap(!_isShowLoading ? _onTap : () {});
