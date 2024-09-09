@@ -34,6 +34,7 @@ export 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 /// App
 ///-- Models
 ///---- Custom Models
+export 'package:horse_fit/app/models/custom/menu_model.dart';
 
 ///---- Request
 
@@ -53,6 +54,7 @@ export 'package:horse_fit/app/services/repository/data_manager.dart';
 export 'package:horse_fit/app/view_models/internet_connectivity/internet_connectivity_bloc.dart';
 export 'package:horse_fit/app/view_models/auth_view_models/lost_password/lost_password_bloc.dart';
 export 'package:horse_fit/app/view_models/auth_view_models/login/login_bloc.dart';
+export 'package:horse_fit/app/view_models/feed/feed_bloc.dart';
 
 ///-- Views
 export 'package:horse_fit/app/views/auth_views/login/login_view.dart';
@@ -60,12 +62,14 @@ export 'package:horse_fit/app/views/auth_views/email_send/email_send_view.dart';
 export 'package:horse_fit/app/views/auth_views/lost_password/lost_password_view.dart';
 export 'package:horse_fit/app/views/auth_views/sign_up/sign_up_view.dart';
 export 'package:horse_fit/app/views/on_board/on_board_view.dart';
+export 'package:horse_fit/app/views/feed/feed_view.dart';
 
 ///---- Components
 export 'package:horse_fit/app/views/components/social_button_widget.dart';
 export 'package:horse_fit/app/views/components/avatar_widget.dart';
 export 'package:horse_fit/app/views/components/gender_selection_button_widget.dart';
 export 'package:horse_fit/app/views/components/user_type_widget.dart';
+export 'package:horse_fit/app/views/menu/component/profile_card_widget.dart';
 
 ///-- Widgets
 export 'package:horse_fit/app/widgets/app_bar_widget.dart';
@@ -75,6 +79,7 @@ export 'package:horse_fit/app/widgets/text_form_field_widget.dart';
 export 'package:horse_fit/app/widgets/button_widget.dart';
 export 'package:horse_fit/app/widgets/place_holder_widget.dart';
 export 'package:horse_fit/app/widgets/paged_list_view_widget.dart';
+export 'package:horse_fit/app/widgets/cached_network_image_widget.dart';
 
 /// Config
 ///-- Router

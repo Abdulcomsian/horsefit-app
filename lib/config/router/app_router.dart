@@ -1,5 +1,8 @@
-import 'package:horse_fit/app/view_models/auth_view_models/sign_up/sign_up_bloc.dart';
+import 'package:horse_fit/app/views/menu/menu_view.dart';
+import 'package:horse_fit/app/views/my_stable_views/add_horse/add_horse_view.dart';
+import 'package:horse_fit/app/views/my_stable_views/my_stable/my_stable_view.dart';
 
+import '../../app/view_models/auth_view_models/sign_up/sign_up_bloc.dart';
 import '../../core/constants/exports.dart';
 
 class AppRouter {
@@ -37,6 +40,41 @@ class AppRouter {
       case RouteNames.emailSendView:
         return NoAnimationMaterialPageRoute(
           builder: (_) => const EmailSendView(),
+        );
+
+      case RouteNames.feedView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => FeedBloc(),
+            child: const FeedView(),
+          ),
+        );
+
+      case RouteNames.menuView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            ///! TODO Replace this bloc
+            create: (context) => FeedBloc(),
+            child: const MenuView(),
+          ),
+        );
+
+      case RouteNames.myStableView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            ///! TODO Replace this bloc
+            create: (context) => FeedBloc(),
+            child: const MyStableView(),
+          ),
+        );
+
+      case RouteNames.addHorseView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            ///! TODO Replace this bloc
+            create: (context) => FeedBloc(),
+            child: const AddHorseView(),
+          ),
         );
 
       default:

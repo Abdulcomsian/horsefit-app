@@ -46,9 +46,7 @@ class _SignUpViewState extends State<SignUpView> {
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              SizedBox(height: 71.h),
-
-              ///! TODO Add profile image here
+              SizedBox(height: 72.h),
               const AvatarWidget(),
               SizedBox(height: 176.h),
               TextFormFieldWidget(

@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         theme: AppTheme.ligthThemeData,
         navigatorKey: navigatorKey,
-        initialRoute: RouteNames.onBoardView,
+        initialRoute: RouteNames.menuView,
         onGenerateRoute: locator<AppRouter>().generateRoute,
       ),
     );

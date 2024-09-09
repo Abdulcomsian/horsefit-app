@@ -4,4 +4,8 @@ class RouteNames {
   static const signUpView = "signUpView";
   static const lostPasswordView = "lostPasswordView";
   static const emailSendView = "emailSendView";
+  static const feedView = "feedView";
+  static const menuView = "menuView";
+  static const myStableView = "myStableView";
+  static const addHorseView = "addHorseView";
 }
