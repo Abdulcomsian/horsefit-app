@@ -39,22 +39,62 @@ class _AddHorseViewState extends State<AddHorseView> {
     return Scaffold(
       appBar: const AppBarWidget(title: 'Add Horse'),
       body: SizedBox.expand(
-        child: Column(
-          children: [
-            SizedBox(height: 72.h),
-            const AvatarWidget(),
-            SizedBox(height: 160.h),
-            TextFormFieldWidget(
-              controller: _horseNameController,
-            ),
-            SizedBox(height: 92.h),
-            SizedBox(height: 92.h),
-            SizedBox(height: 92.h),
-            SizedBox(height: 92.h),
-            SizedBox(height: 92.h),
-            SizedBox(height: 92.h),
-            SizedBox(height: 112.h),
-          ],
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 120.ph, vertical: 62.pv),
+          child: Column(
+            children: [
+              SizedBox(height: 72.h),
+              const AvatarWidget(),
+              SizedBox(height: 160.h),
+              TextFormFieldWidget(
+                controller: _horseNameController,
+                hintText: 'Name of horse',
+              ),
+              SizedBox(height: 92.h),
+              Container(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 20.ph, vertical: 20.pv),
+                decoration: BoxDecoration(
+                  color: AppColors.grayColor,
+                  borderRadius: BorderRadius.circular(100.r),
+                ),
+                child: Row(
+                  children: [
+                    GenderSelectionButtonWidget(
+                      icon: ImagesResource.maleIcon,
+                      btnText: 'Trotting',
+                      isSelected: true,
+                      // state.gender == Gender.male ? true : false,
+                      onTap: () {},
+                    ),
+                    GenderSelectionButtonWidget(
+                      icon: ImagesResource.femaleIcon,
+                      btnText: 'Riding',
+                      isSelected: false,
+                      // state.gender == Gender.female ? true : false,
+                      onTap: () {},
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 92.h),
+              TextFormFieldWidget(
+                controller: _dobController,
+                hintText: 'Date of Birth',
+                enabled: false,
+                suffixIcon: Padding(
+                  padding: EdgeInsets.all(42.ph),
+                  child: SvgPictureAssetWidget(ImagesResource.calendarIcon,
+                      size: 86.w),
+                ),
+              ),
+              SizedBox(height: 92.h),
+              SizedBox(height: 92.h),
+              SizedBox(height: 92.h),
+              SizedBox(height: 92.h),
+              SizedBox(height: 112.h),
+            ],
+          ),
         ),
       ),
     );

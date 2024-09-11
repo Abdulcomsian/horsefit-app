@@ -1,4 +1,4 @@
-import '../../../../core/constants/exports.dart';
+import '../../core/constants/exports.dart';
 
 class ProfileCardWidget extends StatelessWidget {
   const ProfileCardWidget({

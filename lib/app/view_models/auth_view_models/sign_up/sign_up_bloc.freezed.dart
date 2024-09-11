@@ -23,6 +23,7 @@ mixin _$SignUpEvent {
     required TResult Function(Gender gender) toggleGender,
     required TResult Function(UserType userType) selectUser,
     required TResult Function() createAccount,
+    required TResult Function() toggleEditProfile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$SignUpEvent {
     TResult? Function(Gender gender)? toggleGender,
     TResult? Function(UserType userType)? selectUser,
     TResult? Function()? createAccount,
+    TResult? Function()? toggleEditProfile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$SignUpEvent {
     TResult Function(Gender gender)? toggleGender,
     TResult Function(UserType userType)? selectUser,
     TResult Function()? createAccount,
+    TResult Function()? toggleEditProfile,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +56,7 @@ mixin _$SignUpEvent {
     required TResult Function(ToggleGender value) toggleGender,
     required TResult Function(SelectUser value) selectUser,
     required TResult Function(CreateAccount value) createAccount,
+    required TResult Function(ToggleEditProfile value) toggleEditProfile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +67,7 @@ mixin _$SignUpEvent {
     TResult? Function(ToggleGender value)? toggleGender,
     TResult? Function(SelectUser value)? selectUser,
     TResult? Function(CreateAccount value)? createAccount,
+    TResult? Function(ToggleEditProfile value)? toggleEditProfile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,6 +78,7 @@ mixin _$SignUpEvent {
     TResult Function(ToggleGender value)? toggleGender,
     TResult Function(SelectUser value)? selectUser,
     TResult Function(CreateAccount value)? createAccount,
+    TResult Function(ToggleEditProfile value)? toggleEditProfile,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,6 +154,7 @@ class _$TogglePasswordVisibilityImpl implements TogglePasswordVisibility {
     required TResult Function(Gender gender) toggleGender,
     required TResult Function(UserType userType) selectUser,
     required TResult Function() createAccount,
+    required TResult Function() toggleEditProfile,
   }) {
     return togglePasswordVisibility();
   }
@@ -160,6 +167,7 @@ class _$TogglePasswordVisibilityImpl implements TogglePasswordVisibility {
     TResult? Function(Gender gender)? toggleGender,
     TResult? Function(UserType userType)? selectUser,
     TResult? Function()? createAccount,
+    TResult? Function()? toggleEditProfile,
   }) {
     return togglePasswordVisibility?.call();
   }
@@ -172,6 +180,7 @@ class _$TogglePasswordVisibilityImpl implements TogglePasswordVisibility {
     TResult Function(Gender gender)? toggleGender,
     TResult Function(UserType userType)? selectUser,
     TResult Function()? createAccount,
+    TResult Function()? toggleEditProfile,
     required TResult orElse(),
   }) {
     if (togglePasswordVisibility != null) {
@@ -190,6 +199,7 @@ class _$TogglePasswordVisibilityImpl implements TogglePasswordVisibility {
     required TResult Function(ToggleGender value) toggleGender,
     required TResult Function(SelectUser value) selectUser,
     required TResult Function(CreateAccount value) createAccount,
+    required TResult Function(ToggleEditProfile value) toggleEditProfile,
   }) {
     return togglePasswordVisibility(this);
   }
@@ -203,6 +213,7 @@ class _$TogglePasswordVisibilityImpl implements TogglePasswordVisibility {
     TResult? Function(ToggleGender value)? toggleGender,
     TResult? Function(SelectUser value)? selectUser,
     TResult? Function(CreateAccount value)? createAccount,
+    TResult? Function(ToggleEditProfile value)? toggleEditProfile,
   }) {
     return togglePasswordVisibility?.call(this);
   }
@@ -216,6 +227,7 @@ class _$TogglePasswordVisibilityImpl implements TogglePasswordVisibility {
     TResult Function(ToggleGender value)? toggleGender,
     TResult Function(SelectUser value)? selectUser,
     TResult Function(CreateAccount value)? createAccount,
+    TResult Function(ToggleEditProfile value)? toggleEditProfile,
     required TResult orElse(),
   }) {
     if (togglePasswordVisibility != null) {
@@ -280,6 +292,7 @@ class _$ToggleConfirmPasswordVisibilityImpl
     required TResult Function(Gender gender) toggleGender,
     required TResult Function(UserType userType) selectUser,
     required TResult Function() createAccount,
+    required TResult Function() toggleEditProfile,
   }) {
     return toggleConfirmPasswordVisibility();
   }
@@ -292,6 +305,7 @@ class _$ToggleConfirmPasswordVisibilityImpl
     TResult? Function(Gender gender)? toggleGender,
     TResult? Function(UserType userType)? selectUser,
     TResult? Function()? createAccount,
+    TResult? Function()? toggleEditProfile,
   }) {
     return toggleConfirmPasswordVisibility?.call();
   }
@@ -304,6 +318,7 @@ class _$ToggleConfirmPasswordVisibilityImpl
     TResult Function(Gender gender)? toggleGender,
     TResult Function(UserType userType)? selectUser,
     TResult Function()? createAccount,
+    TResult Function()? toggleEditProfile,
     required TResult orElse(),
   }) {
     if (toggleConfirmPasswordVisibility != null) {
@@ -322,6 +337,7 @@ class _$ToggleConfirmPasswordVisibilityImpl
     required TResult Function(ToggleGender value) toggleGender,
     required TResult Function(SelectUser value) selectUser,
     required TResult Function(CreateAccount value) createAccount,
+    required TResult Function(ToggleEditProfile value) toggleEditProfile,
   }) {
     return toggleConfirmPasswordVisibility(this);
   }
@@ -335,6 +351,7 @@ class _$ToggleConfirmPasswordVisibilityImpl
     TResult? Function(ToggleGender value)? toggleGender,
     TResult? Function(SelectUser value)? selectUser,
     TResult? Function(CreateAccount value)? createAccount,
+    TResult? Function(ToggleEditProfile value)? toggleEditProfile,
   }) {
     return toggleConfirmPasswordVisibility?.call(this);
   }
@@ -348,6 +365,7 @@ class _$ToggleConfirmPasswordVisibilityImpl
     TResult Function(ToggleGender value)? toggleGender,
     TResult Function(SelectUser value)? selectUser,
     TResult Function(CreateAccount value)? createAccount,
+    TResult Function(ToggleEditProfile value)? toggleEditProfile,
     required TResult orElse(),
   }) {
     if (toggleConfirmPasswordVisibility != null) {
@@ -435,6 +453,7 @@ class _$ToggleGenderImpl implements ToggleGender {
     required TResult Function(Gender gender) toggleGender,
     required TResult Function(UserType userType) selectUser,
     required TResult Function() createAccount,
+    required TResult Function() toggleEditProfile,
   }) {
     return toggleGender(gender);
   }
@@ -447,6 +466,7 @@ class _$ToggleGenderImpl implements ToggleGender {
     TResult? Function(Gender gender)? toggleGender,
     TResult? Function(UserType userType)? selectUser,
     TResult? Function()? createAccount,
+    TResult? Function()? toggleEditProfile,
   }) {
     return toggleGender?.call(gender);
   }
@@ -459,6 +479,7 @@ class _$ToggleGenderImpl implements ToggleGender {
     TResult Function(Gender gender)? toggleGender,
     TResult Function(UserType userType)? selectUser,
     TResult Function()? createAccount,
+    TResult Function()? toggleEditProfile,
     required TResult orElse(),
   }) {
     if (toggleGender != null) {
@@ -477,6 +498,7 @@ class _$ToggleGenderImpl implements ToggleGender {
     required TResult Function(ToggleGender value) toggleGender,
     required TResult Function(SelectUser value) selectUser,
     required TResult Function(CreateAccount value) createAccount,
+    required TResult Function(ToggleEditProfile value) toggleEditProfile,
   }) {
     return toggleGender(this);
   }
@@ -490,6 +512,7 @@ class _$ToggleGenderImpl implements ToggleGender {
     TResult? Function(ToggleGender value)? toggleGender,
     TResult? Function(SelectUser value)? selectUser,
     TResult? Function(CreateAccount value)? createAccount,
+    TResult? Function(ToggleEditProfile value)? toggleEditProfile,
   }) {
     return toggleGender?.call(this);
   }
@@ -503,6 +526,7 @@ class _$ToggleGenderImpl implements ToggleGender {
     TResult Function(ToggleGender value)? toggleGender,
     TResult Function(SelectUser value)? selectUser,
     TResult Function(CreateAccount value)? createAccount,
+    TResult Function(ToggleEditProfile value)? toggleEditProfile,
     required TResult orElse(),
   }) {
     if (toggleGender != null) {
@@ -599,6 +623,7 @@ class _$SelectUserImpl implements SelectUser {
     required TResult Function(Gender gender) toggleGender,
     required TResult Function(UserType userType) selectUser,
     required TResult Function() createAccount,
+    required TResult Function() toggleEditProfile,
   }) {
     return selectUser(userType);
   }
@@ -611,6 +636,7 @@ class _$SelectUserImpl implements SelectUser {
     TResult? Function(Gender gender)? toggleGender,
     TResult? Function(UserType userType)? selectUser,
     TResult? Function()? createAccount,
+    TResult? Function()? toggleEditProfile,
   }) {
     return selectUser?.call(userType);
   }
@@ -623,6 +649,7 @@ class _$SelectUserImpl implements SelectUser {
     TResult Function(Gender gender)? toggleGender,
     TResult Function(UserType userType)? selectUser,
     TResult Function()? createAccount,
+    TResult Function()? toggleEditProfile,
     required TResult orElse(),
   }) {
     if (selectUser != null) {
@@ -641,6 +668,7 @@ class _$SelectUserImpl implements SelectUser {
     required TResult Function(ToggleGender value) toggleGender,
     required TResult Function(SelectUser value) selectUser,
     required TResult Function(CreateAccount value) createAccount,
+    required TResult Function(ToggleEditProfile value) toggleEditProfile,
   }) {
     return selectUser(this);
   }
@@ -654,6 +682,7 @@ class _$SelectUserImpl implements SelectUser {
     TResult? Function(ToggleGender value)? toggleGender,
     TResult? Function(SelectUser value)? selectUser,
     TResult? Function(CreateAccount value)? createAccount,
+    TResult? Function(ToggleEditProfile value)? toggleEditProfile,
   }) {
     return selectUser?.call(this);
   }
@@ -667,6 +696,7 @@ class _$SelectUserImpl implements SelectUser {
     TResult Function(ToggleGender value)? toggleGender,
     TResult Function(SelectUser value)? selectUser,
     TResult Function(CreateAccount value)? createAccount,
+    TResult Function(ToggleEditProfile value)? toggleEditProfile,
     required TResult orElse(),
   }) {
     if (selectUser != null) {
@@ -735,6 +765,7 @@ class _$CreateAccountImpl implements CreateAccount {
     required TResult Function(Gender gender) toggleGender,
     required TResult Function(UserType userType) selectUser,
     required TResult Function() createAccount,
+    required TResult Function() toggleEditProfile,
   }) {
     return createAccount();
   }
@@ -747,6 +778,7 @@ class _$CreateAccountImpl implements CreateAccount {
     TResult? Function(Gender gender)? toggleGender,
     TResult? Function(UserType userType)? selectUser,
     TResult? Function()? createAccount,
+    TResult? Function()? toggleEditProfile,
   }) {
     return createAccount?.call();
   }
@@ -759,6 +791,7 @@ class _$CreateAccountImpl implements CreateAccount {
     TResult Function(Gender gender)? toggleGender,
     TResult Function(UserType userType)? selectUser,
     TResult Function()? createAccount,
+    TResult Function()? toggleEditProfile,
     required TResult orElse(),
   }) {
     if (createAccount != null) {
@@ -777,6 +810,7 @@ class _$CreateAccountImpl implements CreateAccount {
     required TResult Function(ToggleGender value) toggleGender,
     required TResult Function(SelectUser value) selectUser,
     required TResult Function(CreateAccount value) createAccount,
+    required TResult Function(ToggleEditProfile value) toggleEditProfile,
   }) {
     return createAccount(this);
   }
@@ -790,6 +824,7 @@ class _$CreateAccountImpl implements CreateAccount {
     TResult? Function(ToggleGender value)? toggleGender,
     TResult? Function(SelectUser value)? selectUser,
     TResult? Function(CreateAccount value)? createAccount,
+    TResult? Function(ToggleEditProfile value)? toggleEditProfile,
   }) {
     return createAccount?.call(this);
   }
@@ -803,6 +838,7 @@ class _$CreateAccountImpl implements CreateAccount {
     TResult Function(ToggleGender value)? toggleGender,
     TResult Function(SelectUser value)? selectUser,
     TResult Function(CreateAccount value)? createAccount,
+    TResult Function(ToggleEditProfile value)? toggleEditProfile,
     required TResult orElse(),
   }) {
     if (createAccount != null) {
@@ -817,30 +853,179 @@ abstract class CreateAccount implements SignUpEvent {
 }
 
 /// @nodoc
+abstract class _$$ToggleEditProfileImplCopyWith<$Res> {
+  factory _$$ToggleEditProfileImplCopyWith(_$ToggleEditProfileImpl value,
+          $Res Function(_$ToggleEditProfileImpl) then) =
+      __$$ToggleEditProfileImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ToggleEditProfileImplCopyWithImpl<$Res>
+    extends _$SignUpEventCopyWithImpl<$Res, _$ToggleEditProfileImpl>
+    implements _$$ToggleEditProfileImplCopyWith<$Res> {
+  __$$ToggleEditProfileImplCopyWithImpl(_$ToggleEditProfileImpl _value,
+      $Res Function(_$ToggleEditProfileImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SignUpEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ToggleEditProfileImpl implements ToggleEditProfile {
+  const _$ToggleEditProfileImpl();
+
+  @override
+  String toString() {
+    return 'SignUpEvent.toggleEditProfile()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ToggleEditProfileImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() togglePasswordVisibility,
+    required TResult Function() toggleConfirmPasswordVisibility,
+    required TResult Function(Gender gender) toggleGender,
+    required TResult Function(UserType userType) selectUser,
+    required TResult Function() createAccount,
+    required TResult Function() toggleEditProfile,
+  }) {
+    return toggleEditProfile();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? togglePasswordVisibility,
+    TResult? Function()? toggleConfirmPasswordVisibility,
+    TResult? Function(Gender gender)? toggleGender,
+    TResult? Function(UserType userType)? selectUser,
+    TResult? Function()? createAccount,
+    TResult? Function()? toggleEditProfile,
+  }) {
+    return toggleEditProfile?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? togglePasswordVisibility,
+    TResult Function()? toggleConfirmPasswordVisibility,
+    TResult Function(Gender gender)? toggleGender,
+    TResult Function(UserType userType)? selectUser,
+    TResult Function()? createAccount,
+    TResult Function()? toggleEditProfile,
+    required TResult orElse(),
+  }) {
+    if (toggleEditProfile != null) {
+      return toggleEditProfile();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TogglePasswordVisibility value)
+        togglePasswordVisibility,
+    required TResult Function(ToggleConfirmPasswordVisibility value)
+        toggleConfirmPasswordVisibility,
+    required TResult Function(ToggleGender value) toggleGender,
+    required TResult Function(SelectUser value) selectUser,
+    required TResult Function(CreateAccount value) createAccount,
+    required TResult Function(ToggleEditProfile value) toggleEditProfile,
+  }) {
+    return toggleEditProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TogglePasswordVisibility value)? togglePasswordVisibility,
+    TResult? Function(ToggleConfirmPasswordVisibility value)?
+        toggleConfirmPasswordVisibility,
+    TResult? Function(ToggleGender value)? toggleGender,
+    TResult? Function(SelectUser value)? selectUser,
+    TResult? Function(CreateAccount value)? createAccount,
+    TResult? Function(ToggleEditProfile value)? toggleEditProfile,
+  }) {
+    return toggleEditProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TogglePasswordVisibility value)? togglePasswordVisibility,
+    TResult Function(ToggleConfirmPasswordVisibility value)?
+        toggleConfirmPasswordVisibility,
+    TResult Function(ToggleGender value)? toggleGender,
+    TResult Function(SelectUser value)? selectUser,
+    TResult Function(CreateAccount value)? createAccount,
+    TResult Function(ToggleEditProfile value)? toggleEditProfile,
+    required TResult orElse(),
+  }) {
+    if (toggleEditProfile != null) {
+      return toggleEditProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ToggleEditProfile implements SignUpEvent {
+  const factory ToggleEditProfile() = _$ToggleEditProfileImpl;
+}
+
+/// @nodoc
 mixin _$SignUpState {
   RequestStatus get status => throw _privateConstructorUsedError;
   bool get isPasswordVisible => throw _privateConstructorUsedError;
   bool get isConfirmPasswordVisible => throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
   UserType get userType => throw _privateConstructorUsedError;
+  bool get isEditProfile => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(RequestStatus status, bool isPasswordVisible,
-            bool isConfirmPasswordVisible, Gender gender, UserType userType)
+    required TResult Function(
+            RequestStatus status,
+            bool isPasswordVisible,
+            bool isConfirmPasswordVisible,
+            Gender gender,
+            UserType userType,
+            bool isEditProfile)
         signUpState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RequestStatus status, bool isPasswordVisible,
-            bool isConfirmPasswordVisible, Gender gender, UserType userType)?
+    TResult? Function(
+            RequestStatus status,
+            bool isPasswordVisible,
+            bool isConfirmPasswordVisible,
+            Gender gender,
+            UserType userType,
+            bool isEditProfile)?
         signUpState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RequestStatus status, bool isPasswordVisible,
-            bool isConfirmPasswordVisible, Gender gender, UserType userType)?
+    TResult Function(
+            RequestStatus status,
+            bool isPasswordVisible,
+            bool isConfirmPasswordVisible,
+            Gender gender,
+            UserType userType,
+            bool isEditProfile)?
         signUpState,
     required TResult orElse(),
   }) =>
@@ -880,7 +1065,8 @@ abstract class $SignUpStateCopyWith<$Res> {
       bool isPasswordVisible,
       bool isConfirmPasswordVisible,
       Gender gender,
-      UserType userType});
+      UserType userType,
+      bool isEditProfile});
 }
 
 /// @nodoc
@@ -903,6 +1089,7 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
     Object? isConfirmPasswordVisible = null,
     Object? gender = null,
     Object? userType = null,
+    Object? isEditProfile = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -925,6 +1112,10 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
+      isEditProfile: null == isEditProfile
+          ? _value.isEditProfile
+          : isEditProfile // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -942,7 +1133,8 @@ abstract class _$$InitialImplCopyWith<$Res>
       bool isPasswordVisible,
       bool isConfirmPasswordVisible,
       Gender gender,
-      UserType userType});
+      UserType userType,
+      bool isEditProfile});
 }
 
 /// @nodoc
@@ -963,6 +1155,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? isConfirmPasswordVisible = null,
     Object? gender = null,
     Object? userType = null,
+    Object? isEditProfile = null,
   }) {
     return _then(_$InitialImpl(
       status: null == status
@@ -985,6 +1178,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
+      isEditProfile: null == isEditProfile
+          ? _value.isEditProfile
+          : isEditProfile // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -997,7 +1194,8 @@ class _$InitialImpl implements _Initial {
       this.isPasswordVisible = true,
       this.isConfirmPasswordVisible = true,
       this.gender = Gender.male,
-      this.userType = UserType.horseTrainer});
+      this.userType = UserType.horseTrainer,
+      this.isEditProfile = false});
 
   @override
   @JsonKey()
@@ -1014,10 +1212,13 @@ class _$InitialImpl implements _Initial {
   @override
   @JsonKey()
   final UserType userType;
+  @override
+  @JsonKey()
+  final bool isEditProfile;
 
   @override
   String toString() {
-    return 'SignUpState.signUpState(status: $status, isPasswordVisible: $isPasswordVisible, isConfirmPasswordVisible: $isConfirmPasswordVisible, gender: $gender, userType: $userType)';
+    return 'SignUpState.signUpState(status: $status, isPasswordVisible: $isPasswordVisible, isConfirmPasswordVisible: $isConfirmPasswordVisible, gender: $gender, userType: $userType, isEditProfile: $isEditProfile)';
   }
 
   @override
@@ -1033,12 +1234,14 @@ class _$InitialImpl implements _Initial {
                 other.isConfirmPasswordVisible == isConfirmPasswordVisible) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.userType, userType) ||
-                other.userType == userType));
+                other.userType == userType) &&
+            (identical(other.isEditProfile, isEditProfile) ||
+                other.isEditProfile == isEditProfile));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, status, isPasswordVisible,
-      isConfirmPasswordVisible, gender, userType);
+      isConfirmPasswordVisible, gender, userType, isEditProfile);
 
   /// Create a copy of SignUpState
   /// with the given fields replaced by the non-null parameter values.
@@ -1051,36 +1254,51 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(RequestStatus status, bool isPasswordVisible,
-            bool isConfirmPasswordVisible, Gender gender, UserType userType)
+    required TResult Function(
+            RequestStatus status,
+            bool isPasswordVisible,
+            bool isConfirmPasswordVisible,
+            Gender gender,
+            UserType userType,
+            bool isEditProfile)
         signUpState,
   }) {
-    return signUpState(
-        status, isPasswordVisible, isConfirmPasswordVisible, gender, userType);
+    return signUpState(status, isPasswordVisible, isConfirmPasswordVisible,
+        gender, userType, isEditProfile);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RequestStatus status, bool isPasswordVisible,
-            bool isConfirmPasswordVisible, Gender gender, UserType userType)?
+    TResult? Function(
+            RequestStatus status,
+            bool isPasswordVisible,
+            bool isConfirmPasswordVisible,
+            Gender gender,
+            UserType userType,
+            bool isEditProfile)?
         signUpState,
   }) {
-    return signUpState?.call(
-        status, isPasswordVisible, isConfirmPasswordVisible, gender, userType);
+    return signUpState?.call(status, isPasswordVisible,
+        isConfirmPasswordVisible, gender, userType, isEditProfile);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RequestStatus status, bool isPasswordVisible,
-            bool isConfirmPasswordVisible, Gender gender, UserType userType)?
+    TResult Function(
+            RequestStatus status,
+            bool isPasswordVisible,
+            bool isConfirmPasswordVisible,
+            Gender gender,
+            UserType userType,
+            bool isEditProfile)?
         signUpState,
     required TResult orElse(),
   }) {
     if (signUpState != null) {
       return signUpState(status, isPasswordVisible, isConfirmPasswordVisible,
-          gender, userType);
+          gender, userType, isEditProfile);
     }
     return orElse();
   }
@@ -1120,7 +1338,8 @@ abstract class _Initial implements SignUpState {
       final bool isPasswordVisible,
       final bool isConfirmPasswordVisible,
       final Gender gender,
-      final UserType userType}) = _$InitialImpl;
+      final UserType userType,
+      final bool isEditProfile}) = _$InitialImpl;
 
   @override
   RequestStatus get status;
@@ -1132,6 +1351,8 @@ abstract class _Initial implements SignUpState {
   Gender get gender;
   @override
   UserType get userType;
+  @override
+  bool get isEditProfile;
 
   /// Create a copy of SignUpState
   /// with the given fields replaced by the non-null parameter values.

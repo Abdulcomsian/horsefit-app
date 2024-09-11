@@ -69,7 +69,7 @@ export 'package:horse_fit/app/views/components/social_button_widget.dart';
 export 'package:horse_fit/app/views/components/avatar_widget.dart';
 export 'package:horse_fit/app/views/components/gender_selection_button_widget.dart';
 export 'package:horse_fit/app/views/components/user_type_widget.dart';
-export 'package:horse_fit/app/views/menu/component/profile_card_widget.dart';
+export 'package:horse_fit/app/widgets/profile_card_widget.dart';
 
 ///-- Widgets
 export 'package:horse_fit/app/widgets/app_bar_widget.dart';

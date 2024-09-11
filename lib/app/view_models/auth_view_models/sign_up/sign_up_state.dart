@@ -8,5 +8,6 @@ class SignUpState with _$SignUpState {
     @Default(true) bool isConfirmPasswordVisible,
     @Default(Gender.male) Gender gender,
     @Default(UserType.horseTrainer) UserType userType,
+    @Default(false) bool isEditProfile,
   }) = _Initial;
 }

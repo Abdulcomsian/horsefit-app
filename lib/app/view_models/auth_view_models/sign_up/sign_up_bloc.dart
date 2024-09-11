@@ -11,6 +11,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     on<ToggleGender>(_toggleGender);
     on<SelectUser>(_selectUser);
     on<CreateAccount>(_createAccount);
+    on<ToggleEditProfile>(_toggleEditProfile);
   }
 
   FutureOr<void> _togglePasswordVisibility(
@@ -37,5 +38,10 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     emit(state.copyWith(status: const InitialRequestStatus()));
     await Future.delayed(const Duration(seconds: 3));
     emit(state.copyWith(status: const SuccessRequestStatus()));
+  }
+
+  FutureOr<void> _toggleEditProfile(
+      ToggleEditProfile event, Emitter<SignUpState> emit) {
+    emit(state.copyWith(isEditProfile: !state.isEditProfile));
   }
 }

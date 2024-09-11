@@ -42,7 +42,7 @@ class _SignUpViewState extends State<SignUpView> {
       appBar: const AppBarWidget(title: 'New User'),
       body: SizedBox.expand(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 130.ph, vertical: 40.pv),
+          padding: EdgeInsets.symmetric(horizontal: 120.ph, vertical: 40.pv),
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [

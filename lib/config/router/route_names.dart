@@ -8,4 +8,7 @@ class RouteNames {
   static const menuView = "menuView";
   static const myStableView = "myStableView";
   static const addHorseView = "addHorseView";
+  static const profileInfoView = "profileInfoView";
+  static const addDevicesView = "addDevicesView";
+  static const selectedDeviceView = "selectedDeviceView";
 }

@@ -1,7 +1,10 @@
 import '../../../core/constants/exports.dart';
 
 class AvatarWidget extends StatelessWidget {
-  const AvatarWidget({super.key});
+  const AvatarWidget({super.key, bool isShowCameraIcon = true})
+      : _isShowCameraIcon = isShowCameraIcon;
+
+  final bool _isShowCameraIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +21,24 @@ class AvatarWidget extends StatelessWidget {
                 ImagesResource.avatarPlaceHolderImg,
               ))),
         ),
-        Container(
-          padding: EdgeInsets.all(12.ph),
-          decoration: const BoxDecoration(
-            color: AppColors.whiteColor,
-            shape: BoxShape.circle,
-          ),
-          child: Container(
-            width: 142.w,
-            height: 142.w,
-            padding: EdgeInsets.all(28.ph),
+        if (_isShowCameraIcon)
+          Container(
+            padding: EdgeInsets.all(12.ph),
             decoration: const BoxDecoration(
-              color: AppColors.darkColor,
+              color: AppColors.whiteColor,
               shape: BoxShape.circle,
             ),
-            child: const SvgPictureAssetWidget(ImagesResource.cameraIcon),
-          ),
-        )
+            child: Container(
+              width: 142.w,
+              height: 142.w,
+              padding: EdgeInsets.all(28.ph),
+              decoration: const BoxDecoration(
+                color: AppColors.darkColor,
+                shape: BoxShape.circle,
+              ),
+              child: const SvgPictureAssetWidget(ImagesResource.cameraIcon),
+            ),
+          )
       ],
     );
   }

@@ -1,6 +1,9 @@
 import 'package:horse_fit/app/views/menu/menu_view.dart';
+import 'package:horse_fit/app/views/my_stable_views/add_devices/add_devices/add_devices_view.dart';
+import 'package:horse_fit/app/views/my_stable_views/add_devices/selected_device/selected_device_view.dart';
 import 'package:horse_fit/app/views/my_stable_views/add_horse/add_horse_view.dart';
 import 'package:horse_fit/app/views/my_stable_views/my_stable/my_stable_view.dart';
+import 'package:horse_fit/app/views/profile_info/profile_info_view.dart';
 
 import '../../app/view_models/auth_view_models/sign_up/sign_up_bloc.dart';
 import '../../core/constants/exports.dart';
@@ -75,6 +78,24 @@ class AppRouter {
             create: (context) => FeedBloc(),
             child: const AddHorseView(),
           ),
+        );
+
+      case RouteNames.profileInfoView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => SignUpBloc(),
+            child: const ProfileInfoView(),
+          ),
+        );
+
+      case RouteNames.addDevicesView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const AddDevicesView(),
+        );
+
+      case RouteNames.selectedDeviceView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const SelectedDeviceView(),
         );
 
       default:
