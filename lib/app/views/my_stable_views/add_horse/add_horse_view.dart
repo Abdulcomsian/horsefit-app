@@ -1,3 +1,5 @@
+import 'package:horse_fit/app/views/my_stable_views/add_horse/components/toggle_selection_button_widget.dart';
+
 import '../../../../core/constants/exports.dart';
 
 class AddHorseView extends StatefulWidget {
@@ -41,14 +43,19 @@ class _AddHorseViewState extends State<AddHorseView> {
       body: SizedBox.expand(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 120.ph, vertical: 62.pv),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              SizedBox(height: 72.h),
               const AvatarWidget(),
               SizedBox(height: 160.h),
               TextFormFieldWidget(
                 controller: _horseNameController,
                 hintText: 'Name of horse',
+                prefixIcon: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 32.ph),
+                  child: SvgPictureAssetWidget(ImagesResource.horseNameIcon,
+                      size: 82.w),
+                ),
               ),
               SizedBox(height: 92.h),
               Container(
@@ -60,21 +67,32 @@ class _AddHorseViewState extends State<AddHorseView> {
                 ),
                 child: Row(
                   children: [
-                    GenderSelectionButtonWidget(
-                      icon: ImagesResource.maleIcon,
+                    ToggleSelectionButtonWidget(
+                      icon: ImagesResource.checkIcon,
                       btnText: 'Trotting',
                       isSelected: true,
                       // state.gender == Gender.male ? true : false,
                       onTap: () {},
                     ),
-                    GenderSelectionButtonWidget(
-                      icon: ImagesResource.femaleIcon,
+                    ToggleSelectionButtonWidget(
+                      icon: ImagesResource.checkIcon,
                       btnText: 'Riding',
                       isSelected: false,
                       // state.gender == Gender.female ? true : false,
                       onTap: () {},
                     ),
                   ],
+                ),
+              ),
+              SizedBox(height: 92.h),
+              TextFormFieldWidget(
+                controller: _nationalityController,
+                hintText: 'Nationality',
+                enabled: false,
+                suffixIcon: Padding(
+                  padding: EdgeInsets.all(42.ph),
+                  child: SvgPictureAssetWidget(ImagesResource.arrowDownIcon,
+                      size: 40.w),
                 ),
               ),
               SizedBox(height: 92.h),
@@ -89,10 +107,86 @@ class _AddHorseViewState extends State<AddHorseView> {
                 ),
               ),
               SizedBox(height: 92.h),
+              Container(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 20.ph, vertical: 20.pv),
+                decoration: BoxDecoration(
+                  color: AppColors.grayColor,
+                  borderRadius: BorderRadius.circular(100.r),
+                ),
+                child: Row(
+                  children: [
+                    ToggleSelectionButtonWidget(
+                      icon: ImagesResource.checkIcon,
+                      btnText: 'Mare',
+                      isSelected: false,
+                      // state.gender == Gender.male ? true : false,
+                      onTap: () {},
+                    ),
+                    ToggleSelectionButtonWidget(
+                      icon: ImagesResource.checkIcon,
+                      btnText: 'Stallion',
+                      isSelected: true,
+                      // state.gender == Gender.female ? true : false,
+                      onTap: () {},
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(height: 92.h),
+              Container(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 20.ph, vertical: 20.pv),
+                decoration: BoxDecoration(
+                  color: AppColors.grayColor,
+                  borderRadius: BorderRadius.circular(100.r),
+                ),
+                child: Row(
+                  children: [
+                    ToggleSelectionButtonWidget(
+                      icon: ImagesResource.checkIcon,
+                      btnText: 'Warm blooded',
+                      isSelected: true,
+                      // state.gender == Gender.male ? true : false,
+                      onTap: () {},
+                    ),
+                    ToggleSelectionButtonWidget(
+                      icon: ImagesResource.checkIcon,
+                      btnText: 'Cold blooded',
+                      isSelected: false,
+                      // state.gender == Gender.female ? true : false,
+                      onTap: () {},
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(height: 92.h),
+              TextFormFieldWidget(
+                controller: _horseFatherNameController,
+                hintText: 'Name of Father horse',
+                prefixIcon: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 32.ph),
+                  child: SvgPictureAssetWidget(
+                      ImagesResource.horseFatherNameIcon,
+                      size: 82.w),
+                ),
+              ),
               SizedBox(height: 92.h),
+              TextFormFieldWidget(
+                controller: _horseMotherNameController,
+                hintText: 'Name of Mother horse',
+                prefixIcon: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 32.ph),
+                  child: SvgPictureAssetWidget(
+                      ImagesResource.horseMotherNameIcon,
+                      size: 88.w),
+                ),
+              ),
               SizedBox(height: 112.h),
+              ButtonWidget(
+                btnText: 'Save',
+                onTap: () {},
+              )
             ],
           ),
         ),

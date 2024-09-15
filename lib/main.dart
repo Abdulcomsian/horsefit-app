@@ -16,19 +16,8 @@ void main() {
   );
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-    FlutterNativeSplash.remove();
-  }
 
   // This widget is the root of your application.
   @override
@@ -40,7 +29,7 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         theme: AppTheme.ligthThemeData,
         navigatorKey: navigatorKey,
-        initialRoute: RouteNames.menuView,
+        initialRoute: RouteNames.onBoardView,
         onGenerateRoute: locator<AppRouter>().generateRoute,
       ),
     );
@@ -48,9 +37,11 @@ class _MyAppState extends State<MyApp> {
 }
 
 Future<void> _init() async {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  WidgetsFlutterBinding.ensureInitialized();
   await initDependancies();
   await SvgUtils.preCacheSVGs();
+  Bloc.observer = AppBlocObserver();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 }

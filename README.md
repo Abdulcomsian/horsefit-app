@@ -7,6 +7,7 @@ flutter pub cache clean
 y
 flutter clean 
 flutter pub get
+flutter run --profile
 
 
 Clean Project for test flight

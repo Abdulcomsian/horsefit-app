@@ -24,12 +24,24 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(state.copyWith(status: const SuccessRequestStatus()));
   }
 
-  FutureOr<void> _signInWithGoogle(
-      SignInWithGoogle event, Emitter<LoginState> emit) {}
+  Future<void> _signInWithGoogle(
+      SignInWithGoogle event, Emitter<LoginState> emit) async {
+    emit(state.copyWith(socialAuthStatus: const InitialRequestStatus()));
+    await Future.delayed(const Duration(seconds: 3));
+    emit(state.copyWith(socialAuthStatus: const SuccessRequestStatus()));
+  }
 
-  FutureOr<void> _signInWithFacebook(
-      SignInWithFacebook event, Emitter<LoginState> emit) {}
+  Future<void> _signInWithFacebook(
+      SignInWithFacebook event, Emitter<LoginState> emit) async {
+    emit(state.copyWith(socialAuthStatus: const InitialRequestStatus()));
+    await Future.delayed(const Duration(seconds: 3));
+    emit(state.copyWith(socialAuthStatus: const SuccessRequestStatus()));
+  }
 
-  FutureOr<void> _signInWithApple(
-      SignInWithApple event, Emitter<LoginState> emit) {}
+  Future<void> _signInWithApple(
+      SignInWithApple event, Emitter<LoginState> emit) async {
+    emit(state.copyWith(socialAuthStatus: const InitialRequestStatus()));
+    await Future.delayed(const Duration(seconds: 3));
+    emit(state.copyWith(socialAuthStatus: const SuccessRequestStatus()));
+  }
 }

@@ -722,21 +722,27 @@ abstract class SignInWithApple implements LoginEvent {
 /// @nodoc
 mixin _$LoginState {
   RequestStatus get status => throw _privateConstructorUsedError;
+  RequestStatus get socialAuthStatus => throw _privateConstructorUsedError;
   bool get isPasswordVisible => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(RequestStatus status, bool isPasswordVisible)
+    required TResult Function(RequestStatus status,
+            RequestStatus socialAuthStatus, bool isPasswordVisible)
         loginState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RequestStatus status, bool isPasswordVisible)? loginState,
+    TResult? Function(RequestStatus status, RequestStatus socialAuthStatus,
+            bool isPasswordVisible)?
+        loginState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RequestStatus status, bool isPasswordVisible)? loginState,
+    TResult Function(RequestStatus status, RequestStatus socialAuthStatus,
+            bool isPasswordVisible)?
+        loginState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -770,7 +776,10 @@ abstract class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
-  $Res call({RequestStatus status, bool isPasswordVisible});
+  $Res call(
+      {RequestStatus status,
+      RequestStatus socialAuthStatus,
+      bool isPasswordVisible});
 }
 
 /// @nodoc
@@ -789,12 +798,17 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @override
   $Res call({
     Object? status = null,
+    Object? socialAuthStatus = null,
     Object? isPasswordVisible = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
+              as RequestStatus,
+      socialAuthStatus: null == socialAuthStatus
+          ? _value.socialAuthStatus
+          : socialAuthStatus // ignore: cast_nullable_to_non_nullable
               as RequestStatus,
       isPasswordVisible: null == isPasswordVisible
           ? _value.isPasswordVisible
@@ -812,7 +826,10 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       __$$LoginStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RequestStatus status, bool isPasswordVisible});
+  $Res call(
+      {RequestStatus status,
+      RequestStatus socialAuthStatus,
+      bool isPasswordVisible});
 }
 
 /// @nodoc
@@ -829,12 +846,17 @@ class __$$LoginStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
+    Object? socialAuthStatus = null,
     Object? isPasswordVisible = null,
   }) {
     return _then(_$LoginStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
+              as RequestStatus,
+      socialAuthStatus: null == socialAuthStatus
+          ? _value.socialAuthStatus
+          : socialAuthStatus // ignore: cast_nullable_to_non_nullable
               as RequestStatus,
       isPasswordVisible: null == isPasswordVisible
           ? _value.isPasswordVisible
@@ -849,6 +871,7 @@ class __$$LoginStateImplCopyWithImpl<$Res>
 class _$LoginStateImpl implements _LoginState {
   const _$LoginStateImpl(
       {this.status = const InitialRequestStatus(),
+      this.socialAuthStatus = const InitialRequestStatus(),
       this.isPasswordVisible = true});
 
   @override
@@ -856,11 +879,14 @@ class _$LoginStateImpl implements _LoginState {
   final RequestStatus status;
   @override
   @JsonKey()
+  final RequestStatus socialAuthStatus;
+  @override
+  @JsonKey()
   final bool isPasswordVisible;
 
   @override
   String toString() {
-    return 'LoginState.loginState(status: $status, isPasswordVisible: $isPasswordVisible)';
+    return 'LoginState.loginState(status: $status, socialAuthStatus: $socialAuthStatus, isPasswordVisible: $isPasswordVisible)';
   }
 
   @override
@@ -869,12 +895,15 @@ class _$LoginStateImpl implements _LoginState {
         (other.runtimeType == runtimeType &&
             other is _$LoginStateImpl &&
             (identical(other.status, status) || other.status == status) &&
+            (identical(other.socialAuthStatus, socialAuthStatus) ||
+                other.socialAuthStatus == socialAuthStatus) &&
             (identical(other.isPasswordVisible, isPasswordVisible) ||
                 other.isPasswordVisible == isPasswordVisible));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, isPasswordVisible);
+  int get hashCode =>
+      Object.hash(runtimeType, status, socialAuthStatus, isPasswordVisible);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -887,28 +916,33 @@ class _$LoginStateImpl implements _LoginState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(RequestStatus status, bool isPasswordVisible)
+    required TResult Function(RequestStatus status,
+            RequestStatus socialAuthStatus, bool isPasswordVisible)
         loginState,
   }) {
-    return loginState(status, isPasswordVisible);
+    return loginState(status, socialAuthStatus, isPasswordVisible);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RequestStatus status, bool isPasswordVisible)? loginState,
+    TResult? Function(RequestStatus status, RequestStatus socialAuthStatus,
+            bool isPasswordVisible)?
+        loginState,
   }) {
-    return loginState?.call(status, isPasswordVisible);
+    return loginState?.call(status, socialAuthStatus, isPasswordVisible);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RequestStatus status, bool isPasswordVisible)? loginState,
+    TResult Function(RequestStatus status, RequestStatus socialAuthStatus,
+            bool isPasswordVisible)?
+        loginState,
     required TResult orElse(),
   }) {
     if (loginState != null) {
-      return loginState(status, isPasswordVisible);
+      return loginState(status, socialAuthStatus, isPasswordVisible);
     }
     return orElse();
   }
@@ -945,10 +979,13 @@ class _$LoginStateImpl implements _LoginState {
 abstract class _LoginState implements LoginState {
   const factory _LoginState(
       {final RequestStatus status,
+      final RequestStatus socialAuthStatus,
       final bool isPasswordVisible}) = _$LoginStateImpl;
 
   @override
   RequestStatus get status;
+  @override
+  RequestStatus get socialAuthStatus;
   @override
   bool get isPasswordVisible;
 

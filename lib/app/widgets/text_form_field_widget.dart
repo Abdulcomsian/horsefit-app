@@ -19,9 +19,12 @@ class TextFormFieldWidget extends StatelessWidget {
     Widget? suffixIcon,
     AutovalidateMode? autovalidateMode,
     int? maxLines,
+    bool isMaxLinesNoLimit = false,
     TextStyle? errorStyle,
     EdgeInsetsGeometry? contentPadding,
     Color? filledColor,
+    InputBorder? border,
+    TextAlignVertical? textAlignVertical,
     Function(String? value)? onChanged,
     String? Function(String? value)? validator,
   })  : _controller = controller,
@@ -40,9 +43,12 @@ class TextFormFieldWidget extends StatelessWidget {
         _suffixIcon = suffixIcon,
         _autovalidateMode = autovalidateMode,
         _maxLines = maxLines,
+        _isMaxLinesNoLimit = isMaxLinesNoLimit,
         _errorStyle = errorStyle,
         _contentPadding = contentPadding,
         _filledColor = filledColor,
+        _border = border,
+        _textAlignVertical = textAlignVertical,
         _onChanged = onChanged,
         _validator = validator;
 
@@ -59,9 +65,12 @@ class TextFormFieldWidget extends StatelessWidget {
   final Widget? _suffixIcon;
   final AutovalidateMode? _autovalidateMode;
   final int? _maxLines;
+  final bool _isMaxLinesNoLimit;
   final TextStyle? _errorStyle;
   final EdgeInsetsGeometry? _contentPadding;
   final Color? _filledColor;
+  final InputBorder? _border;
+  final TextAlignVertical? _textAlignVertical;
   final Function(String? value)? _onChanged;
   final String? Function(String? value)? _validator;
 
@@ -75,11 +84,11 @@ class TextFormFieldWidget extends StatelessWidget {
       enabled: _enabled,
       keyboardType: _keyboardType ?? TextInputType.text,
       obscureText: _obscureText ?? false,
-      maxLines: _maxLines ?? 1,
+      maxLines: _isMaxLinesNoLimit ? null : _maxLines ?? 1,
       style: _style ??
           textTheme.titleLarge?.copyWith(
               color: AppColors.darkColor, fontWeight: FontWeight.w500),
-      textAlignVertical: TextAlignVertical.center,
+      textAlignVertical: _textAlignVertical ?? TextAlignVertical.center,
       obscuringCharacter: '*',
       decoration: InputDecoration(
         hintText: _hintText ?? '',
@@ -102,30 +111,36 @@ class TextFormFieldWidget extends StatelessWidget {
         errorMaxLines: 3,
         contentPadding:
             _contentPadding ?? EdgeInsets.symmetric(horizontal: 48.ph),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32.r),
-          borderSide: const BorderSide(color: AppColors.primaryColor),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32.r),
-          borderSide: const BorderSide(color: AppColors.primaryColor),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32.r),
-          borderSide: const BorderSide(color: AppColors.redColor),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32.r),
-          borderSide: const BorderSide(color: AppColors.primaryColor),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32.r),
-          borderSide: const BorderSide(color: AppColors.grayColor),
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32.r),
-          borderSide: const BorderSide(color: AppColors.grayColor),
-        ),
+        border: _border ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(32.r),
+              borderSide: const BorderSide(color: AppColors.primaryColor),
+            ),
+        focusedBorder: _border ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(32.r),
+              borderSide: const BorderSide(color: AppColors.primaryColor),
+            ),
+        errorBorder: _border ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(32.r),
+              borderSide: const BorderSide(color: AppColors.redColor),
+            ),
+        focusedErrorBorder: _border ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(32.r),
+              borderSide: const BorderSide(color: AppColors.primaryColor),
+            ),
+        enabledBorder: _border ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(32.r),
+              borderSide: const BorderSide(color: AppColors.grayColor),
+            ),
+        disabledBorder: _border ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(32.r),
+              borderSide: const BorderSide(color: AppColors.grayColor),
+            ),
       ),
       onChanged: _onChanged,
       validator: _validator,

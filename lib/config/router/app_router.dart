@@ -1,9 +1,10 @@
-import 'package:horse_fit/app/views/menu/menu_view.dart';
-import 'package:horse_fit/app/views/my_stable_views/add_devices/add_devices/add_devices_view.dart';
-import 'package:horse_fit/app/views/my_stable_views/add_devices/selected_device/selected_device_view.dart';
-import 'package:horse_fit/app/views/my_stable_views/add_horse/add_horse_view.dart';
-import 'package:horse_fit/app/views/my_stable_views/my_stable/my_stable_view.dart';
-import 'package:horse_fit/app/views/profile_info/profile_info_view.dart';
+import 'package:horse_fit/app/views/add_friends_views/add_owner_trainer/add_owner_trainer_view.dart';
+import 'package:horse_fit/app/views/horse_profile/horse_profile_view.dart';
+import 'package:horse_fit/app/views/messages_and_notifications_veiws.dart/message_center_view.dart';
+import 'package:horse_fit/app/views/shop_views/shop_view.dart';
+import 'package:horse_fit/app/views/start_workout_views/start_workout_view.dart';
+import 'package:horse_fit/app/views/statistics_views/statistics_view/statistics_view.dart';
+import 'package:horse_fit/app/views/support_and_settings_views/support_and_settings_view.dart';
 
 import '../../app/view_models/auth_view_models/sign_up/sign_up_bloc.dart';
 import '../../core/constants/exports.dart';
@@ -48,25 +49,21 @@ class AppRouter {
       case RouteNames.feedView:
         return NoAnimationMaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => FeedBloc(),
+            create: (_) => FeedBloc(),
             child: const FeedView(),
           ),
         );
 
-      case RouteNames.menuView:
+      case RouteNames.messageCenterView:
         return NoAnimationMaterialPageRoute(
-          builder: (_) => BlocProvider(
-            ///! TODO Replace this bloc
-            create: (context) => FeedBloc(),
-            child: const MenuView(),
-          ),
+          builder: (_) => const MessageCenterView(),
         );
 
       case RouteNames.myStableView:
         return NoAnimationMaterialPageRoute(
           builder: (_) => BlocProvider(
             ///! TODO Replace this bloc
-            create: (context) => FeedBloc(),
+            create: (_) => FeedBloc(),
             child: const MyStableView(),
           ),
         );
@@ -75,7 +72,7 @@ class AppRouter {
         return NoAnimationMaterialPageRoute(
           builder: (_) => BlocProvider(
             ///! TODO Replace this bloc
-            create: (context) => FeedBloc(),
+            create: (_) => FeedBloc(),
             child: const AddHorseView(),
           ),
         );
@@ -83,7 +80,7 @@ class AppRouter {
       case RouteNames.profileInfoView:
         return NoAnimationMaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => SignUpBloc(),
+            create: (_) => SignUpBloc(),
             child: const ProfileInfoView(),
           ),
         );
@@ -95,13 +92,81 @@ class AppRouter {
 
       case RouteNames.selectedDeviceView:
         return NoAnimationMaterialPageRoute(
-          builder: (_) => const SelectedDeviceView(),
+          builder: (_) => BlocProvider(
+            create: (_) => AddDevicesBloc(),
+            child: const SelectedDeviceView(),
+          ),
+        );
+
+      case RouteNames.createPostView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => CreatePostBloc(),
+            child: const CreatePostView(),
+          ),
+        );
+
+      case RouteNames.finishPostView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => CreatePostBloc(),
+            child: const FinishPostView(),
+          ),
+        );
+
+      case RouteNames.workoutLogView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => WorkoutLogBloc(),
+            child: const WorkoutLogView(),
+          ),
+        );
+
+      case RouteNames.selectHorseView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => WorkoutLogBloc(),
+            child: const SelectHorseView(),
+          ),
+        );
+
+      case RouteNames.startWorkoutView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const StartWorkOutView(),
+        );
+
+      case RouteNames.addOwnerTrainerView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const AddOwnerTrainerView(),
+        );
+
+      case RouteNames.statisticsView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const StatisticsView(),
+        );
+
+      case RouteNames.shopView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const ShopView(),
+        );
+
+      case RouteNames.supportAndSettingsView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const SupportAndSettingsView(),
+        );
+
+      case RouteNames.horseProfileView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const HorseProfileView(),
         );
 
       default:
         return NoAnimationMaterialPageRoute(
-            builder: (_) =>
-                const Scaffold(body: Center(child: Text('No route defined'))));
+          builder: (_) => const Scaffold(
+              body: Center(
+            child: Text('No route defined'),
+          )),
+        );
     }
   }
 }

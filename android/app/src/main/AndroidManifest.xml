@@ -1,4 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- All Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- End Permissions -->
+
     <application
         android:label="Horse Fit"
         android:name="${applicationName}"

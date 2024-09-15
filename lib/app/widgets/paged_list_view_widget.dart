@@ -4,7 +4,8 @@ class PagedListViewWidget<K, T> extends StatelessWidget {
   const PagedListViewWidget({
     super.key,
     required PagingController<K, T> pagingController,
-    required Widget Function(BuildContext, T, int) itemBuilder,
+    required Widget Function(BuildContext context, T item, int index)
+        itemBuilder,
     required Widget placeHolderWidget,
     String? noMoreItemsText,
     Widget? noItemsFound,
@@ -19,7 +20,7 @@ class PagedListViewWidget<K, T> extends StatelessWidget {
         _padding = padding;
 
   final PagingController<K, T> _pagingController;
-  final Widget Function(BuildContext, T, int) _itemBuilder;
+  final Widget Function(BuildContext context, T item, int index) _itemBuilder;
   final Widget _placeHolderWidget;
   final Widget? _noItemsFound;
   final String? _noMoreItemsText;

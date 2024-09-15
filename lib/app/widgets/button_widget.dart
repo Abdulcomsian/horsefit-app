@@ -17,7 +17,9 @@ class ButtonWidget extends StatelessWidget {
     isShowBorder = false,
     double? radius,
     EdgeInsetsGeometry? margin,
+    EdgeInsetsGeometry? padding,
     bool isShowLoading = false,
+    bool isZeroWidth = false,
     double? borderWidth,
     Widget? icon,
   })  : _icon = icon,
@@ -33,7 +35,9 @@ class ButtonWidget extends StatelessWidget {
         _radius = radius,
         _isShowBorder = isShowBorder,
         _margin = margin,
+        _padding = padding,
         _isShowLoading = isShowLoading,
+        _isZeroWidth = isZeroWidth,
         _borderWidth = borderWidth;
 
   final Widget? _icon;
@@ -49,16 +53,18 @@ class ButtonWidget extends StatelessWidget {
   final bool _isShowBorder;
   final double? _radius;
   final EdgeInsetsGeometry? _margin;
+  final EdgeInsetsGeometry? _padding;
   final bool _isShowLoading;
+  final bool _isZeroWidth;
   final double? _borderWidth;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: _width ?? double.maxFinite,
+      width: !_isZeroWidth ? _width ?? double.maxFinite : null,
       alignment: Alignment.center,
       margin: _margin,
-      padding: EdgeInsets.symmetric(vertical: 72.pv),
+      padding: _padding ?? EdgeInsets.symmetric(vertical: 72.pv),
       decoration: BoxDecoration(
           color: _color ??
               (_isShowBorder
@@ -89,7 +95,7 @@ class ButtonWidget extends StatelessWidget {
                 SizedBox(width: 24.w),
                 TextViewWidget('Please Wait',
                     style: _style ??
-                        textTheme.labelLarge?.copyWith(
+                        textTheme.titleLarge?.copyWith(
                           color: _textColor ?? AppColors.whiteColor,
                           fontWeight: _fontWeight ?? FontWeight.w600,
                           fontSize: 54.sp,

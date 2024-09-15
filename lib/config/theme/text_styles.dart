@@ -3,7 +3,7 @@ import '../../core/constants/exports.dart';
 TextTheme textTheme = TextTheme(
   displayLarge: TextStyle(
     fontSize: 102.sp,
-    fontWeight: FontWeight.w800,
+    fontWeight: FontWeight.w900,
     color: AppColors.darkColor,
     fontFamily: ConstantsResource.fontFamily,
   ),

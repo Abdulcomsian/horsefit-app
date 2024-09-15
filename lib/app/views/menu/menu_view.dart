@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import '../../../core/constants/exports.dart';
 
 class MenuView extends StatelessWidget {
@@ -6,7 +8,7 @@ class MenuView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.darkColor.withOpacity(0.9),
+      backgroundColor: const Color(0xFF101A3F).withOpacity(0.87),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -68,7 +70,10 @@ class MenuView extends StatelessWidget {
                           fontSize: 64.sp,
                         ),
                       ),
-                      onTap: () => context.pushNamed(menuItems[index].route),
+                      onTap: () {
+                        feedScaffoldKey.currentState?.closeDrawer();
+                        context.pushNamed(menuItems[index].route);
+                      },
                     );
                   },
                   separatorBuilder: (context, index) {
@@ -100,22 +105,22 @@ final List<MenuModel> menuItems = [
   MenuModel(
     icon: ImagesResource.startWorkoutIcon,
     text: 'Start Workout',
-    route: RouteNames.myStableView,
+    route: RouteNames.startWorkoutView,
   ),
   MenuModel(
     icon: ImagesResource.addFriendIcon,
     text: 'Add Friend',
-    route: RouteNames.myStableView,
+    route: RouteNames.addOwnerTrainerView,
   ),
   MenuModel(
     icon: ImagesResource.workoutLogIcon,
     text: 'Workout Log',
-    route: RouteNames.myStableView,
+    route: RouteNames.workoutLogView,
   ),
   MenuModel(
     icon: ImagesResource.statisticsIcon,
     text: 'Statistics',
-    route: RouteNames.myStableView,
+    route: RouteNames.statisticsView,
   ),
   MenuModel(
     icon: ImagesResource.addDeviceIcon,
@@ -125,11 +130,11 @@ final List<MenuModel> menuItems = [
   MenuModel(
     icon: ImagesResource.shopIcon,
     text: 'Shop',
-    route: RouteNames.myStableView,
+    route: RouteNames.shopView,
   ),
   MenuModel(
     icon: ImagesResource.supportAndSettingsIcon,
     text: 'Support/Settings',
-    route: RouteNames.myStableView,
+    route: RouteNames.supportAndSettingsView,
   ),
 ];

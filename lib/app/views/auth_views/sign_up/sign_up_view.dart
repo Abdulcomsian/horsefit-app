@@ -232,12 +232,15 @@ class _SignUpViewState extends State<SignUpView> {
                 textAlign: TextAlign.center,
                 text: TextSpan(
                     text: 'By creating an account you agree to\n',
-                    style: textTheme.titleMedium,
+                    style: textTheme.titleMedium
+                        ?.copyWith(color: const Color(0XFF0B1B43)),
                     children: [
                       TextSpan(
                         text: 'Terms & conditions',
-                        style: textTheme.titleMedium
-                            ?.copyWith(decoration: TextDecoration.underline),
+                        style: textTheme.titleMedium?.copyWith(
+                          color: const Color(0XFF0B1B43),
+                          decoration: TextDecoration.underline,
+                        ),
                         recognizer: TapGestureRecognizer()
                           ..onTap =
                               () => context.pushNamed(RouteNames.signUpView),

@@ -56,19 +56,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       leadingWidth: !_isShowLeading ? 20.w : _leadingWidth,
       titleSpacing: 0.0,
       leading: _isShowLeading
-          ? _leading ??
-              Container(
-                margin: EdgeInsets.only(left: 24.ph, top: 24.pv),
-                padding:
-                    EdgeInsets.symmetric(horizontal: 56.ph, vertical: 56.pv),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border:
-                      Border.all(color: AppColors.darkColor.withOpacity(0.1)),
-                ),
-                child:
-                    const SvgPictureAssetWidget(ImagesResource.arrowBackIcon),
-              ).onTap(_onLeadingTap ?? () => context.pop())
+          ? _leading ?? BackButtonWidget(onTap: _onLeadingTap)
           : const SizedBox.shrink(),
       title: _titleWidget ??
           TextViewWidget(_title,
