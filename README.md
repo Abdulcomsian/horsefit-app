@@ -9,6 +9,7 @@ flutter clean
 flutter pub get
 flutter run --profile
 
+flutter build apk --release
 
 Clean Project for test flight
 ///! TODO Verify that the base url is change to production 

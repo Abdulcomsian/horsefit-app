@@ -19,6 +19,11 @@ dependencies:
   infinite_scroll_pagination: ^4.0.0
   grouped_list: ^6.0.0
   timeago: ^3.7.0
+  flutter_slidable: ^3.1.1
+  flutter_chat_ui: ^1.6.15
+  flutter_chat_types: ^3.6.2
+  #! TODO: Remove this if not needed
+  uuid:
 
   # State Management
   flutter_bloc: ^8.1.6
@@ -44,4 +49,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/images/place_holder/
     - assets/svgs/

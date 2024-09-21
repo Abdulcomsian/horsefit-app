@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import '../../../core/constants/exports.dart';
 
 class MenuView extends StatelessWidget {
@@ -110,7 +108,7 @@ final List<MenuModel> menuItems = [
   MenuModel(
     icon: ImagesResource.addFriendIcon,
     text: 'Add Friend',
-    route: RouteNames.addOwnerTrainerView,
+    route: RouteNames.addOwnerAndTrainerView,
   ),
   MenuModel(
     icon: ImagesResource.workoutLogIcon,

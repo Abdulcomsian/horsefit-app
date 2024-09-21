@@ -6,19 +6,24 @@ class UserProfileCardWidget extends StatelessWidget {
     required String profileImgUrl,
     required String bannerImgUrl,
     bool isShowOnlyProfile = false,
+    bool isShowInfoOnAvatar = false,
     Widget? widget,
   })  : _profileImgUrl = profileImgUrl,
         _bannerImgUrl = bannerImgUrl,
         _isShowOnlyProfile = isShowOnlyProfile,
+        _isShowInfoOnAvatar = isShowInfoOnAvatar,
         _widget = widget;
 
   final String _profileImgUrl;
   final String _bannerImgUrl;
   final bool _isShowOnlyProfile;
+  final bool _isShowInfoOnAvatar;
   final Widget? _widget;
 
   @override
   Widget build(BuildContext context) {
+    logger.i(_bannerImgUrl);
+
     return Stack(
       children: [
         Stack(
@@ -58,17 +63,40 @@ class UserProfileCardWidget extends StatelessWidget {
                       ? MainAxisAlignment.center
                       : MainAxisAlignment.start,
                   children: [
-                    Container(
-                      width: 420.w,
-                      height: 420.w,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                              width: 28.w, color: AppColors.whiteColor),
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image:
-                                  CachedNetworkImageProvider(_profileImgUrl))),
+                    Stack(
+                      alignment: Alignment.bottomRight,
+                      children: [
+                        Container(
+                          width: 420.w,
+                          height: 420.w,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                  width: 28.w, color: AppColors.whiteColor),
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: CachedNetworkImageProvider(
+                                      _profileImgUrl))),
+                        ),
+                        if (_isShowInfoOnAvatar)
+                          Container(
+                            width: 162.w,
+                            height: 162.w,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 26.ph, vertical: 26.pv),
+                            decoration: BoxDecoration(
+                              color: AppColors.darkColor,
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                width: 20.w,
+                                color: AppColors.whiteColor,
+                              ),
+                            ),
+                            child: const SvgPictureAssetWidget(
+                                ImagesResource.infoIcon),
+                          ).onTap(
+                              () => context.pushNamed(RouteNames.horseInfoView))
+                      ],
                     ),
                     if (!_isShowOnlyProfile) SizedBox(width: 40.w),
                     if (!_isShowOnlyProfile)

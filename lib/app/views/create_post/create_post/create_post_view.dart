@@ -1,7 +1,9 @@
 import '../../../../core/constants/exports.dart';
 
 class CreatePostView extends StatefulWidget {
-  const CreatePostView({super.key});
+  const CreatePostView({super.key, CreatePostArgs? args}) : _args = args;
+
+  final CreatePostArgs? _args;
 
   @override
   State<CreatePostView> createState() => _CreatePostViewState();
@@ -35,7 +37,11 @@ class _CreatePostViewState extends State<CreatePostView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(title: 'Write a Post'),
+      appBar: AppBarWidget(
+        title: widget._args?.isFromChat == true
+            ? 'Write a Message'
+            : 'Write a Post',
+      ),
       body: SizedBox.expand(
         child: LayoutBuilder(builder: (context, constraints) {
           return SingleChildScrollView(
@@ -113,7 +119,13 @@ class _CreatePostViewState extends State<CreatePostView> {
                                 : null,
                             onTap: () {
                               if (state.isValidPost) {
-                                context.pushNamed(RouteNames.finishPostView);
+                                context.unfocusKeyboard();
+                                if (widget._args?.isFromChat == true) {
+                                  context
+                                      .pushNamed(RouteNames.selectFriendsView);
+                                } else {
+                                  context.pushNamed(RouteNames.finishPostView);
+                                }
                               }
                             },
                           );

@@ -1,5 +1,3 @@
-import 'package:horse_fit/core/enums/post_privacy.dart';
-
 import '../../../core/constants/exports.dart';
 
 part 'create_post_event.dart';

@@ -5,6 +5,8 @@ class RouteNames {
   static const lostPasswordView = "lostPasswordView";
   static const emailSendView = "emailSendView";
   static const messageCenterView = "messageCenterView";
+  static const chatView = "chatView";
+  static const selectFriendsView = "selectFriendsView";
   static const feedView = "feedView";
   static const myStableView = "myStableView";
   static const addHorseView = "addHorseView";
@@ -15,10 +17,15 @@ class RouteNames {
   static const finishPostView = "finishPostView";
   static const workoutLogView = "workoutLogView";
   static const selectHorseView = "selectHorseView";
+  static const intervalSettingsView = "intervalSettingsView";
+  static const selectedHorseView = "selectedHorseView";
   static const startWorkoutView = "startWorkoutView";
-  static const addOwnerTrainerView = "addOwnerTrainerView";
   static const statisticsView = "statisticsView";
   static const shopView = "shopView";
   static const supportAndSettingsView = "supportAndSettingsView";
   static const horseProfileView = "horseProfileView";
+  static const horseInfoView = "horseInfoView";
+  static const addOwnerAndTrainerView = "addOwnerAndTrainerView";
+  static const roleOwnerOrTrainerView = "roleOwnerOrTrainerView";
+  static const searchOwnerAndTrainerView = "searchOwnerAndTrainerView";
 }

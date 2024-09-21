@@ -1,11 +1,3 @@
-import 'package:horse_fit/app/views/add_friends_views/add_owner_trainer/add_owner_trainer_view.dart';
-import 'package:horse_fit/app/views/horse_profile/horse_profile_view.dart';
-import 'package:horse_fit/app/views/messages_and_notifications_veiws.dart/message_center_view.dart';
-import 'package:horse_fit/app/views/shop_views/shop_view.dart';
-import 'package:horse_fit/app/views/start_workout_views/start_workout_view.dart';
-import 'package:horse_fit/app/views/statistics_views/statistics_view/statistics_view.dart';
-import 'package:horse_fit/app/views/support_and_settings_views/support_and_settings_view.dart';
-
 import '../../app/view_models/auth_view_models/sign_up/sign_up_bloc.dart';
 import '../../core/constants/exports.dart';
 
@@ -56,7 +48,26 @@ class AppRouter {
 
       case RouteNames.messageCenterView:
         return NoAnimationMaterialPageRoute(
-          builder: (_) => const MessageCenterView(),
+          builder: (_) => BlocProvider(
+            create: (context) => MessageCenterBloc(),
+            child: const MessageCenterView(),
+          ),
+        );
+
+      case RouteNames.chatView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => MessageCenterBloc(),
+            child: const ChatView(),
+          ),
+        );
+
+      case RouteNames.selectFriendsView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => MessageCenterBloc(),
+            child: const SelectFriendsView(),
+          ),
         );
 
       case RouteNames.myStableView:
@@ -99,10 +110,11 @@ class AppRouter {
         );
 
       case RouteNames.createPostView:
+        final args = settings.arguments as CreatePostArgs?;
         return NoAnimationMaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (_) => CreatePostBloc(),
-            child: const CreatePostView(),
+            child: CreatePostView(args: args),
           ),
         );
 
@@ -130,14 +142,19 @@ class AppRouter {
           ),
         );
 
+      case RouteNames.intervalSettingsView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const IntervalSettingsView(),
+        );
+
+      case RouteNames.selectedHorseView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const SelectedHorseView(),
+        );
+
       case RouteNames.startWorkoutView:
         return NoAnimationMaterialPageRoute(
           builder: (_) => const StartWorkOutView(),
-        );
-
-      case RouteNames.addOwnerTrainerView:
-        return NoAnimationMaterialPageRoute(
-          builder: (_) => const AddOwnerTrainerView(),
         );
 
       case RouteNames.statisticsView:
@@ -157,14 +174,47 @@ class AppRouter {
 
       case RouteNames.horseProfileView:
         return NoAnimationMaterialPageRoute(
-          builder: (_) => const HorseProfileView(),
+          builder: (_) => BlocProvider(
+            create: (context) => HorseProfileBloc(),
+            child: const HorseProfileView(),
+          ),
+        );
+
+      case RouteNames.horseInfoView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => HorseProfileBloc(),
+            child: const HorseInfoView(),
+          ),
+        );
+
+      case RouteNames.addOwnerAndTrainerView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const AddOwnerAndTrainerView(),
+        );
+
+      case RouteNames.roleOwnerOrTrainerView:
+        final args = settings.arguments as AddOwnerTrainerArgs?;
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => AddOwnerTrainerBloc(),
+            child: RoleOwnerOrTrainerView(args: args),
+          ),
+        );
+
+      case RouteNames.searchOwnerAndTrainerView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const SearchOwnerAndTrainerView(),
         );
 
       default:
         return NoAnimationMaterialPageRoute(
-          builder: (_) => const Scaffold(
+          builder: (_) => Scaffold(
               body: Center(
-            child: Text('No route defined'),
+            child: TextViewWidget(
+              'No route defined',
+              style: textTheme.displaySmall,
+            ),
           )),
         );
     }

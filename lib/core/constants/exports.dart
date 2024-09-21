@@ -30,12 +30,15 @@ export 'package:freezed_annotation/freezed_annotation.dart';
 export 'package:flutter_native_splash/flutter_native_splash.dart';
 export 'package:permission_handler/permission_handler.dart';
 export 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+export 'package:uuid/uuid.dart';
+export 'package:flutter_chat_ui/flutter_chat_ui.dart';
 
 /// App
 ///-- Models
 ///---- Custom Models
 export 'package:horse_fit/app/models/custom/menu_model.dart';
 export 'package:horse_fit/app/models/custom/selectable_option_card_model.dart';
+export 'package:horse_fit/app/models/custom/owner_trainer_role_model.dart';
 
 ///---- Request
 
@@ -60,6 +63,9 @@ export 'package:horse_fit/app/view_models/feed/feed_bloc.dart';
 export 'package:horse_fit/app/view_models/create_post/create_post_bloc.dart';
 export 'package:horse_fit/app/view_models/add_devices/add_devices_bloc.dart';
 export 'package:horse_fit/app/view_models/workout_log/workout_log_bloc.dart';
+export 'package:horse_fit/app/view_models/message_center/message_center_bloc.dart';
+export 'package:horse_fit/app/view_models/horse_profile/horse_profile_bloc.dart';
+export 'package:horse_fit/app/view_models/add_owner_trainer/add_owner_trainer_bloc.dart';
 
 ///-- Views
 export 'package:horse_fit/app/views/auth_views/login/login_view.dart';
@@ -78,6 +84,20 @@ export 'package:horse_fit/app/views/my_stable_views/my_stable/my_stable_view.dar
 export 'package:horse_fit/app/views/profile_info/profile_info_view.dart';
 export 'package:horse_fit/app/views/workout_log_views/select_horse/select_horse_view.dart';
 export 'package:horse_fit/app/views/workout_log_views/workout_log/workout_log_view.dart';
+export 'package:horse_fit/app/views/horse_profile/horse_profile_view.dart';
+export 'package:horse_fit/app/views/messages_and_notifications_veiws.dart/message_center_view.dart';
+export 'package:horse_fit/app/views/shop_views/shop_view.dart';
+export 'package:horse_fit/app/views/start_workout_views/start_workout/start_workout_view.dart';
+export 'package:horse_fit/app/views/statistics_views/statistics_view/statistics_view.dart';
+export 'package:horse_fit/app/views/support_and_settings_views/support_and_settings_view.dart';
+export 'package:horse_fit/app/views/messages_and_notifications_veiws.dart/chat/chat_view.dart';
+export 'package:horse_fit/app/views/add_owner_and_trainer_views/add_owner_and_trainer_view/add_owner_and_trainer_view.dart';
+export 'package:horse_fit/app/views/add_owner_and_trainer_views/role_owner_or_trainer/role_owner_or_trainer_view.dart';
+export 'package:horse_fit/app/views/add_owner_and_trainer_views/search_owner_and_trainer/search_owner_and_trainer_view.dart';
+export 'package:horse_fit/app/views/horse_info/horse_info_view.dart';
+export 'package:horse_fit/app/views/select_friends/select_friends_view.dart';
+export 'package:horse_fit/app/views/start_workout_views/interval_settings/interval_settings_view.dart';
+export 'package:horse_fit/app/views/start_workout_views/selected_horse/selected_horse_view.dart';
 
 ///---- Components
 export 'package:horse_fit/app/views/auth_views/components/social_button_widget.dart';
@@ -93,9 +113,13 @@ export 'package:horse_fit/app/views/add_devices_views/selected_device/components
 export 'package:horse_fit/app/views/workout_log_views/workout_log/components/horse_workout_log_card_widget.dart';
 export 'package:horse_fit/app/views/messages_and_notifications_veiws.dart/components/message_center_card_widget.dart';
 export 'package:horse_fit/app/views/messages_and_notifications_veiws.dart/components/message_center_selectable_card_widget.dart';
+export 'package:horse_fit/app/views/start_workout_views/start_workout/components/horse_workout_card_widget.dart';
+export 'package:horse_fit/app/views/add_owner_and_trainer_views/role_owner_or_trainer/components/role_card_widget.dart';
+export 'package:horse_fit/app/views/add_owner_and_trainer_views/search_owner_and_trainer/components/searched_user_tile_widget.dart';
 
 ///-- Data
 export 'package:horse_fit/app/views/create_post/create_post/data/all_post_privacy_data.dart';
+export 'package:horse_fit/app/views/add_owner_and_trainer_views/role_owner_or_trainer/data/owner_trainer_role_data.dart';
 
 ///-- Widgets
 export 'package:horse_fit/app/widgets/profile_card_widget.dart';
@@ -112,6 +136,8 @@ export 'package:horse_fit/app/widgets/switch_widget.dart';
 export 'package:horse_fit/app/widgets/show_loading_widget.dart';
 export 'package:horse_fit/app/widgets/back_button_widget.dart';
 export 'package:horse_fit/app/widgets/user_profile_card_widget.dart';
+export 'package:horse_fit/app/widgets/profile_stats_card_widget.dart';
+export 'package:horse_fit/app/widgets/profile_status_card_tile_widget.dart';
 
 /// Config
 ///-- Router
@@ -124,6 +150,8 @@ export 'package:horse_fit/config/theme/text_styles.dart';
 
 /// Core
 ///-- Arguments
+export 'package:horse_fit/core/arguments/create_post.dart';
+export 'package:horse_fit/core/arguments/add_owner_trainer.dart';
 
 ///-- Constants
 export 'package:horse_fit/core/constants/app_colors.dart';
@@ -138,6 +166,8 @@ export 'package:horse_fit/core/enums/gender.dart';
 export 'package:horse_fit/core/enums/network_status.dart';
 export 'package:horse_fit/core/enums/user_type.dart';
 export 'package:horse_fit/core/enums/post_privacy.dart';
+export 'package:horse_fit/core/enums/message_center_tab.dart';
+export 'package:horse_fit/core/enums/role.dart';
 
 ///-- Extensions
 export 'package:horse_fit/core/extensions/navigator_ext.dart';

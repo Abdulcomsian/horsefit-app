@@ -60,26 +60,66 @@ class PostWidget extends StatelessWidget {
             style: textTheme.titleMedium,
           ),
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          physics: const BouncingScrollPhysics(),
-          padding: EdgeInsets.symmetric(horizontal: 82.ph),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ...List.generate(
-                images.length,
-                (index) => Padding(
-                  padding: EdgeInsets.only(right: 16.ph),
-                  child: CachedNetworkImageWidget(
-                    imageUrl: images[index],
-                    width: 1240.w,
-                    borderRadius: BorderRadius.circular(76.r),
+        Stack(
+          children: [
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              padding: EdgeInsets.only(left: 82.ph, right: 92.ph),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ...List.generate(
+                    images.length,
+                    (index) => Stack(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(
+                              right: index == images.length - 1 ? 0.0 : 132.ph),
+                          child: CachedNetworkImageWidget(
+                            imageUrl: images[index],
+                            width: 1244.w,
+                            borderRadius: BorderRadius.circular(76.r),
+                          ),
+                        ),
+                        Positioned(
+                          left: 82.ph,
+                          bottom: 52.pv,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 18.ph, vertical: 12.pv),
+                            decoration: BoxDecoration(
+                              color: AppColors.darkColor,
+                              borderRadius: BorderRadius.circular(24.r),
+                            ),
+                            child: Row(
+                              children: [
+                                ...List.generate(
+                                  images.length,
+                                  (i) => Container(
+                                    width: i == index ? 82.w : 20.w,
+                                    height: 16.h,
+                                    margin: EdgeInsets.only(right: 18.ph),
+                                    decoration: BoxDecoration(
+                                      color: i == index
+                                          ? AppColors.whiteColor
+                                          : AppColors.whiteColor
+                                              .withOpacity(0.4),
+                                      borderRadius: BorderRadius.circular(24.r),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
         SizedBox(height: 42.h),
         Padding(

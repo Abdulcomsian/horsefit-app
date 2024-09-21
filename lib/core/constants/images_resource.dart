@@ -1,9 +1,16 @@
 class ImagesResource {
   /// Images
   static const onBoardImg = 'assets/images/on_board.png';
-  static const avatarPlaceHolderImg = 'assets/images/avatar_place_holder.png';
+
+  /// Place Holder Images
+  static const avatarPlaceHolderImg =
+      'assets/images/place_holder/avatar_place_holder.png';
+  static const horsePlaceHolderImg =
+      'assets/images/place_holder/horse_place_holder.png';
 
   /// Svg Icons
+  static const addCircleFilledIcon = 'assets/svgs/add_circle_filled.svg';
+  static const addCircleIcon = 'assets/svgs/add_circle.svg';
   static const addDeviceIcon = 'assets/svgs/add_device.svg';
   static const addFriendIcon = 'assets/svgs/add_friend.svg';
   static const addHorseIcon = 'assets/svgs/add_horse.svg';
@@ -11,6 +18,7 @@ class ImagesResource {
   static const arrowBackIcon = 'assets/svgs/arrow_back.svg';
   static const arrowDownIcon = 'assets/svgs/arrow_down.svg';
   static const arrowForwardIcon = 'assets/svgs/arrow_forward.svg';
+  static const arrowUpIcon = 'assets/svgs/arrow_up.svg';
   static const basicIcon = 'assets/svgs/basic.svg';
   static const calendarIcon = 'assets/svgs/calendar.svg';
   static const cameraIcon = 'assets/svgs/camera.svg';
@@ -48,15 +56,21 @@ class ImagesResource {
   static const myStableIcon = 'assets/svgs/my_stable.svg';
   static const notificationIcon = 'assets/svgs/notification.svg';
   static const photosIcon = 'assets/svgs/photos.svg';
+  static const playIcon = 'assets/svgs/play.svg';
+  static const profileAddOutlinedIcon = 'assets/svgs/profile_add_outlined.svg';
+  static const profileAddIcon = 'assets/svgs/profile_add.svg';
   static const profileIcon = 'assets/svgs/profile.svg';
   static const publicIcon = 'assets/svgs/public.svg';
+  static const searchIcon = 'assets/svgs/search.svg';
   static const selectedFriendsIcon = 'assets/svgs/selected_friends.svg';
+  static const sendIcon = 'assets/svgs/send.svg';
   static const shopIcon = 'assets/svgs/shop.svg';
   static const startWorkoutIcon = 'assets/svgs/start_workout.svg';
   static const statistics1Icon = 'assets/svgs/statistics_1.svg';
   static const statisticsIcon = 'assets/svgs/statistics.svg';
   static const supportAndSettingsIcon = 'assets/svgs/support_and_settings.svg';
   static const thumbDownIcon = 'assets/svgs/thumb_down.svg';
+  static const trashIcon = 'assets/svgs/trash.svg';
   static const visibilityIcon = 'assets/svgs/visibility.svg';
   static const whiteLogoIcon = 'assets/svgs/white_logo.svg';
   static const workoutDetailsIcon = 'assets/svgs/workout_details_logo.svg';

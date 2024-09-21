@@ -45,7 +45,6 @@ class FinishPostView extends StatelessWidget {
                       isSelected: state.postPrivacy ==
                           allPostPrivacy[index].postPrivacy,
                       onTap: () {
-                        logger.i('Update Post Privacy');
                         context
                             .read<CreatePostBloc>()
                             .add(CreatePostEvent.togglePostPrivacy(

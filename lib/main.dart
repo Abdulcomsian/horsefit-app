@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: AppTheme.ligthThemeData,
         navigatorKey: navigatorKey,
-        initialRoute: RouteNames.onBoardView,
+        initialRoute: RouteNames.addOwnerAndTrainerView,
+        // initialRoute: RouteNames.onBoardView,
         onGenerateRoute: locator<AppRouter>().generateRoute,
       ),
     );

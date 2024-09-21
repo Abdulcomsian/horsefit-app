@@ -1,7 +1,10 @@
 import '../../core/constants/exports.dart';
 
 class ProfileStatsCardWidget extends StatelessWidget {
-  const ProfileStatsCardWidget({super.key});
+  const ProfileStatsCardWidget({super.key, Widget? trailing})
+      : _trailing = trailing;
+
+  final Widget? _trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -15,62 +18,32 @@ class ProfileStatsCardWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const ProfileStatsCardTileWidget(
-            icon: ImagesResource.photosIcon,
-            title: 'Photos',
-            subTitle: '90',
+          const Expanded(
+            child: ProfileStatsCardTileWidget(
+              icon: ImagesResource.photosIcon,
+              title: 'Photos',
+              subTitle: '90',
+            ),
           ),
           SizedBox(width: 24.w),
-          const ProfileStatsCardTileWidget(
-            icon: ImagesResource.followersIcon,
-            title: 'Followers',
-            subTitle: '980',
+          const Expanded(
+            child: ProfileStatsCardTileWidget(
+              icon: ImagesResource.followersIcon,
+              title: 'Followers',
+              subTitle: '980',
+            ),
           ),
           SizedBox(width: 24.w),
-          const ProfileStatsCardTileWidget(
-            icon: ImagesResource.photosIcon,
-            title: 'Workouts',
-            subTitle: '36',
+          Expanded(
+            child: _trailing ??
+                const ProfileStatsCardTileWidget(
+                  icon: ImagesResource.photosIcon,
+                  title: 'Workouts',
+                  subTitle: '36',
+                ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class ProfileStatsCardTileWidget extends StatelessWidget {
-  const ProfileStatsCardTileWidget({
-    super.key,
-    required String icon,
-    required String title,
-    required String subTitle,
-  })  : _icon = icon,
-        _title = title,
-        _subTitle = subTitle;
-
-  final String _icon;
-  final String _title;
-  final String _subTitle;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SvgPictureAssetWidget(_icon, size: 92.w),
-        SizedBox(height: 20.h),
-        TextViewWidget(
-          _title,
-          style: textTheme.titleLarge
-              ?.copyWith(color: AppColors.darkColor.withOpacity(0.4)),
-        ),
-        SizedBox(height: 8.h),
-        TextViewWidget(
-          _subTitle,
-          style: textTheme.headlineMedium?.copyWith(
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ],
     );
   }
 }
