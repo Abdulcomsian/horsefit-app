@@ -6,8 +6,16 @@ part 'create_post_bloc.freezed.dart';
 
 class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
   CreatePostBloc() : super(const CreatePostState.createPostState()) {
+    on<PickImages>(_pickImages);
     on<IsValidPost>(_isValidPost);
     on<TogglePostPrivacy>(_togglePostPrivacy);
+  }
+
+  FutureOr<void> _pickImages(PickImages event, Emitter<CreatePostState> emit) {
+    final updatedPickedImages = List<String>.from(state.pickedImages)
+      ..addAll(event.pickedImages);
+
+    emit(state.copyWith(pickedImages: updatedPickedImages));
   }
 
   FutureOr<void> _isValidPost(

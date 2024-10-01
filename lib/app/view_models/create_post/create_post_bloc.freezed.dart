@@ -18,18 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreatePostEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(List<String> pickedImages) pickImages,
     required TResult Function(String text) isValidPost,
     required TResult Function(PostPrivacy postPrivacy) togglePostPrivacy,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> pickedImages)? pickImages,
     TResult? Function(String text)? isValidPost,
     TResult? Function(PostPrivacy postPrivacy)? togglePostPrivacy,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<String> pickedImages)? pickImages,
     TResult Function(String text)? isValidPost,
     TResult Function(PostPrivacy postPrivacy)? togglePostPrivacy,
     required TResult orElse(),
@@ -37,18 +40,21 @@ mixin _$CreatePostEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(PickImages value) pickImages,
     required TResult Function(IsValidPost value) isValidPost,
     required TResult Function(TogglePostPrivacy value) togglePostPrivacy,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PickImages value)? pickImages,
     TResult? Function(IsValidPost value)? isValidPost,
     TResult? Function(TogglePostPrivacy value)? togglePostPrivacy,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(PickImages value)? pickImages,
     TResult Function(IsValidPost value)? isValidPost,
     TResult Function(TogglePostPrivacy value)? togglePostPrivacy,
     required TResult orElse(),
@@ -75,6 +81,161 @@ class _$CreatePostEventCopyWithImpl<$Res, $Val extends CreatePostEvent>
 
   /// Create a copy of CreatePostEvent
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$PickImagesImplCopyWith<$Res> {
+  factory _$$PickImagesImplCopyWith(
+          _$PickImagesImpl value, $Res Function(_$PickImagesImpl) then) =
+      __$$PickImagesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String> pickedImages});
+}
+
+/// @nodoc
+class __$$PickImagesImplCopyWithImpl<$Res>
+    extends _$CreatePostEventCopyWithImpl<$Res, _$PickImagesImpl>
+    implements _$$PickImagesImplCopyWith<$Res> {
+  __$$PickImagesImplCopyWithImpl(
+      _$PickImagesImpl _value, $Res Function(_$PickImagesImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CreatePostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pickedImages = null,
+  }) {
+    return _then(_$PickImagesImpl(
+      pickedImages: null == pickedImages
+          ? _value._pickedImages
+          : pickedImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PickImagesImpl implements PickImages {
+  const _$PickImagesImpl({required final List<String> pickedImages})
+      : _pickedImages = pickedImages;
+
+  final List<String> _pickedImages;
+  @override
+  List<String> get pickedImages {
+    if (_pickedImages is EqualUnmodifiableListView) return _pickedImages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_pickedImages);
+  }
+
+  @override
+  String toString() {
+    return 'CreatePostEvent.pickImages(pickedImages: $pickedImages)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PickImagesImpl &&
+            const DeepCollectionEquality()
+                .equals(other._pickedImages, _pickedImages));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_pickedImages));
+
+  /// Create a copy of CreatePostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PickImagesImplCopyWith<_$PickImagesImpl> get copyWith =>
+      __$$PickImagesImplCopyWithImpl<_$PickImagesImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<String> pickedImages) pickImages,
+    required TResult Function(String text) isValidPost,
+    required TResult Function(PostPrivacy postPrivacy) togglePostPrivacy,
+  }) {
+    return pickImages(pickedImages);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> pickedImages)? pickImages,
+    TResult? Function(String text)? isValidPost,
+    TResult? Function(PostPrivacy postPrivacy)? togglePostPrivacy,
+  }) {
+    return pickImages?.call(pickedImages);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<String> pickedImages)? pickImages,
+    TResult Function(String text)? isValidPost,
+    TResult Function(PostPrivacy postPrivacy)? togglePostPrivacy,
+    required TResult orElse(),
+  }) {
+    if (pickImages != null) {
+      return pickImages(pickedImages);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PickImages value) pickImages,
+    required TResult Function(IsValidPost value) isValidPost,
+    required TResult Function(TogglePostPrivacy value) togglePostPrivacy,
+  }) {
+    return pickImages(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PickImages value)? pickImages,
+    TResult? Function(IsValidPost value)? isValidPost,
+    TResult? Function(TogglePostPrivacy value)? togglePostPrivacy,
+  }) {
+    return pickImages?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PickImages value)? pickImages,
+    TResult Function(IsValidPost value)? isValidPost,
+    TResult Function(TogglePostPrivacy value)? togglePostPrivacy,
+    required TResult orElse(),
+  }) {
+    if (pickImages != null) {
+      return pickImages(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PickImages implements CreatePostEvent {
+  const factory PickImages({required final List<String> pickedImages}) =
+      _$PickImagesImpl;
+
+  List<String> get pickedImages;
+
+  /// Create a copy of CreatePostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PickImagesImplCopyWith<_$PickImagesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -145,6 +306,7 @@ class _$IsValidPostImpl implements IsValidPost {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(List<String> pickedImages) pickImages,
     required TResult Function(String text) isValidPost,
     required TResult Function(PostPrivacy postPrivacy) togglePostPrivacy,
   }) {
@@ -154,6 +316,7 @@ class _$IsValidPostImpl implements IsValidPost {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> pickedImages)? pickImages,
     TResult? Function(String text)? isValidPost,
     TResult? Function(PostPrivacy postPrivacy)? togglePostPrivacy,
   }) {
@@ -163,6 +326,7 @@ class _$IsValidPostImpl implements IsValidPost {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<String> pickedImages)? pickImages,
     TResult Function(String text)? isValidPost,
     TResult Function(PostPrivacy postPrivacy)? togglePostPrivacy,
     required TResult orElse(),
@@ -176,6 +340,7 @@ class _$IsValidPostImpl implements IsValidPost {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(PickImages value) pickImages,
     required TResult Function(IsValidPost value) isValidPost,
     required TResult Function(TogglePostPrivacy value) togglePostPrivacy,
   }) {
@@ -185,6 +350,7 @@ class _$IsValidPostImpl implements IsValidPost {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PickImages value)? pickImages,
     TResult? Function(IsValidPost value)? isValidPost,
     TResult? Function(TogglePostPrivacy value)? togglePostPrivacy,
   }) {
@@ -194,6 +360,7 @@ class _$IsValidPostImpl implements IsValidPost {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(PickImages value)? pickImages,
     TResult Function(IsValidPost value)? isValidPost,
     TResult Function(TogglePostPrivacy value)? togglePostPrivacy,
     required TResult orElse(),
@@ -287,6 +454,7 @@ class _$TogglePostPrivacyImpl implements TogglePostPrivacy {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(List<String> pickedImages) pickImages,
     required TResult Function(String text) isValidPost,
     required TResult Function(PostPrivacy postPrivacy) togglePostPrivacy,
   }) {
@@ -296,6 +464,7 @@ class _$TogglePostPrivacyImpl implements TogglePostPrivacy {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> pickedImages)? pickImages,
     TResult? Function(String text)? isValidPost,
     TResult? Function(PostPrivacy postPrivacy)? togglePostPrivacy,
   }) {
@@ -305,6 +474,7 @@ class _$TogglePostPrivacyImpl implements TogglePostPrivacy {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<String> pickedImages)? pickImages,
     TResult Function(String text)? isValidPost,
     TResult Function(PostPrivacy postPrivacy)? togglePostPrivacy,
     required TResult orElse(),
@@ -318,6 +488,7 @@ class _$TogglePostPrivacyImpl implements TogglePostPrivacy {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(PickImages value) pickImages,
     required TResult Function(IsValidPost value) isValidPost,
     required TResult Function(TogglePostPrivacy value) togglePostPrivacy,
   }) {
@@ -327,6 +498,7 @@ class _$TogglePostPrivacyImpl implements TogglePostPrivacy {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PickImages value)? pickImages,
     TResult? Function(IsValidPost value)? isValidPost,
     TResult? Function(TogglePostPrivacy value)? togglePostPrivacy,
   }) {
@@ -336,6 +508,7 @@ class _$TogglePostPrivacyImpl implements TogglePostPrivacy {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(PickImages value)? pickImages,
     TResult Function(IsValidPost value)? isValidPost,
     TResult Function(TogglePostPrivacy value)? togglePostPrivacy,
     required TResult orElse(),
@@ -363,26 +536,27 @@ abstract class TogglePostPrivacy implements CreatePostEvent {
 /// @nodoc
 mixin _$CreatePostState {
   RequestStatus get status => throw _privateConstructorUsedError;
+  List<String> get pickedImages => throw _privateConstructorUsedError;
   bool get isValidPost => throw _privateConstructorUsedError;
   PostPrivacy get postPrivacy => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            RequestStatus status, bool isValidPost, PostPrivacy postPrivacy)
+    required TResult Function(RequestStatus status, List<String> pickedImages,
+            bool isValidPost, PostPrivacy postPrivacy)
         createPostState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            RequestStatus status, bool isValidPost, PostPrivacy postPrivacy)?
+    TResult? Function(RequestStatus status, List<String> pickedImages,
+            bool isValidPost, PostPrivacy postPrivacy)?
         createPostState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            RequestStatus status, bool isValidPost, PostPrivacy postPrivacy)?
+    TResult Function(RequestStatus status, List<String> pickedImages,
+            bool isValidPost, PostPrivacy postPrivacy)?
         createPostState,
     required TResult orElse(),
   }) =>
@@ -417,7 +591,11 @@ abstract class $CreatePostStateCopyWith<$Res> {
           CreatePostState value, $Res Function(CreatePostState) then) =
       _$CreatePostStateCopyWithImpl<$Res, CreatePostState>;
   @useResult
-  $Res call({RequestStatus status, bool isValidPost, PostPrivacy postPrivacy});
+  $Res call(
+      {RequestStatus status,
+      List<String> pickedImages,
+      bool isValidPost,
+      PostPrivacy postPrivacy});
 }
 
 /// @nodoc
@@ -436,6 +614,7 @@ class _$CreatePostStateCopyWithImpl<$Res, $Val extends CreatePostState>
   @override
   $Res call({
     Object? status = null,
+    Object? pickedImages = null,
     Object? isValidPost = null,
     Object? postPrivacy = null,
   }) {
@@ -444,6 +623,10 @@ class _$CreatePostStateCopyWithImpl<$Res, $Val extends CreatePostState>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as RequestStatus,
+      pickedImages: null == pickedImages
+          ? _value.pickedImages
+          : pickedImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isValidPost: null == isValidPost
           ? _value.isValidPost
           : isValidPost // ignore: cast_nullable_to_non_nullable
@@ -464,7 +647,11 @@ abstract class _$$CreatePostStateImplCopyWith<$Res>
       __$$CreatePostStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RequestStatus status, bool isValidPost, PostPrivacy postPrivacy});
+  $Res call(
+      {RequestStatus status,
+      List<String> pickedImages,
+      bool isValidPost,
+      PostPrivacy postPrivacy});
 }
 
 /// @nodoc
@@ -481,6 +668,7 @@ class __$$CreatePostStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
+    Object? pickedImages = null,
     Object? isValidPost = null,
     Object? postPrivacy = null,
   }) {
@@ -489,6 +677,10 @@ class __$$CreatePostStateImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as RequestStatus,
+      pickedImages: null == pickedImages
+          ? _value._pickedImages
+          : pickedImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isValidPost: null == isValidPost
           ? _value.isValidPost
           : isValidPost // ignore: cast_nullable_to_non_nullable
@@ -506,12 +698,23 @@ class __$$CreatePostStateImplCopyWithImpl<$Res>
 class _$CreatePostStateImpl implements _CreatePostState {
   const _$CreatePostStateImpl(
       {this.status = const InitialRequestStatus(),
+      final List<String> pickedImages = const <String>[],
       this.isValidPost = false,
-      this.postPrivacy = PostPrivacy.public});
+      this.postPrivacy = PostPrivacy.public})
+      : _pickedImages = pickedImages;
 
   @override
   @JsonKey()
   final RequestStatus status;
+  final List<String> _pickedImages;
+  @override
+  @JsonKey()
+  List<String> get pickedImages {
+    if (_pickedImages is EqualUnmodifiableListView) return _pickedImages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_pickedImages);
+  }
+
   @override
   @JsonKey()
   final bool isValidPost;
@@ -521,7 +724,7 @@ class _$CreatePostStateImpl implements _CreatePostState {
 
   @override
   String toString() {
-    return 'CreatePostState.createPostState(status: $status, isValidPost: $isValidPost, postPrivacy: $postPrivacy)';
+    return 'CreatePostState.createPostState(status: $status, pickedImages: $pickedImages, isValidPost: $isValidPost, postPrivacy: $postPrivacy)';
   }
 
   @override
@@ -530,6 +733,8 @@ class _$CreatePostStateImpl implements _CreatePostState {
         (other.runtimeType == runtimeType &&
             other is _$CreatePostStateImpl &&
             (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality()
+                .equals(other._pickedImages, _pickedImages) &&
             (identical(other.isValidPost, isValidPost) ||
                 other.isValidPost == isValidPost) &&
             (identical(other.postPrivacy, postPrivacy) ||
@@ -537,8 +742,12 @@ class _$CreatePostStateImpl implements _CreatePostState {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, status, isValidPost, postPrivacy);
+  int get hashCode => Object.hash(
+      runtimeType,
+      status,
+      const DeepCollectionEquality().hash(_pickedImages),
+      isValidPost,
+      postPrivacy);
 
   /// Create a copy of CreatePostState
   /// with the given fields replaced by the non-null parameter values.
@@ -552,33 +761,34 @@ class _$CreatePostStateImpl implements _CreatePostState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            RequestStatus status, bool isValidPost, PostPrivacy postPrivacy)
+    required TResult Function(RequestStatus status, List<String> pickedImages,
+            bool isValidPost, PostPrivacy postPrivacy)
         createPostState,
   }) {
-    return createPostState(status, isValidPost, postPrivacy);
+    return createPostState(status, pickedImages, isValidPost, postPrivacy);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            RequestStatus status, bool isValidPost, PostPrivacy postPrivacy)?
+    TResult? Function(RequestStatus status, List<String> pickedImages,
+            bool isValidPost, PostPrivacy postPrivacy)?
         createPostState,
   }) {
-    return createPostState?.call(status, isValidPost, postPrivacy);
+    return createPostState?.call(
+        status, pickedImages, isValidPost, postPrivacy);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            RequestStatus status, bool isValidPost, PostPrivacy postPrivacy)?
+    TResult Function(RequestStatus status, List<String> pickedImages,
+            bool isValidPost, PostPrivacy postPrivacy)?
         createPostState,
     required TResult orElse(),
   }) {
     if (createPostState != null) {
-      return createPostState(status, isValidPost, postPrivacy);
+      return createPostState(status, pickedImages, isValidPost, postPrivacy);
     }
     return orElse();
   }
@@ -615,11 +825,14 @@ class _$CreatePostStateImpl implements _CreatePostState {
 abstract class _CreatePostState implements CreatePostState {
   const factory _CreatePostState(
       {final RequestStatus status,
+      final List<String> pickedImages,
       final bool isValidPost,
       final PostPrivacy postPrivacy}) = _$CreatePostStateImpl;
 
   @override
   RequestStatus get status;
+  @override
+  List<String> get pickedImages;
   @override
   bool get isValidPost;
   @override

@@ -22,6 +22,7 @@ class ButtonWidget extends StatelessWidget {
     bool isZeroWidth = false,
     double? borderWidth,
     Widget? icon,
+    bool isShowIconLeading = true,
   })  : _icon = icon,
         _btnText = btnText,
         _child = child,
@@ -38,7 +39,8 @@ class ButtonWidget extends StatelessWidget {
         _padding = padding,
         _isShowLoading = isShowLoading,
         _isZeroWidth = isZeroWidth,
-        _borderWidth = borderWidth;
+        _borderWidth = borderWidth,
+        _isShowIconLeading = isShowIconLeading;
 
   final Widget? _icon;
   final String _btnText;
@@ -57,6 +59,7 @@ class ButtonWidget extends StatelessWidget {
   final bool _isShowLoading;
   final bool _isZeroWidth;
   final double? _borderWidth;
+  final bool _isShowIconLeading;
 
   @override
   Widget build(BuildContext context) {
@@ -105,8 +108,8 @@ class ButtonWidget extends StatelessWidget {
           if (!_isShowLoading)
             Row(
               children: [
-                if (_icon != null) _icon,
-                if (_icon != null) SizedBox(width: 20.w),
+                if (_icon != null && _isShowIconLeading) _icon,
+                if (_icon != null && _isShowIconLeading) SizedBox(width: 20.w),
                 _child ??
                     TextViewWidget(
                       _btnText,
@@ -117,6 +120,8 @@ class ButtonWidget extends StatelessWidget {
                             fontSize: 54.sp,
                           ),
                     ),
+                if (_icon != null && !_isShowIconLeading) SizedBox(width: 52.w),
+                if (_icon != null && !_isShowIconLeading) _icon,
               ],
             ),
         ],

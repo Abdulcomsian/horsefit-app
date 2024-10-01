@@ -1,3 +1,5 @@
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+
 import '../../../../core/constants/exports.dart';
 
 class PostWidget extends StatelessWidget {
@@ -41,14 +43,74 @@ class PostWidget extends StatelessWidget {
               SizedBox(width: 38.w),
               const Spacer(),
               Container(
+                alignment: Alignment.center,
                 padding:
-                    EdgeInsets.symmetric(horizontal: 24.ph, vertical: 24.pv),
+                    EdgeInsets.symmetric(horizontal: 12.ph, vertical: 12.pv),
                 decoration: BoxDecoration(
                   color: const Color(0xFFEAEAEB),
                   borderRadius: BorderRadius.circular(36.r),
                 ),
                 child: const Icon(Icons.more_horiz),
-              )
+              ).onTap(() {
+                showBarModalBottomSheet(
+                    context: context,
+                    topControl: const SizedBox.shrink(),
+                    builder: (c) {
+                      return Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 92.ph,
+                          vertical: 62.pv,
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              width: 156.w,
+                              height: 18.h,
+                              decoration: BoxDecoration(
+                                color: AppColors.darkColor,
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                            ),
+                            SizedBox(height: 158.h),
+                            const ReportSheetCardWidget(
+                              icon: ImagesResource.closeCircleIcon,
+                              text: 'UnFollow  Jane Doe',
+                            ),
+                            SizedBox(height: 36.h),
+                            const ReportSheetCardWidget(
+                              icon: ImagesResource.flagIcon,
+                              text: 'Report',
+                            ).onTap(() {
+                              context.pop();
+                              context.pushNamed(RouteNames.reportPostView);
+                            }),
+                            SizedBox(height: 36.h),
+                            const ReportSheetCardWidget(
+                              icon: ImagesResource.horseNameIcon,
+                              text: 'Horse Profile',
+                            ).onTap(() => context.pushNamed(
+                                RouteNames.publicProfileView,
+                                arguments: PublicProfileArgs(
+                                    isViewHorseProfile: true))),
+                            SizedBox(height: 36.h),
+                            const ReportSheetCardWidget(
+                              icon: ImagesResource.profileIcon,
+                              text: 'User Profile',
+                            ).onTap(() => context
+                                .pushNamed(RouteNames.publicProfileView)),
+                            SizedBox(height: 36.h),
+                            const ReportSheetCardWidget(
+                              icon: ImagesResource.profileIcon,
+                              text: 'Share Workout',
+                            ).onTap(() =>
+                                context.pushNamed(RouteNames.shareWorkoutView)),
+                            SizedBox(height: 132.h),
+                          ],
+                        ),
+                      );
+                    });
+              }),
             ],
           ),
         ),
@@ -60,6 +122,25 @@ class PostWidget extends StatelessWidget {
             style: textTheme.titleMedium,
           ),
         ),
+
+        ///! TODO Setup this
+        // SizedBox(
+        //   height: 400.h,
+        //   child: PageView.builder(
+        //       scrollDirection: Axis.horizontal,
+        //       itemCount: images.length,
+        //       itemBuilder: (context, index) {
+        //         return Padding(
+        //           padding: EdgeInsets.only(
+        //               right: index == images.length - 1 ? 0.0 : 132.ph),
+        //           child: CachedNetworkImageWidget(
+        //             imageUrl: images[index],
+        //             width: 1244.w,
+        //             borderRadius: BorderRadius.circular(76.r),
+        //           ),
+        //         );
+        //       }),
+        // ),
         Stack(
           children: [
             SingleChildScrollView(
@@ -76,12 +157,16 @@ class PostWidget extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(
                               right: index == images.length - 1 ? 0.0 : 132.ph),
-                          child: CachedNetworkImageWidget(
-                            imageUrl: images[index],
-                            width: 1244.w,
-                            borderRadius: BorderRadius.circular(76.r),
+                          child: InteractiveViewer(
+                            child: CachedNetworkImageWidget(
+                              imageUrl: images[index],
+                              width: 1244.w,
+                              borderRadius: BorderRadius.circular(76.r),
+                            ),
                           ),
                         ),
+
+                        ///! Don't move this when images swipe
                         Positioned(
                           left: 82.ph,
                           bottom: 52.pv,
@@ -153,6 +238,41 @@ class PostWidget extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+}
+
+class ReportSheetCardWidget extends StatelessWidget {
+  const ReportSheetCardWidget({
+    super.key,
+    required String icon,
+    required String text,
+    String? trailing,
+  })  : _icon = icon,
+        _text = text,
+        _trailing = trailing;
+
+  final String _icon, _text;
+  final String? _trailing;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 84.ph, vertical: 84.pv),
+      decoration: BoxDecoration(
+        color: AppColors.grayColor,
+        borderRadius: BorderRadius.circular(66.r),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SvgPictureAssetWidget(_icon, size: 92.w),
+          TextViewWidget(_text, style: textTheme.titleLarge),
+          _trailing != null
+              ? SvgPictureAssetWidget(_trailing)
+              : const SizedBox.shrink(),
+        ],
+      ),
     );
   }
 }

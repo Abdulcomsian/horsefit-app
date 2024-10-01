@@ -7,12 +7,15 @@ class ToggleSelectionButtonWidget extends StatelessWidget {
     required String btnText,
     required bool isSelected,
     required VoidCallback onTap,
+    double? iconSize,
   })  : _icon = icon,
+        _iconSize = iconSize,
         _btnText = btnText,
         _isSelected = isSelected,
         _onTap = onTap;
 
   final String _icon;
+  final double? _iconSize;
   final String _btnText;
   final bool _isSelected;
   final VoidCallback _onTap;
@@ -24,7 +27,7 @@ class ToggleSelectionButtonWidget extends StatelessWidget {
       icon: _isSelected
           ? SvgPictureAssetWidget(
               _icon,
-              size: 36.w,
+              size: _iconSize ?? 36.w,
               isApplyColorFilter: true,
               color: AppColors.primaryColor,
             )

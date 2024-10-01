@@ -86,7 +86,15 @@ class _ProfileInfoViewState extends State<ProfileInfoView> {
                     ),
                   ).onTap(() {
                     if (state.isEditProfile) {
-                      ///! Open date picker
+                      locator<DialogueUtils>()
+                          .openDatePicker(context)
+                          .then((dateOfBirth) {
+                        ///! TODO Move this logic to bloc
+                        if (dateOfBirth != null) {
+                          _dobController.text = dateOfBirth;
+                          setState(() {});
+                        }
+                      });
                     }
                   }),
                   SizedBox(height: 98.h),
@@ -132,47 +140,55 @@ class _ProfileInfoViewState extends State<ProfileInfoView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      UserTypeWidget(
-                        icon: ImagesResource.horseTrainerIcon,
-                        text: 'Horse\nTrainer',
-                        isSelected: state.userType == UserType.horseTrainer
-                            ? true
-                            : false,
-                        onTap: () {
-                          if (state.isEditProfile) {
-                            context.read<SignUpBloc>().add(
-                                const SignUpEvent.selectUser(
-                                    userType: UserType.horseTrainer));
-                          }
-                        },
+                      Expanded(
+                        child: WorkoutConfigurationCardWidget(
+                          icon: ImagesResource.horseTrainerIcon,
+                          text: 'Horse\nTrainer',
+                          isSelected: state.userType == UserType.horseTrainer
+                              ? true
+                              : false,
+                          onTap: () {
+                            if (state.isEditProfile) {
+                              context.read<SignUpBloc>().add(
+                                  const SignUpEvent.selectUser(
+                                      userType: UserType.horseTrainer));
+                            }
+                          },
+                        ),
                       ),
-                      UserTypeWidget(
-                        icon: ImagesResource.horseTrainerIcon,
-                        text: 'Horse\nOwner',
-                        isSelected: state.userType == UserType.horseOwner
-                            ? true
-                            : false,
-                        onTap: () {
-                          if (state.isEditProfile) {
-                            context.read<SignUpBloc>().add(
-                                const SignUpEvent.selectUser(
-                                    userType: UserType.horseOwner));
-                          }
-                        },
+                      SizedBox(width: 40.w),
+                      Expanded(
+                        child: WorkoutConfigurationCardWidget(
+                          icon: ImagesResource.horseTrainerIcon,
+                          text: 'Horse\nOwner',
+                          isSelected: state.userType == UserType.horseOwner
+                              ? true
+                              : false,
+                          onTap: () {
+                            if (state.isEditProfile) {
+                              context.read<SignUpBloc>().add(
+                                  const SignUpEvent.selectUser(
+                                      userType: UserType.horseOwner));
+                            }
+                          },
+                        ),
                       ),
-                      UserTypeWidget(
-                        icon: ImagesResource.horseTrainerIcon,
-                        text: 'Regular\nUser',
-                        isSelected: state.userType == UserType.regularUser
-                            ? true
-                            : false,
-                        onTap: () {
-                          if (state.isEditProfile) {
-                            context.read<SignUpBloc>().add(
-                                const SignUpEvent.selectUser(
-                                    userType: UserType.regularUser));
-                          }
-                        },
+                      SizedBox(width: 40.w),
+                      Expanded(
+                        child: WorkoutConfigurationCardWidget(
+                          icon: ImagesResource.horseTrainerIcon,
+                          text: 'Regular\nUser',
+                          isSelected: state.userType == UserType.regularUser
+                              ? true
+                              : false,
+                          onTap: () {
+                            if (state.isEditProfile) {
+                              context.read<SignUpBloc>().add(
+                                  const SignUpEvent.selectUser(
+                                      userType: UserType.regularUser));
+                            }
+                          },
+                        ),
                       ),
                     ],
                   ),
@@ -188,7 +204,7 @@ class _ProfileInfoViewState extends State<ProfileInfoView> {
                     btnText: state.isEditProfile ? 'Save' : 'Edit',
                     onTap: () {
                       if (state.isEditProfile) {
-                        context.unfocusKeyboard();
+                        context.unFocusKeyboard();
 
                         ///! TODO Call upload profile
                         context

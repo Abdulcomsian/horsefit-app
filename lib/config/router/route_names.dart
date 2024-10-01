@@ -18,14 +18,24 @@ class RouteNames {
   static const workoutLogView = "workoutLogView";
   static const selectHorseView = "selectHorseView";
   static const intervalSettingsView = "intervalSettingsView";
+  static const intervalSettingsSummaryView = "intervalSettingsSummaryView";
   static const selectedHorseView = "selectedHorseView";
   static const startWorkoutView = "startWorkoutView";
-  static const statisticsView = "statisticsView";
+  static const startWorkoutTimerView = "startWorkoutTimerView";
+  static const summaryView = "summaryView";
+  static const shareWorkoutView = "shareWorkoutView";
+  static const workoutDetailsView = "workoutDetailsView";
   static const shopView = "shopView";
   static const supportAndSettingsView = "supportAndSettingsView";
-  static const horseProfileView = "horseProfileView";
-  static const horseInfoView = "horseInfoView";
+  static const publicProfileView = "publicProfileView";
+  static const publicProfileInfoView = "publicProfileInfoView";
   static const addOwnerAndTrainerView = "addOwnerAndTrainerView";
   static const roleOwnerOrTrainerView = "roleOwnerOrTrainerView";
   static const searchOwnerAndTrainerView = "searchOwnerAndTrainerView";
+  static const webView = "webView";
+  static const feedBackView = "feedBackView";
+  static const reportFeedBackSuccessView = "reportFeedBackSuccessView";
+  static const reportPostView = "reportPostView";
+  static const reportReasonsView = "reportReasonsView";
+  static const reportReasonSummaryView = "reportReasonSummaryView";
 }

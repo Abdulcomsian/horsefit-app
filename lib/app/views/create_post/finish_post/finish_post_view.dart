@@ -27,7 +27,7 @@ class FinishPostView extends StatelessWidget {
             ),
             SizedBox(height: 66.h),
             TextViewWidget(
-              'Your post will be shown in News Feed, on your profile and in search results.',
+              'Your post will be shown in News Feed, on\nyour profile and in search results.',
               align: TextAlign.center,
               style:
                   textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w500),
@@ -63,6 +63,13 @@ class FinishPostView extends StatelessWidget {
               align: TextAlign.center,
               style: textTheme.displayMedium
                   ?.copyWith(fontWeight: FontWeight.w900),
+            ).center(),
+            SizedBox(height: 28.h),
+            TextViewWidget(
+              'Your post will automatically be shown in the main feed, but you can add which feeds you want to add the post to:',
+              align: TextAlign.justify,
+              style:
+                  textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 72.h),
             ...List.generate(
@@ -112,7 +119,7 @@ class FinishPostView extends StatelessWidget {
           ButtonWidget(
             btnText: 'Post',
             margin: EdgeInsets.symmetric(horizontal: 92.ph, vertical: 62.pv),
-            onTap: () {},
+            onTap: () => context.pushNamedAndRemoveUntil(RouteNames.feedView),
           )
         ],
       ),

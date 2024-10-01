@@ -1,0 +1,1 @@
+enum HorseActivityEnum { trotting, riding }

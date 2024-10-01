@@ -1,11 +1,13 @@
 import '../constants/exports.dart';
 
-Future<void> initDependancies() async {
+Future<void> initDependencies() async {
   locator.registerLazySingleton<AppRouter>(() => AppRouter());
   locator.registerLazySingleton<PermissionUtils>(() => PermissionUtils());
   locator.registerLazySingleton<DialogueUtils>(() => DialogueUtils());
   locator.registerLazySingleton<Utils>(() => Utils());
   locator.registerLazySingleton<Validation>(() => Validation());
+  locator.registerLazySingleton<ImagePicker>(() => ImagePicker());
+  locator.registerLazySingleton<BottomSheetUtils>(() => BottomSheetUtils());
 
   locator.registerLazySingleton<Dio>(() => setupDio());
   locator.registerLazySingleton<NetworkApiClient>(

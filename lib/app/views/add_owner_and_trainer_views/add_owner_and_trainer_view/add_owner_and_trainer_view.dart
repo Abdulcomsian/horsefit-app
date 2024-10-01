@@ -1,27 +1,32 @@
 import '../../../../core/constants/exports.dart';
 
 class AddOwnerAndTrainerView extends StatelessWidget {
-  const AddOwnerAndTrainerView({super.key});
+  const AddOwnerAndTrainerView({super.key, AddOwnerTrainerArgs? args})
+      : _args = args;
+
+  final AddOwnerTrainerArgs? _args;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarWidget(title: 'Add owner/trainer'),
       body: SizedBox.expand(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 92.ph),
+          physics: const BouncingScrollPhysics(),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 252.h),
+              SizedBox(height: _args?.isUserAdded == true ? 30.h : 252.h),
               SvgPictureAssetWidget(
                 ImagesResource.profileAddIcon,
                 size: 342.w,
-              ),
+              ).center(),
               SizedBox(height: 106.h),
               TextViewWidget(
                 'Add owner/trainer',
                 style: textTheme.displayLarge,
-              ),
+              ).center(),
               SizedBox(height: 66.h),
               TextViewWidget(
                 'Everyone who works with the Horse can have a different role depending on what they need to work on.',
@@ -29,9 +34,10 @@ class AddOwnerAndTrainerView extends StatelessWidget {
                 style: textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.w500,
                 ),
-              ),
+              ).center(),
               Container(
-                margin: EdgeInsets.only(top: 1080.ph),
+                margin: EdgeInsets.only(
+                    top: _args?.isUserAdded == true ? 80.h : 1080.ph),
                 padding:
                     EdgeInsets.symmetric(horizontal: 102.ph, vertical: 62.pv),
                 decoration: BoxDecoration(
@@ -64,6 +70,42 @@ class AddOwnerAndTrainerView extends StatelessWidget {
                                 ?.copyWith(fontWeight: FontWeight.w600),
                           )
                         ]))),
+                  ],
+                ),
+              ),
+              Visibility(
+                visible: _args?.isUserAdded ?? false,
+                child: Padding(
+                  padding: EdgeInsets.only(top: 142.pv, bottom: 80.pv),
+                  child: TextViewWidget(
+                    'Owners & Trainers',
+                    style: textTheme.headlineMedium?.copyWith(
+                      fontSize: 62.sp,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ),
+              Visibility(
+                visible: _args?.isUserAdded ?? false,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ...List.generate(
+                        10,
+                        (index) => UserProfileCardWidget(
+                              margin: EdgeInsets.only(bottom: 40.pv),
+                              leading: ConstantsResource.profileUrl,
+                              title: 'Kamran Khan',
+                              subTitle: 'Owner & Trainer',
+                              trailing: SvgPictureAssetWidget(
+                                      ImagesResource.editIcon,
+                                      size: 86.w)
+                                  .onTap(() => context.pushNamed(
+                                      RouteNames.roleOwnerOrTrainerView,
+                                      arguments: AddOwnerTrainerArgs(
+                                          isEditOwnerTrainer: true))),
+                            )),
                   ],
                 ),
               ),

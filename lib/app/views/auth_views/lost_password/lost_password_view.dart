@@ -82,7 +82,7 @@ class _LostPasswordViewState extends State<LostPasswordView> {
                         state.isValidEmail ? null : AppColors.disabledBtnColor,
                     onTap: () {
                       if (state.isValidEmail) {
-                        context.unfocusKeyboard();
+                        context.unFocusKeyboard();
                         context.read<LostPasswordBloc>().add(
                             LostPasswordEvent.sendPasswordResetEmail(
                                 email: _lostPasswordController.text.trim()));

@@ -18,45 +18,45 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AddHorseEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() activity,
-    required TResult Function() gender,
-    required TResult Function() blooded,
+    required TResult Function(HorseActivityEnum horseActivity) horseActivity,
+    required TResult Function(HorseGenderEnum horseGender) horseGender,
+    required TResult Function(HorseTypeEnum horseType) horseType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? activity,
-    TResult? Function()? gender,
-    TResult? Function()? blooded,
+    TResult? Function(HorseActivityEnum horseActivity)? horseActivity,
+    TResult? Function(HorseGenderEnum horseGender)? horseGender,
+    TResult? Function(HorseTypeEnum horseType)? horseType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? activity,
-    TResult Function()? gender,
-    TResult Function()? blooded,
+    TResult Function(HorseActivityEnum horseActivity)? horseActivity,
+    TResult Function(HorseGenderEnum horseGender)? horseGender,
+    TResult Function(HorseTypeEnum horseType)? horseType,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Activity value) activity,
-    required TResult Function(Gender value) gender,
-    required TResult Function(Blooded value) blooded,
+    required TResult Function(HorseActivity value) horseActivity,
+    required TResult Function(HorseGender value) horseGender,
+    required TResult Function(HorseType value) horseType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Activity value)? activity,
-    TResult? Function(Gender value)? gender,
-    TResult? Function(Blooded value)? blooded,
+    TResult? Function(HorseActivity value)? horseActivity,
+    TResult? Function(HorseGender value)? horseGender,
+    TResult? Function(HorseType value)? horseType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Activity value)? activity,
-    TResult Function(Gender value)? gender,
-    TResult Function(Blooded value)? blooded,
+    TResult Function(HorseActivity value)? horseActivity,
+    TResult Function(HorseGender value)? horseGender,
+    TResult Function(HorseType value)? horseType,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -84,73 +84,101 @@ class _$AddHorseEventCopyWithImpl<$Res, $Val extends AddHorseEvent>
 }
 
 /// @nodoc
-abstract class _$$ActivityImplCopyWith<$Res> {
-  factory _$$ActivityImplCopyWith(
-          _$ActivityImpl value, $Res Function(_$ActivityImpl) then) =
-      __$$ActivityImplCopyWithImpl<$Res>;
+abstract class _$$HorseActivityImplCopyWith<$Res> {
+  factory _$$HorseActivityImplCopyWith(
+          _$HorseActivityImpl value, $Res Function(_$HorseActivityImpl) then) =
+      __$$HorseActivityImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HorseActivityEnum horseActivity});
 }
 
 /// @nodoc
-class __$$ActivityImplCopyWithImpl<$Res>
-    extends _$AddHorseEventCopyWithImpl<$Res, _$ActivityImpl>
-    implements _$$ActivityImplCopyWith<$Res> {
-  __$$ActivityImplCopyWithImpl(
-      _$ActivityImpl _value, $Res Function(_$ActivityImpl) _then)
+class __$$HorseActivityImplCopyWithImpl<$Res>
+    extends _$AddHorseEventCopyWithImpl<$Res, _$HorseActivityImpl>
+    implements _$$HorseActivityImplCopyWith<$Res> {
+  __$$HorseActivityImplCopyWithImpl(
+      _$HorseActivityImpl _value, $Res Function(_$HorseActivityImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of AddHorseEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? horseActivity = null,
+  }) {
+    return _then(_$HorseActivityImpl(
+      horseActivity: null == horseActivity
+          ? _value.horseActivity
+          : horseActivity // ignore: cast_nullable_to_non_nullable
+              as HorseActivityEnum,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$ActivityImpl implements Activity {
-  const _$ActivityImpl();
+class _$HorseActivityImpl implements HorseActivity {
+  const _$HorseActivityImpl({required this.horseActivity});
+
+  @override
+  final HorseActivityEnum horseActivity;
 
   @override
   String toString() {
-    return 'AddHorseEvent.activity()';
+    return 'AddHorseEvent.horseActivity(horseActivity: $horseActivity)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ActivityImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$HorseActivityImpl &&
+            (identical(other.horseActivity, horseActivity) ||
+                other.horseActivity == horseActivity));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, horseActivity);
+
+  /// Create a copy of AddHorseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HorseActivityImplCopyWith<_$HorseActivityImpl> get copyWith =>
+      __$$HorseActivityImplCopyWithImpl<_$HorseActivityImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() activity,
-    required TResult Function() gender,
-    required TResult Function() blooded,
+    required TResult Function(HorseActivityEnum horseActivity) horseActivity,
+    required TResult Function(HorseGenderEnum horseGender) horseGender,
+    required TResult Function(HorseTypeEnum horseType) horseType,
   }) {
-    return activity();
+    return horseActivity(this.horseActivity);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? activity,
-    TResult? Function()? gender,
-    TResult? Function()? blooded,
+    TResult? Function(HorseActivityEnum horseActivity)? horseActivity,
+    TResult? Function(HorseGenderEnum horseGender)? horseGender,
+    TResult? Function(HorseTypeEnum horseType)? horseType,
   }) {
-    return activity?.call();
+    return horseActivity?.call(this.horseActivity);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? activity,
-    TResult Function()? gender,
-    TResult Function()? blooded,
+    TResult Function(HorseActivityEnum horseActivity)? horseActivity,
+    TResult Function(HorseGenderEnum horseGender)? horseGender,
+    TResult Function(HorseTypeEnum horseType)? horseType,
     required TResult orElse(),
   }) {
-    if (activity != null) {
-      return activity();
+    if (horseActivity != null) {
+      return horseActivity(this.horseActivity);
     }
     return orElse();
   }
@@ -158,110 +186,147 @@ class _$ActivityImpl implements Activity {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Activity value) activity,
-    required TResult Function(Gender value) gender,
-    required TResult Function(Blooded value) blooded,
+    required TResult Function(HorseActivity value) horseActivity,
+    required TResult Function(HorseGender value) horseGender,
+    required TResult Function(HorseType value) horseType,
   }) {
-    return activity(this);
+    return horseActivity(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Activity value)? activity,
-    TResult? Function(Gender value)? gender,
-    TResult? Function(Blooded value)? blooded,
+    TResult? Function(HorseActivity value)? horseActivity,
+    TResult? Function(HorseGender value)? horseGender,
+    TResult? Function(HorseType value)? horseType,
   }) {
-    return activity?.call(this);
+    return horseActivity?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Activity value)? activity,
-    TResult Function(Gender value)? gender,
-    TResult Function(Blooded value)? blooded,
+    TResult Function(HorseActivity value)? horseActivity,
+    TResult Function(HorseGender value)? horseGender,
+    TResult Function(HorseType value)? horseType,
     required TResult orElse(),
   }) {
-    if (activity != null) {
-      return activity(this);
+    if (horseActivity != null) {
+      return horseActivity(this);
     }
     return orElse();
   }
 }
 
-abstract class Activity implements AddHorseEvent {
-  const factory Activity() = _$ActivityImpl;
+abstract class HorseActivity implements AddHorseEvent {
+  const factory HorseActivity(
+      {required final HorseActivityEnum horseActivity}) = _$HorseActivityImpl;
+
+  HorseActivityEnum get horseActivity;
+
+  /// Create a copy of AddHorseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$HorseActivityImplCopyWith<_$HorseActivityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GenderImplCopyWith<$Res> {
-  factory _$$GenderImplCopyWith(
-          _$GenderImpl value, $Res Function(_$GenderImpl) then) =
-      __$$GenderImplCopyWithImpl<$Res>;
+abstract class _$$HorseGenderImplCopyWith<$Res> {
+  factory _$$HorseGenderImplCopyWith(
+          _$HorseGenderImpl value, $Res Function(_$HorseGenderImpl) then) =
+      __$$HorseGenderImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HorseGenderEnum horseGender});
 }
 
 /// @nodoc
-class __$$GenderImplCopyWithImpl<$Res>
-    extends _$AddHorseEventCopyWithImpl<$Res, _$GenderImpl>
-    implements _$$GenderImplCopyWith<$Res> {
-  __$$GenderImplCopyWithImpl(
-      _$GenderImpl _value, $Res Function(_$GenderImpl) _then)
+class __$$HorseGenderImplCopyWithImpl<$Res>
+    extends _$AddHorseEventCopyWithImpl<$Res, _$HorseGenderImpl>
+    implements _$$HorseGenderImplCopyWith<$Res> {
+  __$$HorseGenderImplCopyWithImpl(
+      _$HorseGenderImpl _value, $Res Function(_$HorseGenderImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of AddHorseEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? horseGender = null,
+  }) {
+    return _then(_$HorseGenderImpl(
+      horseGender: null == horseGender
+          ? _value.horseGender
+          : horseGender // ignore: cast_nullable_to_non_nullable
+              as HorseGenderEnum,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$GenderImpl implements Gender {
-  const _$GenderImpl();
+class _$HorseGenderImpl implements HorseGender {
+  const _$HorseGenderImpl({required this.horseGender});
+
+  @override
+  final HorseGenderEnum horseGender;
 
   @override
   String toString() {
-    return 'AddHorseEvent.gender()';
+    return 'AddHorseEvent.horseGender(horseGender: $horseGender)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GenderImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$HorseGenderImpl &&
+            (identical(other.horseGender, horseGender) ||
+                other.horseGender == horseGender));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, horseGender);
+
+  /// Create a copy of AddHorseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HorseGenderImplCopyWith<_$HorseGenderImpl> get copyWith =>
+      __$$HorseGenderImplCopyWithImpl<_$HorseGenderImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() activity,
-    required TResult Function() gender,
-    required TResult Function() blooded,
+    required TResult Function(HorseActivityEnum horseActivity) horseActivity,
+    required TResult Function(HorseGenderEnum horseGender) horseGender,
+    required TResult Function(HorseTypeEnum horseType) horseType,
   }) {
-    return gender();
+    return horseGender(this.horseGender);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? activity,
-    TResult? Function()? gender,
-    TResult? Function()? blooded,
+    TResult? Function(HorseActivityEnum horseActivity)? horseActivity,
+    TResult? Function(HorseGenderEnum horseGender)? horseGender,
+    TResult? Function(HorseTypeEnum horseType)? horseType,
   }) {
-    return gender?.call();
+    return horseGender?.call(this.horseGender);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? activity,
-    TResult Function()? gender,
-    TResult Function()? blooded,
+    TResult Function(HorseActivityEnum horseActivity)? horseActivity,
+    TResult Function(HorseGenderEnum horseGender)? horseGender,
+    TResult Function(HorseTypeEnum horseType)? horseType,
     required TResult orElse(),
   }) {
-    if (gender != null) {
-      return gender();
+    if (horseGender != null) {
+      return horseGender(this.horseGender);
     }
     return orElse();
   }
@@ -269,110 +334,147 @@ class _$GenderImpl implements Gender {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Activity value) activity,
-    required TResult Function(Gender value) gender,
-    required TResult Function(Blooded value) blooded,
+    required TResult Function(HorseActivity value) horseActivity,
+    required TResult Function(HorseGender value) horseGender,
+    required TResult Function(HorseType value) horseType,
   }) {
-    return gender(this);
+    return horseGender(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Activity value)? activity,
-    TResult? Function(Gender value)? gender,
-    TResult? Function(Blooded value)? blooded,
+    TResult? Function(HorseActivity value)? horseActivity,
+    TResult? Function(HorseGender value)? horseGender,
+    TResult? Function(HorseType value)? horseType,
   }) {
-    return gender?.call(this);
+    return horseGender?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Activity value)? activity,
-    TResult Function(Gender value)? gender,
-    TResult Function(Blooded value)? blooded,
+    TResult Function(HorseActivity value)? horseActivity,
+    TResult Function(HorseGender value)? horseGender,
+    TResult Function(HorseType value)? horseType,
     required TResult orElse(),
   }) {
-    if (gender != null) {
-      return gender(this);
+    if (horseGender != null) {
+      return horseGender(this);
     }
     return orElse();
   }
 }
 
-abstract class Gender implements AddHorseEvent {
-  const factory Gender() = _$GenderImpl;
+abstract class HorseGender implements AddHorseEvent {
+  const factory HorseGender({required final HorseGenderEnum horseGender}) =
+      _$HorseGenderImpl;
+
+  HorseGenderEnum get horseGender;
+
+  /// Create a copy of AddHorseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$HorseGenderImplCopyWith<_$HorseGenderImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$BloodedImplCopyWith<$Res> {
-  factory _$$BloodedImplCopyWith(
-          _$BloodedImpl value, $Res Function(_$BloodedImpl) then) =
-      __$$BloodedImplCopyWithImpl<$Res>;
+abstract class _$$HorseTypeImplCopyWith<$Res> {
+  factory _$$HorseTypeImplCopyWith(
+          _$HorseTypeImpl value, $Res Function(_$HorseTypeImpl) then) =
+      __$$HorseTypeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HorseTypeEnum horseType});
 }
 
 /// @nodoc
-class __$$BloodedImplCopyWithImpl<$Res>
-    extends _$AddHorseEventCopyWithImpl<$Res, _$BloodedImpl>
-    implements _$$BloodedImplCopyWith<$Res> {
-  __$$BloodedImplCopyWithImpl(
-      _$BloodedImpl _value, $Res Function(_$BloodedImpl) _then)
+class __$$HorseTypeImplCopyWithImpl<$Res>
+    extends _$AddHorseEventCopyWithImpl<$Res, _$HorseTypeImpl>
+    implements _$$HorseTypeImplCopyWith<$Res> {
+  __$$HorseTypeImplCopyWithImpl(
+      _$HorseTypeImpl _value, $Res Function(_$HorseTypeImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of AddHorseEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? horseType = null,
+  }) {
+    return _then(_$HorseTypeImpl(
+      horseType: null == horseType
+          ? _value.horseType
+          : horseType // ignore: cast_nullable_to_non_nullable
+              as HorseTypeEnum,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$BloodedImpl implements Blooded {
-  const _$BloodedImpl();
+class _$HorseTypeImpl implements HorseType {
+  const _$HorseTypeImpl({required this.horseType});
+
+  @override
+  final HorseTypeEnum horseType;
 
   @override
   String toString() {
-    return 'AddHorseEvent.blooded()';
+    return 'AddHorseEvent.horseType(horseType: $horseType)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$BloodedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$HorseTypeImpl &&
+            (identical(other.horseType, horseType) ||
+                other.horseType == horseType));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, horseType);
+
+  /// Create a copy of AddHorseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HorseTypeImplCopyWith<_$HorseTypeImpl> get copyWith =>
+      __$$HorseTypeImplCopyWithImpl<_$HorseTypeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() activity,
-    required TResult Function() gender,
-    required TResult Function() blooded,
+    required TResult Function(HorseActivityEnum horseActivity) horseActivity,
+    required TResult Function(HorseGenderEnum horseGender) horseGender,
+    required TResult Function(HorseTypeEnum horseType) horseType,
   }) {
-    return blooded();
+    return horseType(this.horseType);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? activity,
-    TResult? Function()? gender,
-    TResult? Function()? blooded,
+    TResult? Function(HorseActivityEnum horseActivity)? horseActivity,
+    TResult? Function(HorseGenderEnum horseGender)? horseGender,
+    TResult? Function(HorseTypeEnum horseType)? horseType,
   }) {
-    return blooded?.call();
+    return horseType?.call(this.horseType);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? activity,
-    TResult Function()? gender,
-    TResult Function()? blooded,
+    TResult Function(HorseActivityEnum horseActivity)? horseActivity,
+    TResult Function(HorseGenderEnum horseGender)? horseGender,
+    TResult Function(HorseTypeEnum horseType)? horseType,
     required TResult orElse(),
   }) {
-    if (blooded != null) {
-      return blooded();
+    if (horseType != null) {
+      return horseType(this.horseType);
     }
     return orElse();
   }
@@ -380,75 +482,99 @@ class _$BloodedImpl implements Blooded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Activity value) activity,
-    required TResult Function(Gender value) gender,
-    required TResult Function(Blooded value) blooded,
+    required TResult Function(HorseActivity value) horseActivity,
+    required TResult Function(HorseGender value) horseGender,
+    required TResult Function(HorseType value) horseType,
   }) {
-    return blooded(this);
+    return horseType(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Activity value)? activity,
-    TResult? Function(Gender value)? gender,
-    TResult? Function(Blooded value)? blooded,
+    TResult? Function(HorseActivity value)? horseActivity,
+    TResult? Function(HorseGender value)? horseGender,
+    TResult? Function(HorseType value)? horseType,
   }) {
-    return blooded?.call(this);
+    return horseType?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Activity value)? activity,
-    TResult Function(Gender value)? gender,
-    TResult Function(Blooded value)? blooded,
+    TResult Function(HorseActivity value)? horseActivity,
+    TResult Function(HorseGender value)? horseGender,
+    TResult Function(HorseType value)? horseType,
     required TResult orElse(),
   }) {
-    if (blooded != null) {
-      return blooded(this);
+    if (horseType != null) {
+      return horseType(this);
     }
     return orElse();
   }
 }
 
-abstract class Blooded implements AddHorseEvent {
-  const factory Blooded() = _$BloodedImpl;
+abstract class HorseType implements AddHorseEvent {
+  const factory HorseType({required final HorseTypeEnum horseType}) =
+      _$HorseTypeImpl;
+
+  HorseTypeEnum get horseType;
+
+  /// Create a copy of AddHorseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$HorseTypeImplCopyWith<_$HorseTypeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$AddHorseState {
+  HorseActivityEnum get horseActivity => throw _privateConstructorUsedError;
+  HorseGenderEnum get horseGender => throw _privateConstructorUsedError;
+  HorseTypeEnum get horseType => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(HorseActivityEnum horseActivity,
+            HorseGenderEnum horseGender, HorseTypeEnum horseType)
+        addHorseState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(HorseActivityEnum horseActivity,
+            HorseGenderEnum horseGender, HorseTypeEnum horseType)?
+        addHorseState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(HorseActivityEnum horseActivity,
+            HorseGenderEnum horseGender, HorseTypeEnum horseType)?
+        addHorseState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_AddHorseState value) addHorseState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AddHorseState value)? addHorseState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_AddHorseState value)? addHorseState,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  /// Create a copy of AddHorseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AddHorseStateCopyWith<AddHorseState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -457,6 +583,11 @@ abstract class $AddHorseStateCopyWith<$Res> {
   factory $AddHorseStateCopyWith(
           AddHorseState value, $Res Function(AddHorseState) then) =
       _$AddHorseStateCopyWithImpl<$Res, AddHorseState>;
+  @useResult
+  $Res call(
+      {HorseActivityEnum horseActivity,
+      HorseGenderEnum horseGender,
+      HorseTypeEnum horseType});
 }
 
 /// @nodoc
@@ -471,70 +602,156 @@ class _$AddHorseStateCopyWithImpl<$Res, $Val extends AddHorseState>
 
   /// Create a copy of AddHorseState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? horseActivity = null,
+    Object? horseGender = null,
+    Object? horseType = null,
+  }) {
+    return _then(_value.copyWith(
+      horseActivity: null == horseActivity
+          ? _value.horseActivity
+          : horseActivity // ignore: cast_nullable_to_non_nullable
+              as HorseActivityEnum,
+      horseGender: null == horseGender
+          ? _value.horseGender
+          : horseGender // ignore: cast_nullable_to_non_nullable
+              as HorseGenderEnum,
+      horseType: null == horseType
+          ? _value.horseType
+          : horseType // ignore: cast_nullable_to_non_nullable
+              as HorseTypeEnum,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$AddHorseStateImplCopyWith<$Res>
+    implements $AddHorseStateCopyWith<$Res> {
+  factory _$$AddHorseStateImplCopyWith(
+          _$AddHorseStateImpl value, $Res Function(_$AddHorseStateImpl) then) =
+      __$$AddHorseStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {HorseActivityEnum horseActivity,
+      HorseGenderEnum horseGender,
+      HorseTypeEnum horseType});
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$AddHorseStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$AddHorseStateImplCopyWithImpl<$Res>
+    extends _$AddHorseStateCopyWithImpl<$Res, _$AddHorseStateImpl>
+    implements _$$AddHorseStateImplCopyWith<$Res> {
+  __$$AddHorseStateImplCopyWithImpl(
+      _$AddHorseStateImpl _value, $Res Function(_$AddHorseStateImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of AddHorseState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? horseActivity = null,
+    Object? horseGender = null,
+    Object? horseType = null,
+  }) {
+    return _then(_$AddHorseStateImpl(
+      horseActivity: null == horseActivity
+          ? _value.horseActivity
+          : horseActivity // ignore: cast_nullable_to_non_nullable
+              as HorseActivityEnum,
+      horseGender: null == horseGender
+          ? _value.horseGender
+          : horseGender // ignore: cast_nullable_to_non_nullable
+              as HorseGenderEnum,
+      horseType: null == horseType
+          ? _value.horseType
+          : horseType // ignore: cast_nullable_to_non_nullable
+              as HorseTypeEnum,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$AddHorseStateImpl implements _AddHorseState {
+  const _$AddHorseStateImpl(
+      {this.horseActivity = HorseActivityEnum.trotting,
+      this.horseGender = HorseGenderEnum.mare,
+      this.horseType = HorseTypeEnum.warmBlooded});
+
+  @override
+  @JsonKey()
+  final HorseActivityEnum horseActivity;
+  @override
+  @JsonKey()
+  final HorseGenderEnum horseGender;
+  @override
+  @JsonKey()
+  final HorseTypeEnum horseType;
 
   @override
   String toString() {
-    return 'AddHorseState.initial()';
+    return 'AddHorseState.addHorseState(horseActivity: $horseActivity, horseGender: $horseGender, horseType: $horseType)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$AddHorseStateImpl &&
+            (identical(other.horseActivity, horseActivity) ||
+                other.horseActivity == horseActivity) &&
+            (identical(other.horseGender, horseGender) ||
+                other.horseGender == horseGender) &&
+            (identical(other.horseType, horseType) ||
+                other.horseType == horseType));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, horseActivity, horseGender, horseType);
+
+  /// Create a copy of AddHorseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddHorseStateImplCopyWith<_$AddHorseStateImpl> get copyWith =>
+      __$$AddHorseStateImplCopyWithImpl<_$AddHorseStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(HorseActivityEnum horseActivity,
+            HorseGenderEnum horseGender, HorseTypeEnum horseType)
+        addHorseState,
   }) {
-    return initial();
+    return addHorseState(horseActivity, horseGender, horseType);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(HorseActivityEnum horseActivity,
+            HorseGenderEnum horseGender, HorseTypeEnum horseType)?
+        addHorseState,
   }) {
-    return initial?.call();
+    return addHorseState?.call(horseActivity, horseGender, horseType);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(HorseActivityEnum horseActivity,
+            HorseGenderEnum horseGender, HorseTypeEnum horseType)?
+        addHorseState,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial();
+    if (addHorseState != null) {
+      return addHorseState(horseActivity, horseGender, horseType);
     }
     return orElse();
   }
@@ -542,32 +759,49 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_AddHorseState value) addHorseState,
   }) {
-    return initial(this);
+    return addHorseState(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AddHorseState value)? addHorseState,
   }) {
-    return initial?.call(this);
+    return addHorseState?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_AddHorseState value)? addHorseState,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (addHorseState != null) {
+      return addHorseState(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initial implements AddHorseState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _AddHorseState implements AddHorseState {
+  const factory _AddHorseState(
+      {final HorseActivityEnum horseActivity,
+      final HorseGenderEnum horseGender,
+      final HorseTypeEnum horseType}) = _$AddHorseStateImpl;
+
+  @override
+  HorseActivityEnum get horseActivity;
+  @override
+  HorseGenderEnum get horseGender;
+  @override
+  HorseTypeEnum get horseType;
+
+  /// Create a copy of AddHorseState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddHorseStateImplCopyWith<_$AddHorseStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -6,7 +6,7 @@ class MenuView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF101A3F).withOpacity(0.87),
+      backgroundColor: const Color(0xFF101A3F).withOpacity(0.92),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -16,14 +16,14 @@ class MenuView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 24.ph, top: 24.pv),
+                    padding: EdgeInsets.only(left: 80.ph, top: 24.pv),
                     child: SvgPictureAssetWidget(
                       ImagesResource.coloredLogoIcon,
                       width: 460.w,
                     ),
                   ),
                   Container(
-                      margin: EdgeInsets.only(right: 24.ph, top: 24.pv),
+                      margin: EdgeInsets.only(right: 80.ph, top: 24.pv),
                       padding: EdgeInsets.symmetric(
                           horizontal: 42.ph, vertical: 42.pv),
                       decoration: BoxDecoration(
@@ -69,13 +69,13 @@ class MenuView extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        feedScaffoldKey.currentState?.closeDrawer();
+                        Scaffold.of(context).closeDrawer();
                         context.pushNamed(menuItems[index].route);
                       },
                     );
                   },
                   separatorBuilder: (context, index) {
-                    if (index == 2 || index == 4) {
+                    if (index == 2 || index == 3) {
                       return Divider(
                         color: AppColors.grayColor.withOpacity(0.15),
                         indent: 72.w,
@@ -106,23 +106,13 @@ final List<MenuModel> menuItems = [
     route: RouteNames.startWorkoutView,
   ),
   MenuModel(
-    icon: ImagesResource.addFriendIcon,
-    text: 'Add Friend',
-    route: RouteNames.addOwnerAndTrainerView,
-  ),
-  MenuModel(
     icon: ImagesResource.workoutLogIcon,
     text: 'Workout Log',
     route: RouteNames.workoutLogView,
   ),
   MenuModel(
-    icon: ImagesResource.statisticsIcon,
-    text: 'Statistics',
-    route: RouteNames.statisticsView,
-  ),
-  MenuModel(
     icon: ImagesResource.addDeviceIcon,
-    text: 'Add Device',
+    text: 'Add Devices',
     route: RouteNames.addDevicesView,
   ),
   MenuModel(

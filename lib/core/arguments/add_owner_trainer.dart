@@ -1,5 +1,9 @@
 class AddOwnerTrainerArgs {
-  AddOwnerTrainerArgs({this.isEditOwnerTrainer = false});
+  AddOwnerTrainerArgs({
+    this.isEditOwnerTrainer = false,
+    this.isUserAdded = false,
+  });
 
   final bool isEditOwnerTrainer;
+  final bool isUserAdded;
 }

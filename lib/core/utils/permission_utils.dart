@@ -1,7 +1,7 @@
 import 'package:permission_handler/permission_handler.dart';
 
 class PermissionUtils {
-  Future<PermissionStatus> checkPermission(
+  static Future<PermissionStatus> checkPermission(
       {required Permission permission}) async {
     PermissionStatus status = await permission.status;
     if (!status.isDenied) {

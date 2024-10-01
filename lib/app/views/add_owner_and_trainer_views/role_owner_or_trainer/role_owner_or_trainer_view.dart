@@ -94,7 +94,8 @@ class RoleOwnerOrTrainerView extends StatelessWidget {
                   )
                 : null,
             btnText: isEditOwnerTrainer ? 'Save' : 'Add',
-            onTap: () {},
+            onTap: () => context.pushNamed(RouteNames.addOwnerAndTrainerView,
+                arguments: AddOwnerTrainerArgs(isUserAdded: true)),
           ),
         ],
       ),

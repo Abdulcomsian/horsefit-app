@@ -66,7 +66,7 @@ class OnBoardView extends StatelessWidget {
                     onTap: () => context.pushNamed(RouteNames.signUpView),
                   ),
                   ButtonWidget(
-                    btnText: 'Sign In',
+                    btnText: 'Log In',
                     margin: EdgeInsets.only(top: 60.ph),
                     isShowBorder: true,
                     textColor: AppColors.darkColor,

@@ -1,3 +1,7 @@
+import 'package:horse_fit/app/views/report_post_views/report_reason_summary/report_reason_summary_view.dart';
+import 'package:horse_fit/app/views/start_workout_views/share_workout/share_workout_view.dart';
+import 'package:horse_fit/app/views/start_workout_views/workout_details/workout_details_view.dart';
+
 import '../../app/view_models/auth_view_models/sign_up/sign_up_bloc.dart';
 import '../../core/constants/exports.dart';
 
@@ -72,18 +76,16 @@ class AppRouter {
 
       case RouteNames.myStableView:
         return NoAnimationMaterialPageRoute(
-          builder: (_) => BlocProvider(
-            ///! TODO Replace this bloc
-            create: (_) => FeedBloc(),
-            child: const MyStableView(),
-          ),
+          builder: (_) => const MyStableView(),
         );
 
       case RouteNames.addHorseView:
         return NoAnimationMaterialPageRoute(
-          builder: (_) => BlocProvider(
-            ///! TODO Replace this bloc
-            create: (_) => FeedBloc(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (_) => AddHorseBloc()),
+              BlocProvider(create: (_) => SignUpBloc()),
+            ],
             child: const AddHorseView(),
           ),
         );
@@ -147,19 +149,48 @@ class AppRouter {
           builder: (_) => const IntervalSettingsView(),
         );
 
+      case RouteNames.intervalSettingsSummaryView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const IntervalSettingsSummaryView(),
+        );
+
       case RouteNames.selectedHorseView:
         return NoAnimationMaterialPageRoute(
-          builder: (_) => const SelectedHorseView(),
+          builder: (_) => BlocProvider(
+            create: (context) => StartWorkoutBloc(),
+            child: const SelectedHorseView(),
+          ),
         );
 
       case RouteNames.startWorkoutView:
         return NoAnimationMaterialPageRoute(
-          builder: (_) => const StartWorkOutView(),
+          builder: (_) => BlocProvider(
+            create: (context) => StartWorkoutBloc(),
+            child: const StartWorkOutView(),
+          ),
         );
 
-      case RouteNames.statisticsView:
+      case RouteNames.startWorkoutTimerView:
         return NoAnimationMaterialPageRoute(
-          builder: (_) => const StatisticsView(),
+          builder: (_) => BlocProvider(
+            create: (context) => StartWorkoutBloc(),
+            child: const StartWorkoutTimerView(),
+          ),
+        );
+
+      case RouteNames.summaryView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const SummaryView(),
+        );
+
+      case RouteNames.shareWorkoutView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const ShareWorkoutView(),
+        );
+
+      case RouteNames.workoutDetailsView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const WorkoutDetailsView(),
         );
 
       case RouteNames.shopView:
@@ -172,25 +203,28 @@ class AppRouter {
           builder: (_) => const SupportAndSettingsView(),
         );
 
-      case RouteNames.horseProfileView:
+      case RouteNames.publicProfileView:
+        final args = settings.arguments as PublicProfileArgs?;
         return NoAnimationMaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => HorseProfileBloc(),
-            child: const HorseProfileView(),
+            create: (context) => PublicProfileBloc(),
+            child: PublicProfileView(args: args),
           ),
         );
 
-      case RouteNames.horseInfoView:
+      case RouteNames.publicProfileInfoView:
+        final args = settings.arguments as PublicProfileArgs?;
         return NoAnimationMaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => HorseProfileBloc(),
-            child: const HorseInfoView(),
+            create: (context) => PublicProfileBloc(),
+            child: PublicProfileInfoView(args: args),
           ),
         );
 
       case RouteNames.addOwnerAndTrainerView:
+        final args = settings.arguments as AddOwnerTrainerArgs?;
         return NoAnimationMaterialPageRoute(
-          builder: (_) => const AddOwnerAndTrainerView(),
+          builder: (_) => AddOwnerAndTrainerView(args: args),
         );
 
       case RouteNames.roleOwnerOrTrainerView:
@@ -205,6 +239,47 @@ class AppRouter {
       case RouteNames.searchOwnerAndTrainerView:
         return NoAnimationMaterialPageRoute(
           builder: (_) => const SearchOwnerAndTrainerView(),
+        );
+
+      case RouteNames.webView:
+        final args = settings.arguments as WebViewArgs;
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => WebView(args: args),
+        );
+
+      case RouteNames.feedBackView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => ReportPostBloc()
+              ..add(const ReportPostEvent.getAllFeedBackOptions()),
+            child: const FeedBackView(),
+          ),
+        );
+
+      case RouteNames.reportFeedBackSuccessView:
+        final args = settings.arguments as ReportArgs?;
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => ReportFeedbackSuccessView(args: args),
+        );
+
+      case RouteNames.reportPostView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const ReportPostView(),
+        );
+
+      case RouteNames.reportReasonsView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => ReportPostBloc()
+              ..add(const ReportPostEvent.getAllReportPostReasons()),
+            child: const ReportReasonsView(),
+          ),
+        );
+
+      case RouteNames.reportReasonSummaryView:
+        final args = settings.arguments as ReportArgs;
+        return NoAnimationMaterialPageRoute(
+          builder: (context) => ReportReasonSummaryView(args: args),
         );
 
       default:

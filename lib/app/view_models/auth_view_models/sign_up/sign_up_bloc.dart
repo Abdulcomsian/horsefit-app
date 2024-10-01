@@ -6,12 +6,17 @@ part 'sign_up_bloc.freezed.dart';
 
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   SignUpBloc() : super(const SignUpState.signUpState()) {
+    on<PickProfile>(_pickProfile);
     on<TogglePasswordVisibility>(_togglePasswordVisibility);
     on<ToggleConfirmPasswordVisibility>(_toggleConfirmPasswordVisibility);
     on<ToggleGender>(_toggleGender);
     on<SelectUser>(_selectUser);
     on<CreateAccount>(_createAccount);
     on<ToggleEditProfile>(_toggleEditProfile);
+  }
+
+  FutureOr<void> _pickProfile(PickProfile event, Emitter<SignUpState> emit) {
+    emit(state.copyWith(profilePath: event.profilePath));
   }
 
   FutureOr<void> _togglePasswordVisibility(

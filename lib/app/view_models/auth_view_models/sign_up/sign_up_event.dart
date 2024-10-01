@@ -2,6 +2,8 @@ part of 'sign_up_bloc.dart';
 
 @freezed
 class SignUpEvent with _$SignUpEvent {
+  const factory SignUpEvent.pickProfile({required String profilePath}) =
+      PickProfile;
   const factory SignUpEvent.togglePasswordVisibility() =
       TogglePasswordVisibility;
   const factory SignUpEvent.toggleConfirmPasswordVisibility() =

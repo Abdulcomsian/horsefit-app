@@ -87,4 +87,92 @@ class DialogueUtils {
     );
     return result ?? false;
   }
+
+  Future<void> openAppSetting(BuildContext context,
+          {required String permission}) async =>
+      await showDialog<bool>(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.r))),
+            title: TextViewWidget(
+              permission,
+              align: TextAlign.center,
+              style: textTheme.headlineLarge,
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextViewWidget(
+                  '$permission permission is required.',
+                  align: TextAlign.center,
+                  style: textTheme.headlineMedium,
+                ),
+                SizedBox(height: 72.h),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: ButtonWidget(
+                        btnText: 'Open app settings',
+                        isZeroWidth: true,
+                        color: Theme.of(context).primaryColor,
+                        style: textTheme.labelLarge
+                            ?.copyWith(color: AppColors.whiteColor),
+                        onTap: () async {
+                          try {
+                            await openAppSettings().then((_) => context.pop());
+                          } catch (e) {
+                            logger.e(e.toString());
+                          }
+                        },
+                      ),
+                    ),
+                    SizedBox(width: 32.w),
+                    Expanded(
+                      flex: 2,
+                      child: ButtonWidget(
+                        btnText: 'Close',
+                        isZeroWidth: true,
+                        isShowBorder: true,
+                        borderColor: AppColors.grayColor,
+                        style: textTheme.labelLarge
+                            ?.copyWith(color: AppColors.darkColor),
+                        onTap: () => context.pop(),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
+      );
+
+  Future<String?> openDatePicker(
+    BuildContext context, {
+    DateTime? initialDate,
+    DateTime? firstDate,
+    DateTime? lastDate,
+  }) async {
+    String? pickedDate;
+    final picked = await showDatePicker(
+        context: context,
+        initialDate: initialDate ?? DateTime.now(),
+        firstDate: firstDate ?? DateTime(2000),
+        lastDate: lastDate ?? DateTime(2200),
+        builder: (context, child) => Theme(
+              data: Theme.of(context).copyWith(
+                  colorScheme:
+                      const ColorScheme.light(primary: AppColors.primaryColor)),
+              child: child ?? const SizedBox.shrink(),
+            ));
+    if (picked != null) {
+      pickedDate = picked.toString().substring(0, 10);
+    }
+
+    return pickedDate;
+  }
 }

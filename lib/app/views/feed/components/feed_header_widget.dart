@@ -40,7 +40,7 @@ class FeedHeaderWidget extends StatelessWidget {
                   child: SvgPictureAssetWidget(
                     ImagesResource.menuOutlinedIcon,
                     size: 102.w,
-                  )).onTap(() => feedScaffoldKey.currentState?.openDrawer())
+                  )).onTap(() => Scaffold.of(context).openDrawer())
             ],
           ),
           SizedBox(height: 140.h),
@@ -58,7 +58,7 @@ class FeedHeaderWidget extends StatelessWidget {
                   icon: ImagesResource.mediaVideosIcon,
                   isSelected: false,
                   count: 2,
-                ),
+                ).onTap(() => context.pushNamed(RouteNames.startWorkoutView)),
                 const FeedTabItemWidget(
                   icon: ImagesResource.chatIcon,
                   secondIcon: ImagesResource.notificationIcon,

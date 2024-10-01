@@ -1,4 +1,5 @@
 import '../../../../core/constants/exports.dart';
+import '../../../view_models/auth_view_models/sign_up/sign_up_bloc.dart';
 
 class AvatarWidget extends StatelessWidget {
   const AvatarWidget({super.key, bool isShowCameraIcon = true})
@@ -11,15 +12,23 @@ class AvatarWidget extends StatelessWidget {
     return Stack(
       alignment: Alignment.bottomRight,
       children: [
-        Container(
-          width: 400.w,
-          height: 400.w,
-          decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                  image: AssetImage(
-                ImagesResource.avatarPlaceHolderImg,
-              ))),
+        BlocBuilder<SignUpBloc, SignUpState>(
+          builder: (context, state) {
+            return Container(
+              width: 400.w,
+              height: 400.w,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: (state.profilePath != null &&
+                          (state.profilePath?.isNotEmpty ?? false))
+                      ? FileImage(File(state.profilePath ?? ''))
+                      : const AssetImage(ImagesResource.avatarPlaceHolderImg),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            );
+          },
         ),
         if (_isShowCameraIcon)
           Container(
@@ -38,7 +47,18 @@ class AvatarWidget extends StatelessWidget {
               ),
               child: const SvgPictureAssetWidget(ImagesResource.cameraIcon),
             ),
-          )
+          ).onTap(() async {
+            await locator<BottomSheetUtils>().pickImageBottomSheet(
+              context,
+              uploadPickedMedia: (profileImage, _) {
+                logger.i(profileImage);
+
+                context
+                    .read<SignUpBloc>()
+                    .add(SignUpEvent.pickProfile(profilePath: profileImage));
+              },
+            );
+          })
       ],
     );
   }

@@ -5,7 +5,7 @@ class NetworkHandler {
     required BuildContext context,
     required Future<void> Function() onlineAction,
   }) async {
-    context.unfocusKeyboard();
+    context.unFocusKeyboard();
     if (status.networkStatus == NetworkStatus.online) {
       await onlineAction();
     } else {

@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SignUpEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String profilePath) pickProfile,
     required TResult Function() togglePasswordVisibility,
     required TResult Function() toggleConfirmPasswordVisibility,
     required TResult Function(Gender gender) toggleGender,
@@ -28,6 +29,7 @@ mixin _$SignUpEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String profilePath)? pickProfile,
     TResult? Function()? togglePasswordVisibility,
     TResult? Function()? toggleConfirmPasswordVisibility,
     TResult? Function(Gender gender)? toggleGender,
@@ -38,6 +40,7 @@ mixin _$SignUpEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String profilePath)? pickProfile,
     TResult Function()? togglePasswordVisibility,
     TResult Function()? toggleConfirmPasswordVisibility,
     TResult Function(Gender gender)? toggleGender,
@@ -49,6 +52,7 @@ mixin _$SignUpEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(PickProfile value) pickProfile,
     required TResult Function(TogglePasswordVisibility value)
         togglePasswordVisibility,
     required TResult Function(ToggleConfirmPasswordVisibility value)
@@ -61,6 +65,7 @@ mixin _$SignUpEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PickProfile value)? pickProfile,
     TResult? Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult? Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -72,6 +77,7 @@ mixin _$SignUpEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(PickProfile value)? pickProfile,
     TResult Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -103,6 +109,182 @@ class _$SignUpEventCopyWithImpl<$Res, $Val extends SignUpEvent>
 
   /// Create a copy of SignUpEvent
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$PickProfileImplCopyWith<$Res> {
+  factory _$$PickProfileImplCopyWith(
+          _$PickProfileImpl value, $Res Function(_$PickProfileImpl) then) =
+      __$$PickProfileImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String profilePath});
+}
+
+/// @nodoc
+class __$$PickProfileImplCopyWithImpl<$Res>
+    extends _$SignUpEventCopyWithImpl<$Res, _$PickProfileImpl>
+    implements _$$PickProfileImplCopyWith<$Res> {
+  __$$PickProfileImplCopyWithImpl(
+      _$PickProfileImpl _value, $Res Function(_$PickProfileImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SignUpEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? profilePath = null,
+  }) {
+    return _then(_$PickProfileImpl(
+      profilePath: null == profilePath
+          ? _value.profilePath
+          : profilePath // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PickProfileImpl implements PickProfile {
+  const _$PickProfileImpl({required this.profilePath});
+
+  @override
+  final String profilePath;
+
+  @override
+  String toString() {
+    return 'SignUpEvent.pickProfile(profilePath: $profilePath)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PickProfileImpl &&
+            (identical(other.profilePath, profilePath) ||
+                other.profilePath == profilePath));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, profilePath);
+
+  /// Create a copy of SignUpEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PickProfileImplCopyWith<_$PickProfileImpl> get copyWith =>
+      __$$PickProfileImplCopyWithImpl<_$PickProfileImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String profilePath) pickProfile,
+    required TResult Function() togglePasswordVisibility,
+    required TResult Function() toggleConfirmPasswordVisibility,
+    required TResult Function(Gender gender) toggleGender,
+    required TResult Function(UserType userType) selectUser,
+    required TResult Function() createAccount,
+    required TResult Function() toggleEditProfile,
+  }) {
+    return pickProfile(profilePath);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String profilePath)? pickProfile,
+    TResult? Function()? togglePasswordVisibility,
+    TResult? Function()? toggleConfirmPasswordVisibility,
+    TResult? Function(Gender gender)? toggleGender,
+    TResult? Function(UserType userType)? selectUser,
+    TResult? Function()? createAccount,
+    TResult? Function()? toggleEditProfile,
+  }) {
+    return pickProfile?.call(profilePath);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String profilePath)? pickProfile,
+    TResult Function()? togglePasswordVisibility,
+    TResult Function()? toggleConfirmPasswordVisibility,
+    TResult Function(Gender gender)? toggleGender,
+    TResult Function(UserType userType)? selectUser,
+    TResult Function()? createAccount,
+    TResult Function()? toggleEditProfile,
+    required TResult orElse(),
+  }) {
+    if (pickProfile != null) {
+      return pickProfile(profilePath);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PickProfile value) pickProfile,
+    required TResult Function(TogglePasswordVisibility value)
+        togglePasswordVisibility,
+    required TResult Function(ToggleConfirmPasswordVisibility value)
+        toggleConfirmPasswordVisibility,
+    required TResult Function(ToggleGender value) toggleGender,
+    required TResult Function(SelectUser value) selectUser,
+    required TResult Function(CreateAccount value) createAccount,
+    required TResult Function(ToggleEditProfile value) toggleEditProfile,
+  }) {
+    return pickProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PickProfile value)? pickProfile,
+    TResult? Function(TogglePasswordVisibility value)? togglePasswordVisibility,
+    TResult? Function(ToggleConfirmPasswordVisibility value)?
+        toggleConfirmPasswordVisibility,
+    TResult? Function(ToggleGender value)? toggleGender,
+    TResult? Function(SelectUser value)? selectUser,
+    TResult? Function(CreateAccount value)? createAccount,
+    TResult? Function(ToggleEditProfile value)? toggleEditProfile,
+  }) {
+    return pickProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PickProfile value)? pickProfile,
+    TResult Function(TogglePasswordVisibility value)? togglePasswordVisibility,
+    TResult Function(ToggleConfirmPasswordVisibility value)?
+        toggleConfirmPasswordVisibility,
+    TResult Function(ToggleGender value)? toggleGender,
+    TResult Function(SelectUser value)? selectUser,
+    TResult Function(CreateAccount value)? createAccount,
+    TResult Function(ToggleEditProfile value)? toggleEditProfile,
+    required TResult orElse(),
+  }) {
+    if (pickProfile != null) {
+      return pickProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PickProfile implements SignUpEvent {
+  const factory PickProfile({required final String profilePath}) =
+      _$PickProfileImpl;
+
+  String get profilePath;
+
+  /// Create a copy of SignUpEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PickProfileImplCopyWith<_$PickProfileImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -149,6 +331,7 @@ class _$TogglePasswordVisibilityImpl implements TogglePasswordVisibility {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String profilePath) pickProfile,
     required TResult Function() togglePasswordVisibility,
     required TResult Function() toggleConfirmPasswordVisibility,
     required TResult Function(Gender gender) toggleGender,
@@ -162,6 +345,7 @@ class _$TogglePasswordVisibilityImpl implements TogglePasswordVisibility {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String profilePath)? pickProfile,
     TResult? Function()? togglePasswordVisibility,
     TResult? Function()? toggleConfirmPasswordVisibility,
     TResult? Function(Gender gender)? toggleGender,
@@ -175,6 +359,7 @@ class _$TogglePasswordVisibilityImpl implements TogglePasswordVisibility {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String profilePath)? pickProfile,
     TResult Function()? togglePasswordVisibility,
     TResult Function()? toggleConfirmPasswordVisibility,
     TResult Function(Gender gender)? toggleGender,
@@ -192,6 +377,7 @@ class _$TogglePasswordVisibilityImpl implements TogglePasswordVisibility {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(PickProfile value) pickProfile,
     required TResult Function(TogglePasswordVisibility value)
         togglePasswordVisibility,
     required TResult Function(ToggleConfirmPasswordVisibility value)
@@ -207,6 +393,7 @@ class _$TogglePasswordVisibilityImpl implements TogglePasswordVisibility {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PickProfile value)? pickProfile,
     TResult? Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult? Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -221,6 +408,7 @@ class _$TogglePasswordVisibilityImpl implements TogglePasswordVisibility {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(PickProfile value)? pickProfile,
     TResult Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -287,6 +475,7 @@ class _$ToggleConfirmPasswordVisibilityImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String profilePath) pickProfile,
     required TResult Function() togglePasswordVisibility,
     required TResult Function() toggleConfirmPasswordVisibility,
     required TResult Function(Gender gender) toggleGender,
@@ -300,6 +489,7 @@ class _$ToggleConfirmPasswordVisibilityImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String profilePath)? pickProfile,
     TResult? Function()? togglePasswordVisibility,
     TResult? Function()? toggleConfirmPasswordVisibility,
     TResult? Function(Gender gender)? toggleGender,
@@ -313,6 +503,7 @@ class _$ToggleConfirmPasswordVisibilityImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String profilePath)? pickProfile,
     TResult Function()? togglePasswordVisibility,
     TResult Function()? toggleConfirmPasswordVisibility,
     TResult Function(Gender gender)? toggleGender,
@@ -330,6 +521,7 @@ class _$ToggleConfirmPasswordVisibilityImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(PickProfile value) pickProfile,
     required TResult Function(TogglePasswordVisibility value)
         togglePasswordVisibility,
     required TResult Function(ToggleConfirmPasswordVisibility value)
@@ -345,6 +537,7 @@ class _$ToggleConfirmPasswordVisibilityImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PickProfile value)? pickProfile,
     TResult? Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult? Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -359,6 +552,7 @@ class _$ToggleConfirmPasswordVisibilityImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(PickProfile value)? pickProfile,
     TResult Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -448,6 +642,7 @@ class _$ToggleGenderImpl implements ToggleGender {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String profilePath) pickProfile,
     required TResult Function() togglePasswordVisibility,
     required TResult Function() toggleConfirmPasswordVisibility,
     required TResult Function(Gender gender) toggleGender,
@@ -461,6 +656,7 @@ class _$ToggleGenderImpl implements ToggleGender {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String profilePath)? pickProfile,
     TResult? Function()? togglePasswordVisibility,
     TResult? Function()? toggleConfirmPasswordVisibility,
     TResult? Function(Gender gender)? toggleGender,
@@ -474,6 +670,7 @@ class _$ToggleGenderImpl implements ToggleGender {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String profilePath)? pickProfile,
     TResult Function()? togglePasswordVisibility,
     TResult Function()? toggleConfirmPasswordVisibility,
     TResult Function(Gender gender)? toggleGender,
@@ -491,6 +688,7 @@ class _$ToggleGenderImpl implements ToggleGender {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(PickProfile value) pickProfile,
     required TResult Function(TogglePasswordVisibility value)
         togglePasswordVisibility,
     required TResult Function(ToggleConfirmPasswordVisibility value)
@@ -506,6 +704,7 @@ class _$ToggleGenderImpl implements ToggleGender {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PickProfile value)? pickProfile,
     TResult? Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult? Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -520,6 +719,7 @@ class _$ToggleGenderImpl implements ToggleGender {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(PickProfile value)? pickProfile,
     TResult Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -618,6 +818,7 @@ class _$SelectUserImpl implements SelectUser {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String profilePath) pickProfile,
     required TResult Function() togglePasswordVisibility,
     required TResult Function() toggleConfirmPasswordVisibility,
     required TResult Function(Gender gender) toggleGender,
@@ -631,6 +832,7 @@ class _$SelectUserImpl implements SelectUser {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String profilePath)? pickProfile,
     TResult? Function()? togglePasswordVisibility,
     TResult? Function()? toggleConfirmPasswordVisibility,
     TResult? Function(Gender gender)? toggleGender,
@@ -644,6 +846,7 @@ class _$SelectUserImpl implements SelectUser {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String profilePath)? pickProfile,
     TResult Function()? togglePasswordVisibility,
     TResult Function()? toggleConfirmPasswordVisibility,
     TResult Function(Gender gender)? toggleGender,
@@ -661,6 +864,7 @@ class _$SelectUserImpl implements SelectUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(PickProfile value) pickProfile,
     required TResult Function(TogglePasswordVisibility value)
         togglePasswordVisibility,
     required TResult Function(ToggleConfirmPasswordVisibility value)
@@ -676,6 +880,7 @@ class _$SelectUserImpl implements SelectUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PickProfile value)? pickProfile,
     TResult? Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult? Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -690,6 +895,7 @@ class _$SelectUserImpl implements SelectUser {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(PickProfile value)? pickProfile,
     TResult Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -760,6 +966,7 @@ class _$CreateAccountImpl implements CreateAccount {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String profilePath) pickProfile,
     required TResult Function() togglePasswordVisibility,
     required TResult Function() toggleConfirmPasswordVisibility,
     required TResult Function(Gender gender) toggleGender,
@@ -773,6 +980,7 @@ class _$CreateAccountImpl implements CreateAccount {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String profilePath)? pickProfile,
     TResult? Function()? togglePasswordVisibility,
     TResult? Function()? toggleConfirmPasswordVisibility,
     TResult? Function(Gender gender)? toggleGender,
@@ -786,6 +994,7 @@ class _$CreateAccountImpl implements CreateAccount {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String profilePath)? pickProfile,
     TResult Function()? togglePasswordVisibility,
     TResult Function()? toggleConfirmPasswordVisibility,
     TResult Function(Gender gender)? toggleGender,
@@ -803,6 +1012,7 @@ class _$CreateAccountImpl implements CreateAccount {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(PickProfile value) pickProfile,
     required TResult Function(TogglePasswordVisibility value)
         togglePasswordVisibility,
     required TResult Function(ToggleConfirmPasswordVisibility value)
@@ -818,6 +1028,7 @@ class _$CreateAccountImpl implements CreateAccount {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PickProfile value)? pickProfile,
     TResult? Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult? Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -832,6 +1043,7 @@ class _$CreateAccountImpl implements CreateAccount {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(PickProfile value)? pickProfile,
     TResult Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -893,6 +1105,7 @@ class _$ToggleEditProfileImpl implements ToggleEditProfile {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String profilePath) pickProfile,
     required TResult Function() togglePasswordVisibility,
     required TResult Function() toggleConfirmPasswordVisibility,
     required TResult Function(Gender gender) toggleGender,
@@ -906,6 +1119,7 @@ class _$ToggleEditProfileImpl implements ToggleEditProfile {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String profilePath)? pickProfile,
     TResult? Function()? togglePasswordVisibility,
     TResult? Function()? toggleConfirmPasswordVisibility,
     TResult? Function(Gender gender)? toggleGender,
@@ -919,6 +1133,7 @@ class _$ToggleEditProfileImpl implements ToggleEditProfile {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String profilePath)? pickProfile,
     TResult Function()? togglePasswordVisibility,
     TResult Function()? toggleConfirmPasswordVisibility,
     TResult Function(Gender gender)? toggleGender,
@@ -936,6 +1151,7 @@ class _$ToggleEditProfileImpl implements ToggleEditProfile {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(PickProfile value) pickProfile,
     required TResult Function(TogglePasswordVisibility value)
         togglePasswordVisibility,
     required TResult Function(ToggleConfirmPasswordVisibility value)
@@ -951,6 +1167,7 @@ class _$ToggleEditProfileImpl implements ToggleEditProfile {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PickProfile value)? pickProfile,
     TResult? Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult? Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -965,6 +1182,7 @@ class _$ToggleEditProfileImpl implements ToggleEditProfile {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(PickProfile value)? pickProfile,
     TResult Function(TogglePasswordVisibility value)? togglePasswordVisibility,
     TResult Function(ToggleConfirmPasswordVisibility value)?
         toggleConfirmPasswordVisibility,
@@ -988,6 +1206,7 @@ abstract class ToggleEditProfile implements SignUpEvent {
 /// @nodoc
 mixin _$SignUpState {
   RequestStatus get status => throw _privateConstructorUsedError;
+  String? get profilePath => throw _privateConstructorUsedError;
   bool get isPasswordVisible => throw _privateConstructorUsedError;
   bool get isConfirmPasswordVisible => throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
@@ -997,6 +1216,7 @@ mixin _$SignUpState {
   TResult when<TResult extends Object?>({
     required TResult Function(
             RequestStatus status,
+            String? profilePath,
             bool isPasswordVisible,
             bool isConfirmPasswordVisible,
             Gender gender,
@@ -1009,6 +1229,7 @@ mixin _$SignUpState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             RequestStatus status,
+            String? profilePath,
             bool isPasswordVisible,
             bool isConfirmPasswordVisible,
             Gender gender,
@@ -1021,6 +1242,7 @@ mixin _$SignUpState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             RequestStatus status,
+            String? profilePath,
             bool isPasswordVisible,
             bool isConfirmPasswordVisible,
             Gender gender,
@@ -1062,6 +1284,7 @@ abstract class $SignUpStateCopyWith<$Res> {
   @useResult
   $Res call(
       {RequestStatus status,
+      String? profilePath,
       bool isPasswordVisible,
       bool isConfirmPasswordVisible,
       Gender gender,
@@ -1085,6 +1308,7 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
   @override
   $Res call({
     Object? status = null,
+    Object? profilePath = freezed,
     Object? isPasswordVisible = null,
     Object? isConfirmPasswordVisible = null,
     Object? gender = null,
@@ -1096,6 +1320,10 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as RequestStatus,
+      profilePath: freezed == profilePath
+          ? _value.profilePath
+          : profilePath // ignore: cast_nullable_to_non_nullable
+              as String?,
       isPasswordVisible: null == isPasswordVisible
           ? _value.isPasswordVisible
           : isPasswordVisible // ignore: cast_nullable_to_non_nullable
@@ -1130,6 +1358,7 @@ abstract class _$$InitialImplCopyWith<$Res>
   @useResult
   $Res call(
       {RequestStatus status,
+      String? profilePath,
       bool isPasswordVisible,
       bool isConfirmPasswordVisible,
       Gender gender,
@@ -1151,6 +1380,7 @@ class __$$InitialImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
+    Object? profilePath = freezed,
     Object? isPasswordVisible = null,
     Object? isConfirmPasswordVisible = null,
     Object? gender = null,
@@ -1162,6 +1392,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as RequestStatus,
+      profilePath: freezed == profilePath
+          ? _value.profilePath
+          : profilePath // ignore: cast_nullable_to_non_nullable
+              as String?,
       isPasswordVisible: null == isPasswordVisible
           ? _value.isPasswordVisible
           : isPasswordVisible // ignore: cast_nullable_to_non_nullable
@@ -1191,6 +1425,7 @@ class __$$InitialImplCopyWithImpl<$Res>
 class _$InitialImpl implements _Initial {
   const _$InitialImpl(
       {this.status = const InitialRequestStatus(),
+      this.profilePath,
       this.isPasswordVisible = true,
       this.isConfirmPasswordVisible = true,
       this.gender = Gender.male,
@@ -1200,6 +1435,8 @@ class _$InitialImpl implements _Initial {
   @override
   @JsonKey()
   final RequestStatus status;
+  @override
+  final String? profilePath;
   @override
   @JsonKey()
   final bool isPasswordVisible;
@@ -1218,7 +1455,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'SignUpState.signUpState(status: $status, isPasswordVisible: $isPasswordVisible, isConfirmPasswordVisible: $isConfirmPasswordVisible, gender: $gender, userType: $userType, isEditProfile: $isEditProfile)';
+    return 'SignUpState.signUpState(status: $status, profilePath: $profilePath, isPasswordVisible: $isPasswordVisible, isConfirmPasswordVisible: $isConfirmPasswordVisible, gender: $gender, userType: $userType, isEditProfile: $isEditProfile)';
   }
 
   @override
@@ -1227,6 +1464,8 @@ class _$InitialImpl implements _Initial {
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&
             (identical(other.status, status) || other.status == status) &&
+            (identical(other.profilePath, profilePath) ||
+                other.profilePath == profilePath) &&
             (identical(other.isPasswordVisible, isPasswordVisible) ||
                 other.isPasswordVisible == isPasswordVisible) &&
             (identical(
@@ -1240,8 +1479,15 @@ class _$InitialImpl implements _Initial {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, isPasswordVisible,
-      isConfirmPasswordVisible, gender, userType, isEditProfile);
+  int get hashCode => Object.hash(
+      runtimeType,
+      status,
+      profilePath,
+      isPasswordVisible,
+      isConfirmPasswordVisible,
+      gender,
+      userType,
+      isEditProfile);
 
   /// Create a copy of SignUpState
   /// with the given fields replaced by the non-null parameter values.
@@ -1256,6 +1502,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function(
             RequestStatus status,
+            String? profilePath,
             bool isPasswordVisible,
             bool isConfirmPasswordVisible,
             Gender gender,
@@ -1263,8 +1510,8 @@ class _$InitialImpl implements _Initial {
             bool isEditProfile)
         signUpState,
   }) {
-    return signUpState(status, isPasswordVisible, isConfirmPasswordVisible,
-        gender, userType, isEditProfile);
+    return signUpState(status, profilePath, isPasswordVisible,
+        isConfirmPasswordVisible, gender, userType, isEditProfile);
   }
 
   @override
@@ -1272,6 +1519,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             RequestStatus status,
+            String? profilePath,
             bool isPasswordVisible,
             bool isConfirmPasswordVisible,
             Gender gender,
@@ -1279,7 +1527,7 @@ class _$InitialImpl implements _Initial {
             bool isEditProfile)?
         signUpState,
   }) {
-    return signUpState?.call(status, isPasswordVisible,
+    return signUpState?.call(status, profilePath, isPasswordVisible,
         isConfirmPasswordVisible, gender, userType, isEditProfile);
   }
 
@@ -1288,6 +1536,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             RequestStatus status,
+            String? profilePath,
             bool isPasswordVisible,
             bool isConfirmPasswordVisible,
             Gender gender,
@@ -1297,8 +1546,8 @@ class _$InitialImpl implements _Initial {
     required TResult orElse(),
   }) {
     if (signUpState != null) {
-      return signUpState(status, isPasswordVisible, isConfirmPasswordVisible,
-          gender, userType, isEditProfile);
+      return signUpState(status, profilePath, isPasswordVisible,
+          isConfirmPasswordVisible, gender, userType, isEditProfile);
     }
     return orElse();
   }
@@ -1335,6 +1584,7 @@ class _$InitialImpl implements _Initial {
 abstract class _Initial implements SignUpState {
   const factory _Initial(
       {final RequestStatus status,
+      final String? profilePath,
       final bool isPasswordVisible,
       final bool isConfirmPasswordVisible,
       final Gender gender,
@@ -1343,6 +1593,8 @@ abstract class _Initial implements SignUpState {
 
   @override
   RequestStatus get status;
+  @override
+  String? get profilePath;
   @override
   bool get isPasswordVisible;
   @override

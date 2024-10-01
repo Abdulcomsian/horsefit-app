@@ -8,6 +8,8 @@ class FeedView extends StatefulWidget {
 }
 
 class _FeedViewState extends State<FeedView> {
+  final GlobalKey<ScaffoldState> _feedScaffoldKey = GlobalKey();
+
   ///! TODO Replace the dynamic with model
   late PagingController<int, PostModel> _pagingController;
 
@@ -29,7 +31,7 @@ class _FeedViewState extends State<FeedView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: feedScaffoldKey,
+      key: _feedScaffoldKey,
       drawer: const MenuView(),
       body: SafeArea(
         child: Column(
@@ -55,10 +57,16 @@ class _FeedViewState extends State<FeedView> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.redColor,
-        onPressed: () => context.pushNamed(RouteNames.createPostView),
-        child: const Icon(Icons.add),
+      floatingActionButton: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.whiteColor, width: 3.w),
+          shape: BoxShape.circle,
+        ),
+        child: FloatingActionButton(
+          backgroundColor: AppColors.redColor,
+          onPressed: () => context.pushNamed(RouteNames.createPostView),
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: ConstantsResource.appName,
         debugShowCheckedModeBanner: false,
-        theme: AppTheme.ligthThemeData,
+        theme: AppTheme.lightThemeData,
         navigatorKey: navigatorKey,
-        initialRoute: RouteNames.addOwnerAndTrainerView,
-        // initialRoute: RouteNames.onBoardView,
+        // initialRoute: RouteNames.feedView,
+        initialRoute: RouteNames.onBoardView,
         onGenerateRoute: locator<AppRouter>().generateRoute,
       ),
     );
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
 
 Future<void> _init() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await initDependancies();
+  await initDependencies();
   await SvgUtils.preCacheSVGs();
   Bloc.observer = AppBlocObserver();
   SystemChrome.setPreferredOrientations(

@@ -20,7 +20,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   Future<void> _login(Login event, Emitter<LoginState> emit) async {
     emit(state.copyWith(status: const InitialRequestStatus()));
-    await Future.delayed(const Duration(seconds: 3));
+    // await Future.delayed(const Duration(seconds: 3));
     emit(state.copyWith(status: const SuccessRequestStatus()));
   }
 

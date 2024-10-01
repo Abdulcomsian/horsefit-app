@@ -1,4 +1,5 @@
-import 'package:horse_fit/app/views/my_stable_views/add_horse/components/toggle_selection_button_widget.dart';
+import 'package:country_picker/country_picker.dart';
+import 'package:horse_fit/app/view_models/add_horse/add_horse_bloc.dart';
 
 import '../../../../core/constants/exports.dart';
 
@@ -65,23 +66,35 @@ class _AddHorseViewState extends State<AddHorseView> {
                   color: AppColors.grayColor,
                   borderRadius: BorderRadius.circular(100.r),
                 ),
-                child: Row(
-                  children: [
-                    ToggleSelectionButtonWidget(
-                      icon: ImagesResource.checkIcon,
-                      btnText: 'Trotting',
-                      isSelected: true,
-                      // state.gender == Gender.male ? true : false,
-                      onTap: () {},
-                    ),
-                    ToggleSelectionButtonWidget(
-                      icon: ImagesResource.checkIcon,
-                      btnText: 'Riding',
-                      isSelected: false,
-                      // state.gender == Gender.female ? true : false,
-                      onTap: () {},
-                    ),
-                  ],
+                child: BlocBuilder<AddHorseBloc, AddHorseState>(
+                  builder: (context, state) {
+                    return Row(
+                      children: [
+                        ToggleSelectionButtonWidget(
+                          icon: ImagesResource.checkIcon,
+                          btnText: 'Trotting',
+                          isSelected:
+                              state.horseActivity == HorseActivityEnum.trotting
+                                  ? true
+                                  : false,
+                          onTap: () => context.read<AddHorseBloc>().add(
+                              const AddHorseEvent.horseActivity(
+                                  horseActivity: HorseActivityEnum.trotting)),
+                        ),
+                        ToggleSelectionButtonWidget(
+                          icon: ImagesResource.checkIcon,
+                          btnText: 'Riding',
+                          isSelected:
+                              state.horseActivity == HorseActivityEnum.riding
+                                  ? true
+                                  : false,
+                          onTap: () => context.read<AddHorseBloc>().add(
+                              const AddHorseEvent.horseActivity(
+                                  horseActivity: HorseActivityEnum.riding)),
+                        ),
+                      ],
+                    );
+                  },
                 ),
               ),
               SizedBox(height: 92.h),
@@ -94,7 +107,14 @@ class _AddHorseViewState extends State<AddHorseView> {
                   child: SvgPictureAssetWidget(ImagesResource.arrowDownIcon,
                       size: 40.w),
                 ),
-              ),
+              ).onTap(() => showCountryPicker(
+                    context: context,
+                    onSelect: (Country country) {
+                      _nationalityController.text =
+                          country.displayNameNoCountryCode;
+                      setState(() {});
+                    },
+                  )),
               SizedBox(height: 92.h),
               TextFormFieldWidget(
                 controller: _dobController,
@@ -105,6 +125,54 @@ class _AddHorseViewState extends State<AddHorseView> {
                   child: SvgPictureAssetWidget(ImagesResource.calendarIcon,
                       size: 86.w),
                 ),
+              ).onTap(() {
+                locator<DialogueUtils>()
+                    .openDatePicker(context)
+                    .then((dateOfBirth) {
+                  ///! TODO Move this logic to bloc
+                  if (dateOfBirth != null) {
+                    _dobController.text = dateOfBirth;
+                    setState(() {});
+                  }
+                });
+              }),
+              SizedBox(height: 92.h),
+              Container(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 20.ph, vertical: 20.pv),
+                decoration: BoxDecoration(
+                  color: AppColors.grayColor,
+                  borderRadius: BorderRadius.circular(100.r),
+                ),
+                child: BlocBuilder<AddHorseBloc, AddHorseState>(
+                  builder: (context, state) {
+                    return Row(
+                      children: [
+                        ToggleSelectionButtonWidget(
+                          icon: ImagesResource.checkIcon,
+                          btnText: 'Mare',
+                          isSelected: state.horseGender == HorseGenderEnum.mare
+                              ? true
+                              : false,
+                          onTap: () => context.read<AddHorseBloc>().add(
+                              const AddHorseEvent.horseGender(
+                                  horseGender: HorseGenderEnum.mare)),
+                        ),
+                        ToggleSelectionButtonWidget(
+                          icon: ImagesResource.checkIcon,
+                          btnText: 'Stallion',
+                          isSelected:
+                              state.horseGender == HorseGenderEnum.stallion
+                                  ? true
+                                  : false,
+                          onTap: () => context.read<AddHorseBloc>().add(
+                              const AddHorseEvent.horseGender(
+                                  horseGender: HorseGenderEnum.stallion)),
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
               SizedBox(height: 92.h),
               Container(
@@ -114,50 +182,35 @@ class _AddHorseViewState extends State<AddHorseView> {
                   color: AppColors.grayColor,
                   borderRadius: BorderRadius.circular(100.r),
                 ),
-                child: Row(
-                  children: [
-                    ToggleSelectionButtonWidget(
-                      icon: ImagesResource.checkIcon,
-                      btnText: 'Mare',
-                      isSelected: false,
-                      // state.gender == Gender.male ? true : false,
-                      onTap: () {},
-                    ),
-                    ToggleSelectionButtonWidget(
-                      icon: ImagesResource.checkIcon,
-                      btnText: 'Stallion',
-                      isSelected: true,
-                      // state.gender == Gender.female ? true : false,
-                      onTap: () {},
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 92.h),
-              Container(
-                padding:
-                    EdgeInsets.symmetric(horizontal: 20.ph, vertical: 20.pv),
-                decoration: BoxDecoration(
-                  color: AppColors.grayColor,
-                  borderRadius: BorderRadius.circular(100.r),
-                ),
-                child: Row(
-                  children: [
-                    ToggleSelectionButtonWidget(
-                      icon: ImagesResource.checkIcon,
-                      btnText: 'Warm blooded',
-                      isSelected: true,
-                      // state.gender == Gender.male ? true : false,
-                      onTap: () {},
-                    ),
-                    ToggleSelectionButtonWidget(
-                      icon: ImagesResource.checkIcon,
-                      btnText: 'Cold blooded',
-                      isSelected: false,
-                      // state.gender == Gender.female ? true : false,
-                      onTap: () {},
-                    ),
-                  ],
+                child: BlocBuilder<AddHorseBloc, AddHorseState>(
+                  builder: (context, state) {
+                    return Row(
+                      children: [
+                        ToggleSelectionButtonWidget(
+                          icon: ImagesResource.checkIcon,
+                          btnText: 'Warm blooded',
+                          isSelected:
+                              state.horseType == HorseTypeEnum.warmBlooded
+                                  ? true
+                                  : false,
+                          onTap: () => context.read<AddHorseBloc>().add(
+                              const AddHorseEvent.horseType(
+                                  horseType: HorseTypeEnum.warmBlooded)),
+                        ),
+                        ToggleSelectionButtonWidget(
+                          icon: ImagesResource.checkIcon,
+                          btnText: 'Cold blooded',
+                          isSelected:
+                              state.horseType == HorseTypeEnum.coldBlooded
+                                  ? true
+                                  : false,
+                          onTap: () => context.read<AddHorseBloc>().add(
+                              const AddHorseEvent.horseType(
+                                  horseType: HorseTypeEnum.coldBlooded)),
+                        ),
+                      ],
+                    );
+                  },
                 ),
               ),
               SizedBox(height: 92.h),
@@ -185,7 +238,7 @@ class _AddHorseViewState extends State<AddHorseView> {
               SizedBox(height: 112.h),
               ButtonWidget(
                 btnText: 'Save',
-                onTap: () {},
+                onTap: () => context.pop(),
               )
             ],
           ),

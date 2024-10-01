@@ -30,7 +30,8 @@ class StartWorkOutView extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       padding: EdgeInsets.symmetric(horizontal: 92.ph),
                       itemBuilder: (context, index) =>
-                          const HorseWorkoutCardWidget(),
+                          const HorseWorkoutCardWidget().onTap(() =>
+                              context.pushNamed(RouteNames.selectedHorseView)),
                     ),
                   ),
                 ],

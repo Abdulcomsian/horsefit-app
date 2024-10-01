@@ -1,0 +1,1 @@
+enum HorseGenderEnum { mare, stallion }

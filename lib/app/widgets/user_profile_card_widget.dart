@@ -3,162 +3,67 @@ import '../../core/constants/exports.dart';
 class UserProfileCardWidget extends StatelessWidget {
   const UserProfileCardWidget({
     super.key,
-    required String profileImgUrl,
-    required String bannerImgUrl,
-    bool isShowOnlyProfile = false,
-    bool isShowInfoOnAvatar = false,
-    Widget? widget,
-  })  : _profileImgUrl = profileImgUrl,
-        _bannerImgUrl = bannerImgUrl,
-        _isShowOnlyProfile = isShowOnlyProfile,
-        _isShowInfoOnAvatar = isShowInfoOnAvatar,
-        _widget = widget;
+    required String leading,
+    required String title,
+    required String subTitle,
+    EdgeInsetsGeometry? margin,
+    Widget? trailing,
+  })  : _margin = margin,
+        _leadingUrl = leading,
+        _title = title,
+        _subTitle = subTitle,
+        _trailing = trailing;
 
-  final String _profileImgUrl;
-  final String _bannerImgUrl;
-  final bool _isShowOnlyProfile;
-  final bool _isShowInfoOnAvatar;
-  final Widget? _widget;
+  final EdgeInsetsGeometry? _margin;
+  final String _leadingUrl;
+  final String _title;
+  final String _subTitle;
+  final Widget? _trailing;
 
   @override
   Widget build(BuildContext context) {
-    logger.i(_bannerImgUrl);
-
-    return Stack(
-      children: [
-        Stack(
-          children: [
-            Container(height: 1020.h),
-            CachedNetworkImageWidget(
-              imageUrl: _bannerImgUrl,
-              height: 800.h,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(118.r),
-                bottomRight: Radius.circular(118.r),
-              ),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 82.ph, vertical: 72.pv),
+      margin: _margin ?? EdgeInsets.symmetric(horizontal: 72.ph),
+      decoration: BoxDecoration(
+        color: AppColors.grayColor,
+        borderRadius: BorderRadius.circular(66.r),
+      ),
+      child: Row(
+        children: [
+          ClipOval(
+              child:
+                  CachedNetworkImageWidget(imageUrl: _leadingUrl, size: 142.w)),
+          SizedBox(width: 32.w),
+          Expanded(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextViewWidget(_title, style: textTheme.titleLarge),
+                TextViewWidget(_subTitle, style: textTheme.titleSmall),
+              ],
             ),
-          ],
-        ),
-        SizedBox(
-          height: 1020.h,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 20.ph, right: 40.ph, top: 12.pv),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const BackButtonWidget(color: AppColors.whiteColor),
-                    if (_widget != null) _widget
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 100.ph, right: 140.ph),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: _isShowOnlyProfile
-                      ? MainAxisAlignment.center
-                      : MainAxisAlignment.start,
-                  children: [
-                    Stack(
-                      alignment: Alignment.bottomRight,
-                      children: [
-                        Container(
-                          width: 420.w,
-                          height: 420.w,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                  width: 28.w, color: AppColors.whiteColor),
-                              image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: CachedNetworkImageProvider(
-                                      _profileImgUrl))),
-                        ),
-                        if (_isShowInfoOnAvatar)
-                          Container(
-                            width: 162.w,
-                            height: 162.w,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 26.ph, vertical: 26.pv),
-                            decoration: BoxDecoration(
-                              color: AppColors.darkColor,
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                width: 20.w,
-                                color: AppColors.whiteColor,
-                              ),
-                            ),
-                            child: const SvgPictureAssetWidget(
-                                ImagesResource.infoIcon),
-                          ).onTap(
-                              () => context.pushNamed(RouteNames.horseInfoView))
-                      ],
-                    ),
-                    if (!_isShowOnlyProfile) SizedBox(width: 40.w),
-                    if (!_isShowOnlyProfile)
-                      Flexible(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextViewWidget(
-                              'Workout Log',
-                              style: textTheme.displayMedium?.copyWith(
-                                fontSize: 92.sp,
-                                color: AppColors.whiteColor,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                            TextViewWidget(
-                              'Kamran Khan',
-                              style: textTheme.headlineMedium?.copyWith(
-                                fontSize: 62.sp,
-                                color: AppColors.whiteColor,
-                                fontWeight: FontWeight.w600,
-                              ),
-                              isEllipsis: true,
-                              maxLines: 1,
-                            ),
-                            SizedBox(height: 102.h),
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 48.ph, vertical: 32.pv),
-                              decoration: BoxDecoration(
-                                color: AppColors.whiteColor,
-                                borderRadius: BorderRadius.circular(230.r),
-                                border: Border.all(color: AppColors.grayColor),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SvgPictureAssetWidget(
-                                    ImagesResource.horseNameIcon,
-                                    size: 82.w,
-                                  ),
-                                  SizedBox(width: 36.w),
-                                  TextViewWidget(
-                                    'Select horses to show',
-                                    style: textTheme.titleMedium
-                                        ?.copyWith(fontWeight: FontWeight.w600),
-                                  ),
-                                ],
-                              ),
-                            ).onTap(() =>
-                                context.pushNamed(RouteNames.selectHorseView))
-                          ],
-                        ),
-                      ),
-                  ],
-                ),
-              )
-            ],
           ),
-        )
-      ],
+          _trailing ??
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  RadioWidget(
+                    isSelected: true,
+                    color: AppColors.primaryColor.withOpacity(0.4),
+                  ),
+                  TextViewWidget(
+                    'Following',
+                    style: textTheme.titleSmall?.copyWith(
+                      fontSize: 42.sp,
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
+                ],
+              ),
+        ],
+      ),
     );
   }
 }

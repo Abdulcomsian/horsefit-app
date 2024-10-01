@@ -1,7 +1,7 @@
 import '../constants/exports.dart';
 
 extension ContextExt on BuildContext {
-  void unfocusKeyboard() {
+  void unFocusKeyboard() {
     if (_isKeyboardVisible()) {
       FocusManager.instance.primaryFocus?.unfocus();
     }

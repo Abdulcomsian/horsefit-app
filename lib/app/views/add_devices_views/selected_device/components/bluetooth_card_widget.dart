@@ -42,6 +42,7 @@ class BluetoothCardWidget extends StatelessWidget {
                             .then((result) {
                           if (!result) return;
                           if (state.isBlueConnected != null) {
+                            // ignore: use_build_context_synchronously
                             context
                                 .read<AddDevicesBloc>()
                                 .add(AddDevicesEvent.startBluetoothScanning(
