@@ -26,17 +26,19 @@ class StartWorkoutTimerView extends StatelessWidget {
                     ),
                   ),
                   Container(
-                      margin: EdgeInsets.only(right: 24.ph, top: 24.pv),
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 52.ph, vertical: 52.pv),
-                      decoration: const BoxDecoration(
-                        color: AppColors.whiteColor,
-                        shape: BoxShape.circle,
-                      ),
-                      child: SvgPictureAssetWidget(
-                        ImagesResource.settingIcon,
-                        size: 102.w,
-                      ))
+                          margin: EdgeInsets.only(right: 24.ph, top: 24.pv),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 52.ph, vertical: 52.pv),
+                          decoration: const BoxDecoration(
+                            color: AppColors.whiteColor,
+                            shape: BoxShape.circle,
+                          ),
+                          child: SvgPictureAssetWidget(
+                            ImagesResource.settingIcon,
+                            size: 102.w,
+                          ))
+                      .onTap(
+                          () => context.pushNamed(RouteNames.workoutSetupView))
                 ],
               ),
             ),
@@ -44,7 +46,7 @@ class StartWorkoutTimerView extends StatelessWidget {
             BlocBuilder<StartWorkoutBloc, StartWorkoutState>(
               builder: (context, state) {
                 return TextViewWidget(
-                  '20:00',
+                  '00:00',
                   style: textTheme.displayLarge?.copyWith(
                     fontSize: 300.sp,
                     color: AppColors.whiteColor,
@@ -87,7 +89,7 @@ class StartWorkoutTimerView extends StatelessWidget {
                           icon: ImagesResource.timerIcon,
                           color: AppColors.greenColor,
                           title: 'Avg. Pace',
-                          subTitle: '0:00',
+                          subTitle: '0:0',
                           trailing: 'min/km',
                         ),
                       ],
@@ -118,6 +120,8 @@ class StartWorkoutTimerView extends StatelessWidget {
                         return Visibility(
                           visible: !state.isWorkoutStarted,
                           child: ButtonWidget(
+                            width: 812.w,
+                            padding: EdgeInsets.symmetric(vertical: 82.pv),
                             icon: SvgPictureAssetWidget(
                               ImagesResource.startIcon,
                               size: 62.w,
@@ -137,6 +141,8 @@ class StartWorkoutTimerView extends StatelessWidget {
                         return Visibility(
                           visible: state.isWorkoutStarted && !state.isPaused,
                           child: ButtonWidget(
+                            width: 812.w,
+                            padding: EdgeInsets.symmetric(vertical: 82.pv),
                             icon: SvgPictureAssetWidget(
                               ImagesResource.pauseIcon,
                               size: 62.w,

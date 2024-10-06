@@ -88,7 +88,7 @@ export 'package:horse_fit/app/views/add_devices_views/add_devices/add_devices_vi
 export 'package:horse_fit/app/views/add_devices_views/selected_device/selected_device_view.dart';
 export 'package:horse_fit/app/views/my_stable_views/add_horse/add_horse_view.dart';
 export 'package:horse_fit/app/views/my_stable_views/my_stable/my_stable_view.dart';
-export 'package:horse_fit/app/views/profile_info/profile_info_view.dart';
+export 'package:horse_fit/app/views/user_profile/user_profile_view.dart';
 export 'package:horse_fit/app/views/workout_log_views/select_horse/select_horse_view.dart';
 export 'package:horse_fit/app/views/workout_log_views/workout_log/workout_log_view.dart';
 export 'package:horse_fit/app/views/public_profile/public_profile_view.dart';

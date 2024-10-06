@@ -249,7 +249,7 @@ class _SelectedHorseViewState extends State<SelectedHorseView> {
                   isShowIconLeading: false,
                   btnText: 'Next',
                   onTap: () =>
-                      context.pushNamed(RouteNames.intervalSettingsView),
+                      context.pushNamed(RouteNames.startWorkoutTimerView),
                 )),
               ],
             ),

@@ -23,54 +23,54 @@ class WorkoutStatusCardWidget extends StatelessWidget {
       child: Stack(
         alignment: Alignment.topRight,
         children: [
-          Container(
-            padding: EdgeInsets.only(top: 12.pv, right: 18.ph),
-            child: Container(
-              width: double.maxFinite,
-              padding: EdgeInsets.symmetric(horizontal: 72.ph, vertical: 56.pv),
-              decoration: BoxDecoration(
-                border: Border.all(color: AppColors.grayColor),
-                borderRadius: BorderRadius.circular(74.r),
+          Expanded(child: Image.asset(ImagesResource.eventCardBaseImg)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Padding(
+                  padding:
+                      EdgeInsets.only(left: 72.ph, top: 56.pv, bottom: 56.pv),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextViewWidget(
+                        _title,
+                        style: textTheme.headlineSmall
+                            ?.copyWith(fontWeight: FontWeight.w700),
+                      ),
+                      SizedBox(height: 52.h),
+                      FittedBox(
+                        child: TextViewWidget(
+                          _subTitle,
+                          style: textTheme.displayLarge?.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: _color,
+                            fontSize: 188.sp,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 52.h),
+                      TextViewWidget(
+                        _trailing,
+                        style: textTheme.headlineSmall?.copyWith(
+                            fontWeight: FontWeight.w700, color: _color),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextViewWidget(
-                    _title,
-                    style: textTheme.headlineSmall
-                        ?.copyWith(fontWeight: FontWeight.w700),
-                  ),
-                  SizedBox(height: 52.h),
-                  TextViewWidget(
-                    _subTitle,
-                    style: textTheme.displayLarge?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: _color,
-                      fontSize: 188.sp,
-                    ),
-                  ),
-                  SizedBox(height: 52.h),
-                  TextViewWidget(
-                    _trailing,
-                    style: textTheme.headlineSmall
-                        ?.copyWith(fontWeight: FontWeight.w700, color: _color),
-                  ),
-                ],
+              Container(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 48.ph, vertical: 48.pv),
+                decoration:
+                    BoxDecoration(color: _color, shape: BoxShape.circle),
+                child: SvgPictureAssetWidget(_icon,
+                    size: 88.w, isApplyColorFilter: true),
               ),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 28.ph, vertical: 28.pv),
-            decoration: const BoxDecoration(
-              color: AppColors.whiteColor,
-              shape: BoxShape.circle,
-            ),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 36.ph, vertical: 36.pv),
-              decoration: BoxDecoration(color: _color, shape: BoxShape.circle),
-              child: SvgPictureAssetWidget(_icon,
-                  size: 88.w, isApplyColorFilter: true),
-            ),
+            ],
           )
         ],
       ),

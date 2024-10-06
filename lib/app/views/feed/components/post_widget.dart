@@ -85,26 +85,6 @@ class PostWidget extends StatelessWidget {
                               context.pop();
                               context.pushNamed(RouteNames.reportPostView);
                             }),
-                            SizedBox(height: 36.h),
-                            const ReportSheetCardWidget(
-                              icon: ImagesResource.horseNameIcon,
-                              text: 'Horse Profile',
-                            ).onTap(() => context.pushNamed(
-                                RouteNames.publicProfileView,
-                                arguments: PublicProfileArgs(
-                                    isViewHorseProfile: true))),
-                            SizedBox(height: 36.h),
-                            const ReportSheetCardWidget(
-                              icon: ImagesResource.profileIcon,
-                              text: 'User Profile',
-                            ).onTap(() => context
-                                .pushNamed(RouteNames.publicProfileView)),
-                            SizedBox(height: 36.h),
-                            const ReportSheetCardWidget(
-                              icon: ImagesResource.profileIcon,
-                              text: 'Share Workout',
-                            ).onTap(() =>
-                                context.pushNamed(RouteNames.shareWorkoutView)),
                             SizedBox(height: 132.h),
                           ],
                         ),

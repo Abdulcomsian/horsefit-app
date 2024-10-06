@@ -2,14 +2,14 @@
 
 A new Flutter project.
 
-Clean Project
+## Clean Project
 flutter pub cache clean 
 y
 flutter clean 
 flutter pub get
-flutter run --profile
-
 flutter build apk --release
+
+flutter run --profile
 
 Clean Project for test flight
 ///! TODO Verify that the base url is change to production 

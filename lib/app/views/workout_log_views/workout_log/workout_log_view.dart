@@ -23,7 +23,7 @@ class WorkoutLogView extends StatelessWidget {
               Flexible(
                 child: GroupedListView<HorseProfile, DateTime>(
                   elements: horseProfiles,
-                  groupBy: (horsePorfile) => horsePorfile.lastWorkout,
+                  groupBy: (horseProfile) => horseProfile.lastWorkout,
                   padding:
                       EdgeInsets.only(left: 92.ph, right: 92.ph, bottom: 72.pv),
                   physics: const BouncingScrollPhysics(),
@@ -39,8 +39,10 @@ class WorkoutLogView extends StatelessWidget {
                   itemBuilder: (context, horseProfile) {
                     return Padding(
                       padding: EdgeInsets.only(bottom: 48.h),
-                      child:
-                          HorseWorkoutLogCardWidget(horseProfile: horseProfile),
+                      child: HorseWorkoutLogCardWidget(
+                              horseProfile: horseProfile)
+                          .onTap(() =>
+                              context.pushNamed(RouteNames.workoutDetailsView)),
                     );
                   },
                 ),
@@ -70,12 +72,12 @@ List<HorseProfile> horseProfiles = [
   HorseProfile(
     imageUrl: ConstantsResource.horseUrl,
     name: 'Maksi Royale',
-    lastWorkout: DateTime.parse('2024-09-15 02:02:12'),
+    lastWorkout: DateTime.parse('2024-10-04 02:02:12'),
   ),
   HorseProfile(
     imageUrl: ConstantsResource.horseUrl,
     name: 'Eos Marinka',
-    lastWorkout: DateTime.parse('2024-09-14 02:02:12'),
+    lastWorkout: DateTime.parse('2024-10-05 02:02:12'),
   ),
   HorseProfile(
     imageUrl: ConstantsResource.horseUrl,

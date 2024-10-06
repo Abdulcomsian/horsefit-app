@@ -6,25 +6,12 @@ part 'add_devices_bloc.freezed.dart';
 
 class AddDevicesBloc extends Bloc<AddDevicesEvent, AddDevicesState> {
   AddDevicesBloc() : super(const AddDevicesState.addDevicesState()) {
-    on<ToggleBluetoothStatus>(_toggleBluetoothStatus);
     on<StartBluetoothScanning>(_startBluetoothScanning);
-  }
-
-  Future<void> _toggleBluetoothStatus(
-      ToggleBluetoothStatus event, Emitter<AddDevicesState> emit) async {
-    emit(state.copyWith(bluetoothStatus: LoadingRequestStatus()));
-    await Future.delayed(const Duration(seconds: 2));
-    emit(state.copyWith(
-      bluetoothStatus: const SuccessRequestStatus(),
-      isBlueOn: event.toggleBlue,
-    ));
+    on<RemoveDevice>(_removeDevice);
   }
 
   Future<void> _startBluetoothScanning(
       StartBluetoothScanning event, Emitter<AddDevicesState> emit) async {
-    if (event.isBlueOn) {
-      add(ToggleBluetoothStatus(toggleBlue: !state.isBlueOn));
-    }
     if (event.isConnect) {
       emit(state.copyWith(bluetoothScanningStatus: LoadingRequestStatus()));
     }
@@ -32,6 +19,12 @@ class AddDevicesBloc extends Bloc<AddDevicesEvent, AddDevicesState> {
     emit(state.copyWith(
       bluetoothScanningStatus: const SuccessRequestStatus(),
       isBlueConnected: event.isConnect,
+      isBlueOn: event.isBlueOn,
+      isDeviceRemoved: null,
     ));
+  }
+
+  void _removeDevice(RemoveDevice event, Emitter<AddDevicesState> emit) {
+    emit(state.copyWith(isDeviceRemoved: true));
   }
 }

@@ -44,6 +44,9 @@ class ReportReasonsView extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                             horizontal: 72.ph, vertical: 32.pv),
                         decoration: BoxDecoration(
+                          color: state.report == state.reportPostReasons[index]
+                              ? AppColors.primaryColor
+                              : null,
                           borderRadius: BorderRadius.circular(20.r),
                           border: Border.all(
                               width: 6.w,
@@ -54,7 +57,11 @@ class ReportReasonsView extends StatelessWidget {
                         ),
                         child: TextViewWidget(
                           state.reportPostReasons[index].title,
-                          style: textTheme.labelLarge,
+                          style: textTheme.labelLarge?.copyWith(
+                              color:
+                                  state.report == state.reportPostReasons[index]
+                                      ? AppColors.whiteColor
+                                      : null),
                         ),
                       ).onTap(() => context.read<ReportPostBloc>().add(
                           ReportPostEvent.selectReportOption(

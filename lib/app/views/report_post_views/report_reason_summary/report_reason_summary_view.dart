@@ -10,7 +10,7 @@ class ReportReasonSummaryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        title: 'You have selected',
+        title: 'Report this Post',
         elevation: 0.1,
         actions: [
           IconButton(
@@ -29,7 +29,7 @@ class ReportReasonSummaryView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextViewWidget(
-              'Select a reason',
+              'You have selected',
               style: textTheme.headlineMedium
                   ?.copyWith(fontWeight: FontWeight.w800),
             ),

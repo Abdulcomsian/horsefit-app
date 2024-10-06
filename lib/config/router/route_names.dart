@@ -10,7 +10,7 @@ class RouteNames {
   static const feedView = "feedView";
   static const myStableView = "myStableView";
   static const addHorseView = "addHorseView";
-  static const profileInfoView = "profileInfoView";
+  static const userProfileView = "userProfileView";
   static const addDevicesView = "addDevicesView";
   static const selectedDeviceView = "selectedDeviceView";
   static const createPostView = "createPostView";
@@ -22,6 +22,8 @@ class RouteNames {
   static const selectedHorseView = "selectedHorseView";
   static const startWorkoutView = "startWorkoutView";
   static const startWorkoutTimerView = "startWorkoutTimerView";
+  static const workoutSetupView = "workoutSetupView";
+  static const workoutDeletedView = "workoutDeletedView";
   static const summaryView = "summaryView";
   static const shareWorkoutView = "shareWorkoutView";
   static const workoutDetailsView = "workoutDetailsView";

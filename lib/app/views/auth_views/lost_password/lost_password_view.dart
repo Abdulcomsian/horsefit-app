@@ -100,6 +100,6 @@ class _LostPasswordViewState extends State<LostPasswordView> {
 
   void _listener(LostPasswordState state, BuildContext context) {
     final status = state.status is SuccessRequestStatus;
-    if (status) context.pushNamed(RouteNames.emailSendView);
+    if (status) context.pushNamedAndRemoveUntil(RouteNames.emailSendView);
   }
 }

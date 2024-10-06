@@ -25,6 +25,7 @@ class HorseProfileTileWidget extends StatelessWidget {
                 'Maksi Royale',
                 style: textTheme.headlineLarge,
               ),
+              SizedBox(height: 28.h),
               TextViewWidget(
                 'Last workout: Today with Mari Alma',
                 style:
