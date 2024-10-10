@@ -23,7 +23,10 @@ class WorkoutStatusCardWidget extends StatelessWidget {
       child: Stack(
         alignment: Alignment.topRight,
         children: [
-          Expanded(child: Image.asset(ImagesResource.eventCardBaseImg)),
+          Image.asset(
+            ImagesResource.eventCardBaseImg,
+            width: double.maxFinite,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,

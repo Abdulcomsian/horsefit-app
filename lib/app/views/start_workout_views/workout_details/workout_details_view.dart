@@ -1,7 +1,9 @@
 import '../../../../core/constants/exports.dart';
 
 class WorkoutDetailsView extends StatelessWidget {
-  const WorkoutDetailsView({super.key});
+  const WorkoutDetailsView({super.key, VoidCallback? onTap}) : _onTap = onTap;
+
+  final VoidCallback? _onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +60,7 @@ class WorkoutDetailsView extends StatelessWidget {
                                   border:
                                       Border.all(color: AppColors.grayColor)),
                               child: const Icon(Icons.close),
-                            ).onTap(() => context.pop()),
+                            ).onTap(_onTap ?? () => context.pop()),
                           ],
                         ),
                       ),

@@ -203,7 +203,13 @@ class StartWorkoutTimerView extends StatelessWidget {
                                           )),
                                           expand: true,
                                           builder: (context) =>
-                                              const WorkoutDetailsView());
+                                              WorkoutDetailsView(
+                                                onTap: () {
+                                                  context.pop();
+                                                  context.pop();
+                                                  context.pop();
+                                                },
+                                              ));
                                     });
                                   },
                                 ),

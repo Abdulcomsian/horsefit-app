@@ -159,7 +159,7 @@ class _UserProfileViewState extends State<UserProfileView> {
                       SizedBox(width: 40.w),
                       Expanded(
                         child: WorkoutConfigurationCardWidget(
-                          icon: ImagesResource.horseTrainerIcon,
+                          icon: ImagesResource.horseOwnerIcon,
                           text: 'Horse\nOwner',
                           isSelected: state.userType == UserType.horseOwner
                               ? true
@@ -176,7 +176,7 @@ class _UserProfileViewState extends State<UserProfileView> {
                       SizedBox(width: 40.w),
                       Expanded(
                         child: WorkoutConfigurationCardWidget(
-                          icon: ImagesResource.horseTrainerIcon,
+                          icon: ImagesResource.profileIcon,
                           text: 'Regular\nUser',
                           isSelected: state.userType == UserType.regularUser
                               ? true

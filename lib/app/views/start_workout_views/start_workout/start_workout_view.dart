@@ -53,7 +53,7 @@ class StartWorkOutView extends StatelessWidget {
                         )
                       ],
                     ),
-                  ),
+                  ).onTap(() => context.pushNamed(RouteNames.shareWorkoutView)),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 152.pv),
                     child: TextViewWidget(
