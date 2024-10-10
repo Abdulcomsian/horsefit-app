@@ -1,4 +1,4 @@
-import 'package:timeago/timeago.dart' as timeago;
+import 'package:intl/intl.dart';
 
 import '../constants/exports.dart';
 
@@ -16,9 +16,17 @@ class Utils {
 
   String formatTimeDifference(String dateString) {
     final givenDate = DateTime.parse(dateString);
-    final difference = DateTime.now().difference(givenDate);
-    final formatedDate = timeago.format(DateTime.now().subtract(difference));
-    return formatedDate;
+    final now = DateTime.now();
+    final difference = now.difference(givenDate);
+
+    if (difference.inDays == 0) {
+      return 'Today';
+    } else if (difference.inDays == 1) {
+      return 'Yesterday';
+    } else {
+      final dateFormat = DateFormat('d MMM, yyyy');
+      return dateFormat.format(givenDate);
+    }
   }
 
   Future<(String, List<String>)> pickMedia(BuildContext context,

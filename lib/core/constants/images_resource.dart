@@ -1,5 +1,6 @@
 class ImagesResource {
   /// Images
+  static const eventCardBaseImg = 'assets/images/event_card_base.png';
   static const onBoardImg = 'assets/images/on_board.png';
   static const mapImg = 'assets/images/map.png';
 
@@ -26,6 +27,7 @@ class ImagesResource {
   static const chatIcon = 'assets/svgs/chat.svg';
   static const checkIcon = 'assets/svgs/check.svg';
   static const closeCircleIcon = 'assets/svgs/close_circle.svg';
+  static const closeIcon = 'assets/svgs/close.svg';
   static const coloredLogoIcon = 'assets/svgs/colored_logo.svg';
   static const commentIcon = 'assets/svgs/comment.svg';
   static const distanceIcon = 'assets/svgs/distance.svg';

@@ -20,8 +20,6 @@ class SelectedDeviceView extends StatelessWidget {
                     ?.copyWith(fontWeight: FontWeight.w900),
               ),
               SizedBox(height: 264.h),
-              const BluetoothCardWidget(),
-              SizedBox(height: 264.h),
               BlocBuilder<AddDevicesBloc, AddDevicesState>(
                 builder: (context, state) {
                   final blueScanningStatus =
@@ -39,6 +37,9 @@ class SelectedDeviceView extends StatelessWidget {
                   );
                 },
               ),
+              SizedBox(height: 264.h),
+              const BluetoothCardWidget(),
+              SizedBox(height: 264.h),
               BlocBuilder<AddDevicesBloc, AddDevicesState>(
                 builder: (context, state) {
                   final blueScanningStatus =
@@ -65,43 +66,26 @@ class SelectedDeviceView extends StatelessWidget {
                   );
                 },
               ),
-              const HeartRateSensorStatusCard()
+              const HeartRateSensorStatusCard(),
+              BlocBuilder<AddDevicesBloc, AddDevicesState>(
+                builder: (context, state) {
+                  return Visibility(
+                    visible: state.isDeviceRemoved == true &&
+                        state.bluetoothScanningStatus is! LoadingRequestStatus,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 200.pv),
+                      child: TextViewWidget(
+                        'This device has been removed',
+                        style: textTheme.titleLarge
+                            ?.copyWith(color: AppColors.orangeColor),
+                      ),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          BlocBuilder<AddDevicesBloc, AddDevicesState>(
-            builder: (context, state) {
-              return Visibility(
-                visible:
-                    state.bluetoothScanningStatus is! LoadingRequestStatus &&
-                        state.isBlueConnected == null,
-                child: ButtonWidget(
-                  btnText: 'Scan',
-                  color: !state.isBlueOn ? AppColors.grayColor : null,
-                  textColor: !state.isBlueOn
-                      ? AppColors.darkColor.withOpacity(0.3)
-                      : null,
-                  margin:
-                      EdgeInsets.symmetric(horizontal: 92.ph, vertical: 62.pv),
-                  onTap: () {
-                    if (state.isBlueOn) {
-                      context
-                          .read<AddDevicesBloc>()
-                          .add(const AddDevicesEvent.startBluetoothScanning(
-                            isConnect: true,
-                            isBlueOn: false,
-                          ));
-                    }
-                  },
-                ),
-              );
-            },
-          )
-        ],
       ),
     );
   }

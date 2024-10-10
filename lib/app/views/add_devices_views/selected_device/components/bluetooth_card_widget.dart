@@ -22,40 +22,19 @@ class BluetoothCardWidget extends StatelessWidget {
           ),
           BlocBuilder<AddDevicesBloc, AddDevicesState>(
             builder: (context, state) {
-              final blueStatus = state.bluetoothStatus is LoadingRequestStatus;
               return Row(
                 children: [
-                  if (blueStatus) SizedBox(width: 12.w),
-                  if (blueStatus) const ShowLoadingWidget(),
-                  SizedBox(width: 24.w),
                   SwitchWidget(
                     value: state.isBlueOn,
                     onChanged: (_) {
-                      if (state.bluetoothScanningStatus
-                          is SuccessRequestStatus) {
-                        locator<DialogueUtils>()
-                            .customDialog(
-                          context,
-                          title:
-                              'Are you sure you want to disconnect this device?',
-                        )
-                            .then((result) {
-                          if (!result) return;
-                          if (state.isBlueConnected != null) {
-                            // ignore: use_build_context_synchronously
-                            context
-                                .read<AddDevicesBloc>()
-                                .add(AddDevicesEvent.startBluetoothScanning(
-                                  isConnect: !state.isBlueConnected!,
-                                  isBlueOn: true,
-                                ));
-                          }
-                        });
-                      } else {
-                        context.read<AddDevicesBloc>().add(
-                            AddDevicesEvent.toggleBluetoothStatus(
-                                toggleBlue: !state.isBlueOn));
-                      }
+                      final isBlueConnected =
+                          state.isBlueConnected != true ? true : false;
+                      context
+                          .read<AddDevicesBloc>()
+                          .add(AddDevicesEvent.startBluetoothScanning(
+                            isConnect: isBlueConnected,
+                            isBlueOn: !state.isBlueOn,
+                          ));
                     },
                   ),
                 ],

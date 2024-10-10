@@ -2,14 +2,14 @@ import 'package:horse_fit/app/view_models/auth_view_models/sign_up/sign_up_bloc.
 
 import '../../../core/constants/exports.dart';
 
-class ProfileInfoView extends StatefulWidget {
-  const ProfileInfoView({super.key});
+class UserProfileView extends StatefulWidget {
+  const UserProfileView({super.key});
 
   @override
-  State<ProfileInfoView> createState() => _ProfileInfoViewState();
+  State<UserProfileView> createState() => _UserProfileViewState();
 }
 
-class _ProfileInfoViewState extends State<ProfileInfoView> {
+class _UserProfileViewState extends State<UserProfileView> {
   late final TextEditingController _nameController;
   late final TextEditingController _emailController;
   late final TextEditingController _dobController;
@@ -159,7 +159,7 @@ class _ProfileInfoViewState extends State<ProfileInfoView> {
                       SizedBox(width: 40.w),
                       Expanded(
                         child: WorkoutConfigurationCardWidget(
-                          icon: ImagesResource.horseTrainerIcon,
+                          icon: ImagesResource.horseOwnerIcon,
                           text: 'Horse\nOwner',
                           isSelected: state.userType == UserType.horseOwner
                               ? true
@@ -176,7 +176,7 @@ class _ProfileInfoViewState extends State<ProfileInfoView> {
                       SizedBox(width: 40.w),
                       Expanded(
                         child: WorkoutConfigurationCardWidget(
-                          icon: ImagesResource.horseTrainerIcon,
+                          icon: ImagesResource.profileIcon,
                           text: 'Regular\nUser',
                           isSelected: state.userType == UserType.regularUser
                               ? true
@@ -198,7 +198,7 @@ class _ProfileInfoViewState extends State<ProfileInfoView> {
                     style: textTheme.headlineSmall?.copyWith(
                         fontWeight: FontWeight.w600,
                         color: AppColors.primaryColor),
-                  ),
+                  ).onTap(() => context.pushNamed(RouteNames.lostPasswordView)),
                   SizedBox(height: 140.h),
                   ButtonWidget(
                     btnText: state.isEditProfile ? 'Save' : 'Edit',

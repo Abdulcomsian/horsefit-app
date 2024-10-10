@@ -36,7 +36,8 @@ class MyStableView extends StatelessWidget {
                 )
               ],
             ),
-          );
+          ).onTap(() => context.pushNamed(RouteNames.publicProfileView,
+              arguments: PublicProfileArgs(isViewHorseProfile: true)));
         },
         separatorBuilder: (context, index) => SizedBox(height: 48.h),
       ),

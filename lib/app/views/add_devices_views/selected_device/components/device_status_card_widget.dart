@@ -8,7 +8,8 @@ class HeartRateSensorStatusCard extends StatelessWidget {
     return BlocBuilder<AddDevicesBloc, AddDevicesState>(
       builder: (context, state) {
         return Visibility(
-          visible: state.bluetoothScanningStatus is SuccessRequestStatus,
+          visible: state.bluetoothScanningStatus is SuccessRequestStatus &&
+              state.isDeviceRemoved != true,
           child: Stack(
             children: [
               Column(
@@ -24,7 +25,7 @@ class HeartRateSensorStatusCard extends StatelessWidget {
                     child: Column(
                       children: [
                         TextViewWidget(
-                          'Horsefit HRS',
+                          '${ConstantsResource.appName} HRS',
                           style: textTheme.headlineSmall
                               ?.copyWith(fontWeight: FontWeight.w600),
                         ),
@@ -101,7 +102,35 @@ class HeartRateSensorStatusCard extends StatelessWidget {
                     color: AppColors.darkColor.withOpacity(0.8),
                     size: 56.w,
                   ),
-                ),
+                ).onTap(() async {
+                  if (state.isBlueConnected == true) {
+                    await locator<DialogueUtils>()
+                        .customDialog(context, title: 'Disconnect this device?')
+                        .then((result) {
+                      if (!result) return;
+                      if (state.isBlueConnected != null) {
+                        // ignore: use_build_context_synchronously
+                        context
+                            .read<AddDevicesBloc>()
+                            .add(AddDevicesEvent.startBluetoothScanning(
+                              isConnect: !state.isBlueConnected!,
+                              isBlueOn: false,
+                            ));
+                      }
+                    });
+                  } else {
+                    await locator<DialogueUtils>()
+                        .customDialog(context, title: 'Remove this device?')
+                        .then((result) {
+                      if (!result) return;
+
+                      // ignore: use_build_context_synchronously
+                      context
+                          .read<AddDevicesBloc>()
+                          .add(const AddDevicesEvent.removeDevice());
+                    });
+                  }
+                }),
               ),
             ],
           ),

@@ -1,7 +1,9 @@
 import '../../../../core/constants/exports.dart';
 
 class WorkoutDetailsView extends StatelessWidget {
-  const WorkoutDetailsView({super.key});
+  const WorkoutDetailsView({super.key, VoidCallback? onTap}) : _onTap = onTap;
+
+  final VoidCallback? _onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +60,7 @@ class WorkoutDetailsView extends StatelessWidget {
                                   border:
                                       Border.all(color: AppColors.grayColor)),
                               child: const Icon(Icons.close),
-                            ).onTap(() => context.pop()),
+                            ).onTap(_onTap ?? () => context.pop()),
                           ],
                         ),
                       ),
@@ -78,7 +80,18 @@ class WorkoutDetailsView extends StatelessWidget {
                       ).centerRight().onTap(
 
                           ///! TODO Pass the args from tracking the flow
-                          () => context.pushNamed(RouteNames.finishPostView)),
+                          () async =>
+                              await locator<DialogueUtils>().customDialog(
+                                context,
+                                title:
+                                    'Are you sure you want to share the workout?',
+                                closeBtnText: 'Cancel',
+                                doneBtnText: 'Share',
+                                onDone: () {
+                                  context.pop();
+                                  context.pushNamed(RouteNames.finishPostView);
+                                },
+                              )),
                       SizedBox(height: 62.h),
                       Container(
                         padding: EdgeInsets.symmetric(
@@ -239,15 +252,22 @@ class WorkoutDetailsView extends StatelessWidget {
                                   style: textTheme.titleLarge,
                                 )
                               ],
-                            ).onTap(() {
-                              locator<DialogueUtils>().customDialog(context,
-                                  title:
-                                      'Are you sure you want to \ndelete this workout?',
-                                  closeBtnColor: AppColors.redColor,
-                                  onClose: () {
-                                ///! Delete workout
-                                context.pop();
-                              });
+                            ).onTap(() async {
+                              final result =
+                                  await locator<DialogueUtils>().customDialog(
+                                context,
+                                title: 'Delete workout?',
+                                closeBtnColor: AppColors.redColor,
+                                closeBtnText: 'Yes',
+                                doneBtnText: 'No',
+                                doneBtnBorderColor: AppColors.grayColor,
+                              );
+                              if (result) return;
+
+                              ///! When the result false then execute this b/c i toggle the buttons
+                              ///! Delete workout and on success navigate
+                              context.pushNamedAndRemoveUntil(
+                                  RouteNames.workoutDeletedView);
                             })
                           ],
                         ),

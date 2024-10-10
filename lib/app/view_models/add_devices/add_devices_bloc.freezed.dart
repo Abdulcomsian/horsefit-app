@@ -18,42 +18,41 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AddDevicesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool toggleBlue) toggleBluetoothStatus,
     required TResult Function(bool isConnect, bool isBlueOn)
         startBluetoothScanning,
+    required TResult Function() removeDevice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool toggleBlue)? toggleBluetoothStatus,
     TResult? Function(bool isConnect, bool isBlueOn)? startBluetoothScanning,
+    TResult? Function()? removeDevice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool toggleBlue)? toggleBluetoothStatus,
     TResult Function(bool isConnect, bool isBlueOn)? startBluetoothScanning,
+    TResult Function()? removeDevice,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ToggleBluetoothStatus value)
-        toggleBluetoothStatus,
     required TResult Function(StartBluetoothScanning value)
         startBluetoothScanning,
+    required TResult Function(RemoveDevice value) removeDevice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ToggleBluetoothStatus value)? toggleBluetoothStatus,
     TResult? Function(StartBluetoothScanning value)? startBluetoothScanning,
+    TResult? Function(RemoveDevice value)? removeDevice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ToggleBluetoothStatus value)? toggleBluetoothStatus,
     TResult Function(StartBluetoothScanning value)? startBluetoothScanning,
+    TResult Function(RemoveDevice value)? removeDevice,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -78,153 +77,6 @@ class _$AddDevicesEventCopyWithImpl<$Res, $Val extends AddDevicesEvent>
 
   /// Create a copy of AddDevicesEvent
   /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$ToggleBluetoothStatusImplCopyWith<$Res> {
-  factory _$$ToggleBluetoothStatusImplCopyWith(
-          _$ToggleBluetoothStatusImpl value,
-          $Res Function(_$ToggleBluetoothStatusImpl) then) =
-      __$$ToggleBluetoothStatusImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool toggleBlue});
-}
-
-/// @nodoc
-class __$$ToggleBluetoothStatusImplCopyWithImpl<$Res>
-    extends _$AddDevicesEventCopyWithImpl<$Res, _$ToggleBluetoothStatusImpl>
-    implements _$$ToggleBluetoothStatusImplCopyWith<$Res> {
-  __$$ToggleBluetoothStatusImplCopyWithImpl(_$ToggleBluetoothStatusImpl _value,
-      $Res Function(_$ToggleBluetoothStatusImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AddDevicesEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? toggleBlue = null,
-  }) {
-    return _then(_$ToggleBluetoothStatusImpl(
-      toggleBlue: null == toggleBlue
-          ? _value.toggleBlue
-          : toggleBlue // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ToggleBluetoothStatusImpl implements ToggleBluetoothStatus {
-  const _$ToggleBluetoothStatusImpl({required this.toggleBlue});
-
-  @override
-  final bool toggleBlue;
-
-  @override
-  String toString() {
-    return 'AddDevicesEvent.toggleBluetoothStatus(toggleBlue: $toggleBlue)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ToggleBluetoothStatusImpl &&
-            (identical(other.toggleBlue, toggleBlue) ||
-                other.toggleBlue == toggleBlue));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, toggleBlue);
-
-  /// Create a copy of AddDevicesEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ToggleBluetoothStatusImplCopyWith<_$ToggleBluetoothStatusImpl>
-      get copyWith => __$$ToggleBluetoothStatusImplCopyWithImpl<
-          _$ToggleBluetoothStatusImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(bool toggleBlue) toggleBluetoothStatus,
-    required TResult Function(bool isConnect, bool isBlueOn)
-        startBluetoothScanning,
-  }) {
-    return toggleBluetoothStatus(toggleBlue);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool toggleBlue)? toggleBluetoothStatus,
-    TResult? Function(bool isConnect, bool isBlueOn)? startBluetoothScanning,
-  }) {
-    return toggleBluetoothStatus?.call(toggleBlue);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool toggleBlue)? toggleBluetoothStatus,
-    TResult Function(bool isConnect, bool isBlueOn)? startBluetoothScanning,
-    required TResult orElse(),
-  }) {
-    if (toggleBluetoothStatus != null) {
-      return toggleBluetoothStatus(toggleBlue);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ToggleBluetoothStatus value)
-        toggleBluetoothStatus,
-    required TResult Function(StartBluetoothScanning value)
-        startBluetoothScanning,
-  }) {
-    return toggleBluetoothStatus(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ToggleBluetoothStatus value)? toggleBluetoothStatus,
-    TResult? Function(StartBluetoothScanning value)? startBluetoothScanning,
-  }) {
-    return toggleBluetoothStatus?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ToggleBluetoothStatus value)? toggleBluetoothStatus,
-    TResult Function(StartBluetoothScanning value)? startBluetoothScanning,
-    required TResult orElse(),
-  }) {
-    if (toggleBluetoothStatus != null) {
-      return toggleBluetoothStatus(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleBluetoothStatus implements AddDevicesEvent {
-  const factory ToggleBluetoothStatus({required final bool toggleBlue}) =
-      _$ToggleBluetoothStatusImpl;
-
-  bool get toggleBlue;
-
-  /// Create a copy of AddDevicesEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ToggleBluetoothStatusImplCopyWith<_$ToggleBluetoothStatusImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -309,9 +161,9 @@ class _$StartBluetoothScanningImpl implements StartBluetoothScanning {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool toggleBlue) toggleBluetoothStatus,
     required TResult Function(bool isConnect, bool isBlueOn)
         startBluetoothScanning,
+    required TResult Function() removeDevice,
   }) {
     return startBluetoothScanning(isConnect, isBlueOn);
   }
@@ -319,8 +171,8 @@ class _$StartBluetoothScanningImpl implements StartBluetoothScanning {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool toggleBlue)? toggleBluetoothStatus,
     TResult? Function(bool isConnect, bool isBlueOn)? startBluetoothScanning,
+    TResult? Function()? removeDevice,
   }) {
     return startBluetoothScanning?.call(isConnect, isBlueOn);
   }
@@ -328,8 +180,8 @@ class _$StartBluetoothScanningImpl implements StartBluetoothScanning {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool toggleBlue)? toggleBluetoothStatus,
     TResult Function(bool isConnect, bool isBlueOn)? startBluetoothScanning,
+    TResult Function()? removeDevice,
     required TResult orElse(),
   }) {
     if (startBluetoothScanning != null) {
@@ -341,10 +193,9 @@ class _$StartBluetoothScanningImpl implements StartBluetoothScanning {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ToggleBluetoothStatus value)
-        toggleBluetoothStatus,
     required TResult Function(StartBluetoothScanning value)
         startBluetoothScanning,
+    required TResult Function(RemoveDevice value) removeDevice,
   }) {
     return startBluetoothScanning(this);
   }
@@ -352,8 +203,8 @@ class _$StartBluetoothScanningImpl implements StartBluetoothScanning {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ToggleBluetoothStatus value)? toggleBluetoothStatus,
     TResult? Function(StartBluetoothScanning value)? startBluetoothScanning,
+    TResult? Function(RemoveDevice value)? removeDevice,
   }) {
     return startBluetoothScanning?.call(this);
   }
@@ -361,8 +212,8 @@ class _$StartBluetoothScanningImpl implements StartBluetoothScanning {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ToggleBluetoothStatus value)? toggleBluetoothStatus,
     TResult Function(StartBluetoothScanning value)? startBluetoothScanning,
+    TResult Function(RemoveDevice value)? removeDevice,
     required TResult orElse(),
   }) {
     if (startBluetoothScanning != null) {
@@ -388,43 +239,137 @@ abstract class StartBluetoothScanning implements AddDevicesEvent {
 }
 
 /// @nodoc
+abstract class _$$RemoveDeviceImplCopyWith<$Res> {
+  factory _$$RemoveDeviceImplCopyWith(
+          _$RemoveDeviceImpl value, $Res Function(_$RemoveDeviceImpl) then) =
+      __$$RemoveDeviceImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RemoveDeviceImplCopyWithImpl<$Res>
+    extends _$AddDevicesEventCopyWithImpl<$Res, _$RemoveDeviceImpl>
+    implements _$$RemoveDeviceImplCopyWith<$Res> {
+  __$$RemoveDeviceImplCopyWithImpl(
+      _$RemoveDeviceImpl _value, $Res Function(_$RemoveDeviceImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddDevicesEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$RemoveDeviceImpl implements RemoveDevice {
+  const _$RemoveDeviceImpl();
+
+  @override
+  String toString() {
+    return 'AddDevicesEvent.removeDevice()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RemoveDeviceImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool isConnect, bool isBlueOn)
+        startBluetoothScanning,
+    required TResult Function() removeDevice,
+  }) {
+    return removeDevice();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(bool isConnect, bool isBlueOn)? startBluetoothScanning,
+    TResult? Function()? removeDevice,
+  }) {
+    return removeDevice?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool isConnect, bool isBlueOn)? startBluetoothScanning,
+    TResult Function()? removeDevice,
+    required TResult orElse(),
+  }) {
+    if (removeDevice != null) {
+      return removeDevice();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StartBluetoothScanning value)
+        startBluetoothScanning,
+    required TResult Function(RemoveDevice value) removeDevice,
+  }) {
+    return removeDevice(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(StartBluetoothScanning value)? startBluetoothScanning,
+    TResult? Function(RemoveDevice value)? removeDevice,
+  }) {
+    return removeDevice?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StartBluetoothScanning value)? startBluetoothScanning,
+    TResult Function(RemoveDevice value)? removeDevice,
+    required TResult orElse(),
+  }) {
+    if (removeDevice != null) {
+      return removeDevice(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveDevice implements AddDevicesEvent {
+  const factory RemoveDevice() = _$RemoveDeviceImpl;
+}
+
+/// @nodoc
 mixin _$AddDevicesState {
-  RequestStatus get status => throw _privateConstructorUsedError;
-  RequestStatus get bluetoothStatus => throw _privateConstructorUsedError;
   RequestStatus get bluetoothScanningStatus =>
       throw _privateConstructorUsedError;
   bool get isBlueOn => throw _privateConstructorUsedError;
   bool? get isBlueConnected => throw _privateConstructorUsedError;
+  bool? get isDeviceRemoved => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            RequestStatus status,
-            RequestStatus bluetoothStatus,
-            RequestStatus bluetoothScanningStatus,
-            bool isBlueOn,
-            bool? isBlueConnected)
+    required TResult Function(RequestStatus bluetoothScanningStatus,
+            bool isBlueOn, bool? isBlueConnected, bool? isDeviceRemoved)
         addDevicesState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            RequestStatus status,
-            RequestStatus bluetoothStatus,
-            RequestStatus bluetoothScanningStatus,
-            bool isBlueOn,
-            bool? isBlueConnected)?
+    TResult? Function(RequestStatus bluetoothScanningStatus, bool isBlueOn,
+            bool? isBlueConnected, bool? isDeviceRemoved)?
         addDevicesState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            RequestStatus status,
-            RequestStatus bluetoothStatus,
-            RequestStatus bluetoothScanningStatus,
-            bool isBlueOn,
-            bool? isBlueConnected)?
+    TResult Function(RequestStatus bluetoothScanningStatus, bool isBlueOn,
+            bool? isBlueConnected, bool? isDeviceRemoved)?
         addDevicesState,
     required TResult orElse(),
   }) =>
@@ -460,11 +405,10 @@ abstract class $AddDevicesStateCopyWith<$Res> {
       _$AddDevicesStateCopyWithImpl<$Res, AddDevicesState>;
   @useResult
   $Res call(
-      {RequestStatus status,
-      RequestStatus bluetoothStatus,
-      RequestStatus bluetoothScanningStatus,
+      {RequestStatus bluetoothScanningStatus,
       bool isBlueOn,
-      bool? isBlueConnected});
+      bool? isBlueConnected,
+      bool? isDeviceRemoved});
 }
 
 /// @nodoc
@@ -482,21 +426,12 @@ class _$AddDevicesStateCopyWithImpl<$Res, $Val extends AddDevicesState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? bluetoothStatus = null,
     Object? bluetoothScanningStatus = null,
     Object? isBlueOn = null,
     Object? isBlueConnected = freezed,
+    Object? isDeviceRemoved = freezed,
   }) {
     return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as RequestStatus,
-      bluetoothStatus: null == bluetoothStatus
-          ? _value.bluetoothStatus
-          : bluetoothStatus // ignore: cast_nullable_to_non_nullable
-              as RequestStatus,
       bluetoothScanningStatus: null == bluetoothScanningStatus
           ? _value.bluetoothScanningStatus
           : bluetoothScanningStatus // ignore: cast_nullable_to_non_nullable
@@ -508,6 +443,10 @@ class _$AddDevicesStateCopyWithImpl<$Res, $Val extends AddDevicesState>
       isBlueConnected: freezed == isBlueConnected
           ? _value.isBlueConnected
           : isBlueConnected // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDeviceRemoved: freezed == isDeviceRemoved
+          ? _value.isDeviceRemoved
+          : isDeviceRemoved // ignore: cast_nullable_to_non_nullable
               as bool?,
     ) as $Val);
   }
@@ -522,11 +461,10 @@ abstract class _$$AddDevicesStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {RequestStatus status,
-      RequestStatus bluetoothStatus,
-      RequestStatus bluetoothScanningStatus,
+      {RequestStatus bluetoothScanningStatus,
       bool isBlueOn,
-      bool? isBlueConnected});
+      bool? isBlueConnected,
+      bool? isDeviceRemoved});
 }
 
 /// @nodoc
@@ -542,21 +480,12 @@ class __$$AddDevicesStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? bluetoothStatus = null,
     Object? bluetoothScanningStatus = null,
     Object? isBlueOn = null,
     Object? isBlueConnected = freezed,
+    Object? isDeviceRemoved = freezed,
   }) {
     return _then(_$AddDevicesStateImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as RequestStatus,
-      bluetoothStatus: null == bluetoothStatus
-          ? _value.bluetoothStatus
-          : bluetoothStatus // ignore: cast_nullable_to_non_nullable
-              as RequestStatus,
       bluetoothScanningStatus: null == bluetoothScanningStatus
           ? _value.bluetoothScanningStatus
           : bluetoothScanningStatus // ignore: cast_nullable_to_non_nullable
@@ -569,6 +498,10 @@ class __$$AddDevicesStateImplCopyWithImpl<$Res>
           ? _value.isBlueConnected
           : isBlueConnected // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isDeviceRemoved: freezed == isDeviceRemoved
+          ? _value.isDeviceRemoved
+          : isDeviceRemoved // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -577,18 +510,11 @@ class __$$AddDevicesStateImplCopyWithImpl<$Res>
 
 class _$AddDevicesStateImpl implements _AddDevicesState {
   const _$AddDevicesStateImpl(
-      {this.status = const InitialRequestStatus(),
-      this.bluetoothStatus = const InitialRequestStatus(),
-      this.bluetoothScanningStatus = const InitialRequestStatus(),
+      {this.bluetoothScanningStatus = const InitialRequestStatus(),
       this.isBlueOn = false,
-      this.isBlueConnected = null});
+      this.isBlueConnected = null,
+      this.isDeviceRemoved = null});
 
-  @override
-  @JsonKey()
-  final RequestStatus status;
-  @override
-  @JsonKey()
-  final RequestStatus bluetoothStatus;
   @override
   @JsonKey()
   final RequestStatus bluetoothScanningStatus;
@@ -598,10 +524,13 @@ class _$AddDevicesStateImpl implements _AddDevicesState {
   @override
   @JsonKey()
   final bool? isBlueConnected;
+  @override
+  @JsonKey()
+  final bool? isDeviceRemoved;
 
   @override
   String toString() {
-    return 'AddDevicesState.addDevicesState(status: $status, bluetoothStatus: $bluetoothStatus, bluetoothScanningStatus: $bluetoothScanningStatus, isBlueOn: $isBlueOn, isBlueConnected: $isBlueConnected)';
+    return 'AddDevicesState.addDevicesState(bluetoothScanningStatus: $bluetoothScanningStatus, isBlueOn: $isBlueOn, isBlueConnected: $isBlueConnected, isDeviceRemoved: $isDeviceRemoved)';
   }
 
   @override
@@ -609,21 +538,20 @@ class _$AddDevicesStateImpl implements _AddDevicesState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddDevicesStateImpl &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.bluetoothStatus, bluetoothStatus) ||
-                other.bluetoothStatus == bluetoothStatus) &&
             (identical(
                     other.bluetoothScanningStatus, bluetoothScanningStatus) ||
                 other.bluetoothScanningStatus == bluetoothScanningStatus) &&
             (identical(other.isBlueOn, isBlueOn) ||
                 other.isBlueOn == isBlueOn) &&
             (identical(other.isBlueConnected, isBlueConnected) ||
-                other.isBlueConnected == isBlueConnected));
+                other.isBlueConnected == isBlueConnected) &&
+            (identical(other.isDeviceRemoved, isDeviceRemoved) ||
+                other.isDeviceRemoved == isDeviceRemoved));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, bluetoothStatus,
-      bluetoothScanningStatus, isBlueOn, isBlueConnected);
+  int get hashCode => Object.hash(runtimeType, bluetoothScanningStatus,
+      isBlueOn, isBlueConnected, isDeviceRemoved);
 
   /// Create a copy of AddDevicesState
   /// with the given fields replaced by the non-null parameter values.
@@ -637,48 +565,36 @@ class _$AddDevicesStateImpl implements _AddDevicesState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            RequestStatus status,
-            RequestStatus bluetoothStatus,
-            RequestStatus bluetoothScanningStatus,
-            bool isBlueOn,
-            bool? isBlueConnected)
+    required TResult Function(RequestStatus bluetoothScanningStatus,
+            bool isBlueOn, bool? isBlueConnected, bool? isDeviceRemoved)
         addDevicesState,
   }) {
-    return addDevicesState(status, bluetoothStatus, bluetoothScanningStatus,
-        isBlueOn, isBlueConnected);
+    return addDevicesState(
+        bluetoothScanningStatus, isBlueOn, isBlueConnected, isDeviceRemoved);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            RequestStatus status,
-            RequestStatus bluetoothStatus,
-            RequestStatus bluetoothScanningStatus,
-            bool isBlueOn,
-            bool? isBlueConnected)?
+    TResult? Function(RequestStatus bluetoothScanningStatus, bool isBlueOn,
+            bool? isBlueConnected, bool? isDeviceRemoved)?
         addDevicesState,
   }) {
-    return addDevicesState?.call(status, bluetoothStatus,
-        bluetoothScanningStatus, isBlueOn, isBlueConnected);
+    return addDevicesState?.call(
+        bluetoothScanningStatus, isBlueOn, isBlueConnected, isDeviceRemoved);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            RequestStatus status,
-            RequestStatus bluetoothStatus,
-            RequestStatus bluetoothScanningStatus,
-            bool isBlueOn,
-            bool? isBlueConnected)?
+    TResult Function(RequestStatus bluetoothScanningStatus, bool isBlueOn,
+            bool? isBlueConnected, bool? isDeviceRemoved)?
         addDevicesState,
     required TResult orElse(),
   }) {
     if (addDevicesState != null) {
-      return addDevicesState(status, bluetoothStatus, bluetoothScanningStatus,
-          isBlueOn, isBlueConnected);
+      return addDevicesState(
+          bluetoothScanningStatus, isBlueOn, isBlueConnected, isDeviceRemoved);
     }
     return orElse();
   }
@@ -714,22 +630,19 @@ class _$AddDevicesStateImpl implements _AddDevicesState {
 
 abstract class _AddDevicesState implements AddDevicesState {
   const factory _AddDevicesState(
-      {final RequestStatus status,
-      final RequestStatus bluetoothStatus,
-      final RequestStatus bluetoothScanningStatus,
+      {final RequestStatus bluetoothScanningStatus,
       final bool isBlueOn,
-      final bool? isBlueConnected}) = _$AddDevicesStateImpl;
+      final bool? isBlueConnected,
+      final bool? isDeviceRemoved}) = _$AddDevicesStateImpl;
 
-  @override
-  RequestStatus get status;
-  @override
-  RequestStatus get bluetoothStatus;
   @override
   RequestStatus get bluetoothScanningStatus;
   @override
   bool get isBlueOn;
   @override
   bool? get isBlueConnected;
+  @override
+  bool? get isDeviceRemoved;
 
   /// Create a copy of AddDevicesState
   /// with the given fields replaced by the non-null parameter values.

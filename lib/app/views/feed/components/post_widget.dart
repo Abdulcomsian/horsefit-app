@@ -85,26 +85,6 @@ class PostWidget extends StatelessWidget {
                               context.pop();
                               context.pushNamed(RouteNames.reportPostView);
                             }),
-                            SizedBox(height: 36.h),
-                            const ReportSheetCardWidget(
-                              icon: ImagesResource.horseNameIcon,
-                              text: 'Horse Profile',
-                            ).onTap(() => context.pushNamed(
-                                RouteNames.publicProfileView,
-                                arguments: PublicProfileArgs(
-                                    isViewHorseProfile: true))),
-                            SizedBox(height: 36.h),
-                            const ReportSheetCardWidget(
-                              icon: ImagesResource.profileIcon,
-                              text: 'User Profile',
-                            ).onTap(() => context
-                                .pushNamed(RouteNames.publicProfileView)),
-                            SizedBox(height: 36.h),
-                            const ReportSheetCardWidget(
-                              icon: ImagesResource.profileIcon,
-                              text: 'Share Workout',
-                            ).onTap(() =>
-                                context.pushNamed(RouteNames.shareWorkoutView)),
                             SizedBox(height: 132.h),
                           ],
                         ),
@@ -124,23 +104,26 @@ class PostWidget extends StatelessWidget {
         ),
 
         ///! TODO Setup this
-        // SizedBox(
-        //   height: 400.h,
+        //  IntrinsicHeight(
         //   child: PageView.builder(
-        //       scrollDirection: Axis.horizontal,
-        //       itemCount: images.length,
-        //       itemBuilder: (context, index) {
-        //         return Padding(
-        //           padding: EdgeInsets.only(
-        //               right: index == images.length - 1 ? 0.0 : 132.ph),
-        //           child: CachedNetworkImageWidget(
-        //             imageUrl: images[index],
-        //             width: 1244.w,
-        //             borderRadius: BorderRadius.circular(76.r),
-        //           ),
-        //         );
-        //       }),
+        //     physics: const BouncingScrollPhysics(),
+        //     itemCount: images.length,
+        //     onPageChanged: (index) {
+        //       logger.i(index);
+        //     },
+        //     itemBuilder: (context, index) {
+        //       return Container(
+        //         margin:
+        //             EdgeInsets.symmetric(horizontal: 82.ph, vertical: 42.pv),
+        //         child: CachedNetworkImageWidget(
+        //           imageUrl: images[index],
+        //           borderRadius: BorderRadius.circular(76.r),
+        //         ),
+        //       );
+        //     },
+        //   ),
         // ),
+
         Stack(
           children: [
             SingleChildScrollView(

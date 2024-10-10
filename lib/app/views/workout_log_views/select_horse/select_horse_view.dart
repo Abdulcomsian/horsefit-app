@@ -54,7 +54,7 @@ class SelectHorseView extends StatelessWidget {
           ButtonWidget(
             margin: EdgeInsets.symmetric(horizontal: 96.ph, vertical: 72.pv),
             btnText: 'Show',
-            onTap: () => context.pop(),
+            onTap: () => context.pushNamed(RouteNames.workoutDetailsView),
           )
         ],
       ),

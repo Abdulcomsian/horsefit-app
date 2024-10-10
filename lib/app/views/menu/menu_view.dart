@@ -48,7 +48,7 @@ class MenuView extends StatelessWidget {
                       'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D',
                   title: 'Stein Hansen',
                   subTitle: 'tester@tester.com',
-                ).onTap(() => context.pushNamed(RouteNames.profileInfoView)),
+                ).onTap(() => context.pushNamed(RouteNames.userProfileView)),
               ),
               SizedBox(height: 100.h),
               Flexible(

@@ -1,6 +1,8 @@
 import 'package:horse_fit/app/views/report_post_views/report_reason_summary/report_reason_summary_view.dart';
 import 'package:horse_fit/app/views/start_workout_views/share_workout/share_workout_view.dart';
+import 'package:horse_fit/app/views/start_workout_views/workout_deleted/workout_deleted_view.dart';
 import 'package:horse_fit/app/views/start_workout_views/workout_details/workout_details_view.dart';
+import 'package:horse_fit/app/views/start_workout_views/workout_setup/workout_setup_view.dart';
 
 import '../../app/view_models/auth_view_models/sign_up/sign_up_bloc.dart';
 import '../../core/constants/exports.dart';
@@ -90,11 +92,11 @@ class AppRouter {
           ),
         );
 
-      case RouteNames.profileInfoView:
+      case RouteNames.userProfileView:
         return NoAnimationMaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (_) => SignUpBloc(),
-            child: const ProfileInfoView(),
+            child: const UserProfileView(),
           ),
         );
 
@@ -176,6 +178,19 @@ class AppRouter {
             create: (context) => StartWorkoutBloc(),
             child: const StartWorkoutTimerView(),
           ),
+        );
+
+      case RouteNames.workoutSetupView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => StartWorkoutBloc(),
+            child: const WorkoutSetupView(),
+          ),
+        );
+
+      case RouteNames.workoutDeletedView:
+        return NoAnimationMaterialPageRoute(
+          builder: (_) => const WorkoutDeletedView(),
         );
 
       case RouteNames.summaryView:
